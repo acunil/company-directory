@@ -26,8 +26,15 @@ $(() => {
     let lastname = row.currentTarget.children[1].innerText;
     let id = row.currentTarget.children[2].innerText;
     console.log(`Firstname: ${firstname}\nLastname: ${lastname}\nID: ${id}`);
+
+    // display card, hide search
     $(".scrollable-content").hide();
     $("#employee-card").show();
+
+    // Populate data into fields
+    $("#employee-firstname").text(firstname);
+    $("#employee-lastname").text(lastname);
+    $("#employee-id").text(id);
   });
 
   // back button
