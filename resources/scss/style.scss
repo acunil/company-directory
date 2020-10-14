@@ -41,7 +41,8 @@ select {
 }
 
 // center labels
-#form .row {
+#form .row,
+#employee-card .row {
   display: flex;
   align-items: center;
 }
@@ -82,4 +83,16 @@ select {
   flex-grow: 1;
   z-index: 1000;
   display: none;
+  background-color: white;
+  padding: 10px 0;
+  font-size: 1.2rem;
+
+  .label {
+    font-size: 0.8rem;
+  }
+
+  #button-row {
+    display: flex;
+    justify-content: space-between;
+  }
 }
