@@ -1,0 +1,70 @@
+body {
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  :hover {
+    cursor: default;
+  }
+}
+
+// set cursors
+
+tbody {
+  :hover {
+    cursor: pointer;
+  }
+}
+
+input {
+  :hover {
+    cursor: auto;
+  }
+}
+
+// Screen height
+
+main {
+  flex: 1;
+}
+
+.label {
+  font-size: 0.9em;
+  text-align: right;
+}
+
+.placeholder {
+  color: #fff;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin-top: 10px;
+}
+
+.my-custom-scrollbar {
+  position: relative;
+  height: 300px;
+  overflow: auto;
+  flex-grow: 1;
+}
+
+.table-wrapper-scroll-y {
+  display: block;
+}
+
+button {
+  margin: 10px 0;
+}
+
+input,
+select {
+  margin-top: 5px;
+}
+
+// center labels
+#form .row {
+  display: flex;
+  align-items: center;
+}
