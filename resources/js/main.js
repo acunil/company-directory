@@ -26,5 +26,19 @@ $(() => {
     let lastname = row.currentTarget.children[1].innerText;
     let id = row.currentTarget.children[2].innerText;
     console.log(`Firstname: ${firstname}\nLastname: ${lastname}\nID: ${id}`);
+    $(".scrollable-content").hide();
+    $("#employee-card").show();
+  });
+
+  // back button
+  $("#back-button").click(() => {
+    //
+    $(".scrollable-content").show();
+    $("#employee-card").hide();
+  });
+
+  // search button
+  $("#search-button").click(() => {
+    console.log("Search button clicked");
   });
 });

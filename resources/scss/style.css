@@ -1,14 +1,5 @@
 body {
   font-size: 12px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  height: 100vh;
-  overflow: hidden;
 }
 
 body :hover {
@@ -23,19 +14,9 @@ input :hover {
   cursor: auto;
 }
 
-main {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-
 .label {
   font-size: 0.9em;
   text-align: right;
-}
-
-.placeholder {
-  color: #fff;
 }
 
 h1 {
@@ -43,20 +24,7 @@ h1 {
   margin-top: 10px;
 }
 
-.my-custom-scrollbar {
-  position: relative;
-  height: 300px;
-  overflow: auto;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-}
-
-.table-wrapper-scroll-y {
-  display: block;
-}
-
-button {
+#search-button {
   margin: 10px 0;
 }
 
@@ -72,5 +40,47 @@ select {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.section {
+  position: absolute;
+  top: 0;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  /* for Firefox */
+  min-height: 0;
+}
+
+.scrollable-content {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  overflow: auto;
+  /* for Firefox */
+  min-height: 0;
+}
+
+#employee-card {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  z-index: 1000;
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */

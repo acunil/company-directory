@@ -22,207 +22,212 @@
     <title>Company Directory</title>
   </head>
   <body>
-    <div class="container">
+    <div id="employee-card" class="">
+      <div class="container">
+        <button id="back-button" class="btn btn-primary btn-sm">
+          Back to results
+        </button>
+      </div>
+    </div>
+    <div class="container section">
       <!-- Header -->
       <div id="header" class="row">
         <h1 class="col">Company Directory</h1>
       </div>
-      <main>
-        <!-- Manual Form -->
-        <div id="form">
-          <div class="row">
-            <div class="label col-3 col-lg-1">Firstname</div>
-            <div class="col-9 col-lg-11">
-              <input type="text" class="form-control" placeholder="" />
-            </div>
-          </div>
-          <div class="row">
-            <div class="label col-3 col-lg-1">Lastname</div>
-            <div class="col-9 col-lg-11">
-              <input type="text" class="form-control" placeholder="" />
-            </div>
-          </div>
-          <div class="row">
-            <div class="label col-3 col-lg-1">ID</div>
-            <div class="col-9 col-lg-11">
-              <input type="text" class="form-control" placeholder="" />
-            </div>
-          </div>
-          <div class="row">
-            <div class="label col-3 col-lg-1">Department</div>
-            <div class="col-9 col-lg-11">
-              <select type="select" class="form-control">
-                <option value="null" selected class="placeholder"></option>
-                <option value="sales">Sales</option>
-                <option value="finance">Finance</option>
-                <option value="it">IT</option>
-                <option value="operations">Operations</option>
-                <option value="management">Management</option>
-                <option value="hr">HR</option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="label col-3 col-lg-1">Location</div>
-            <div class="col-9 col-lg-11">
-              <select type="select" class="form-control">
-                <option value="null" selected class="placeholder"></option>
-                <option value="london">London</option>
-                <option value="tokyo">Tokyo</option>
-                <option value="oslo">Oslo</option>
-                <option value="kansas">Kansas</option>
-                <option value="dubai">Dubai</option>
-              </select>
-            </div>
-          </div>
-          <div class="row" id="search-button">
-            <div class="col-4"></div>
-            <button id="search" class="btn btn-primary col-4">Search</button>
-            <div class="col-4"></div>
+      <!-- Main Content -->
+      <!-- Manual Form -->
+      <div id="form">
+        <div class="row">
+          <div class="label col-3 col-lg-1">Firstname</div>
+          <div class="col-9 col-lg-11">
+            <input type="text" class="form-control" placeholder="" />
           </div>
         </div>
-        <!-- Results Table -->
-        <div class="table-wrapper-scroll-y my-custom-scrollbar">
-          <table class="table table-sm table-striped table-hover">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">Firstname</th>
-                <th scope="col">Lastname</th>
-                <th scope="col">ID</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>John</td>
-                <td>Briggs</td>
-                <td>11111</td>
-              </tr>
-              <tr>
-                <td>Mary</td>
-                <td>Magical</td>
-                <td>22222</td>
-              </tr>
-              <tr>
-                <td>July</td>
-                <td>Dooley</td>
-                <td>33333</td>
-              </tr>
-              <tr>
-                <td>Su Shin</td>
-                <td>Yuen</td>
-                <td>55555</td>
-              </tr>
-              <tr>
-                <td>Su Shin</td>
-                <td>Yuen</td>
-                <td>55555</td>
-              </tr>
-              <tr>
-                <td>Su Shin</td>
-                <td>Yuen</td>
-                <td>55555</td>
-              </tr>
-              <tr>
-                <td>Su Shin</td>
-                <td>Yuen</td>
-                <td>55555</td>
-              </tr>
-              <tr>
-                <td>Su Shin</td>
-                <td>Yuen</td>
-                <td>55555</td>
-              </tr>
-              <tr>
-                <td>Su Shin</td>
-                <td>Yuen</td>
-                <td>55555</td>
-              </tr>
-              <tr>
-                <td>Su Shin</td>
-                <td>Yuen</td>
-                <td>55555</td>
-              </tr>
-              <tr>
-                <td>Su Shin</td>
-                <td>Yuen</td>
-                <td>55555</td>
-              </tr>
-              <tr>
-                <td>Su Shin</td>
-                <td>Yuen</td>
-                <td>55555</td>
-              </tr>
-              <tr>
-                <td>Su Shin</td>
-                <td>Yuen</td>
-                <td>55555</td>
-              </tr>
-              <tr>
-                <td>Su Shin</td>
-                <td>Yuen</td>
-                <td>55555</td>
-              </tr>
-              <tr>
-                <td>Su Shin</td>
-                <td>Yuen</td>
-                <td>55555</td>
-              </tr>
-              <tr>
-                <td>Su Shin</td>
-                <td>Yuen</td>
-                <td>55555</td>
-              </tr>
-              <tr>
-                <td>Su Shin</td>
-                <td>Yuen</td>
-                <td>55555</td>
-              </tr>
-              <tr>
-                <td>Su Shin</td>
-                <td>Yuen</td>
-                <td>55555</td>
-              </tr>
-              <tr>
-                <td>Su Shin</td>
-                <td>Yuen</td>
-                <td>55555</td>
-              </tr>
-              <tr>
-                <td>Su Shin</td>
-                <td>Yuen</td>
-                <td>55555</td>
-              </tr>
-              <tr>
-                <td>Su Shin</td>
-                <td>Yuen</td>
-                <td>55555</td>
-              </tr>
-              <tr>
-                <td>Su Shin</td>
-                <td>Yuen</td>
-                <td>55555</td>
-              </tr>
-              <tr>
-                <td>Su Shin</td>
-                <td>Yuen</td>
-                <td>55555</td>
-              </tr>
-              <tr>
-                <td>Su Shin</td>
-                <td>Yuen</td>
-                <td>55555</td>
-              </tr>
-              <tr>
-                <td>Bottom</td>
-                <td>Person</td>
-                <td>9999999</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="row">
+          <div class="label col-3 col-lg-1">Lastname</div>
+          <div class="col-9 col-lg-11">
+            <input type="text" class="form-control" placeholder="" />
+          </div>
         </div>
-      </main>
+        <div class="row">
+          <div class="label col-3 col-lg-1">ID</div>
+          <div class="col-9 col-lg-11">
+            <input type="text" class="form-control" placeholder="" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="label col-3 col-lg-1">Department</div>
+          <div class="col-9 col-lg-11">
+            <select type="select" class="form-control">
+              <option value="null" selected class="placeholder"></option>
+              <option value="sales">Sales</option>
+              <option value="finance">Finance</option>
+              <option value="it">IT</option>
+              <option value="operations">Operations</option>
+              <option value="management">Management</option>
+              <option value="hr">HR</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="label col-3 col-lg-1">Location</div>
+          <div class="col-9 col-lg-11">
+            <select type="select" class="form-control">
+              <option value="null" selected class="placeholder"></option>
+              <option value="london">London</option>
+              <option value="tokyo">Tokyo</option>
+              <option value="oslo">Oslo</option>
+              <option value="kansas">Kansas</option>
+              <option value="dubai">Dubai</option>
+            </select>
+          </div>
+        </div>
+        <div class="row" id="search-button">
+          <div class="col-4"></div>
+          <button id="search" class="btn btn-primary col-4">Search</button>
+          <div class="col-4"></div>
+        </div>
+      </div>
+      <!-- Results Table -->
+      <div class="scrollable-content">
+        <table class="table table-sm table-striped table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Firstname</th>
+              <th scope="col">Lastname</th>
+              <th scope="col">ID</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>John</td>
+              <td>Briggs</td>
+              <td>11111</td>
+            </tr>
+            <tr>
+              <td>Mary</td>
+              <td>Magical</td>
+              <td>22222</td>
+            </tr>
+            <tr>
+              <td>July</td>
+              <td>Dooley</td>
+              <td>33333</td>
+            </tr>
+            <tr>
+              <td>Su Shin</td>
+              <td>Yuen</td>
+              <td>55555</td>
+            </tr>
+            <tr>
+              <td>Su Shin</td>
+              <td>Yuen</td>
+              <td>55555</td>
+            </tr>
+            <tr>
+              <td>Su Shin</td>
+              <td>Yuen</td>
+              <td>55555</td>
+            </tr>
+            <tr>
+              <td>Su Shin</td>
+              <td>Yuen</td>
+              <td>55555</td>
+            </tr>
+            <tr>
+              <td>Su Shin</td>
+              <td>Yuen</td>
+              <td>55555</td>
+            </tr>
+            <tr>
+              <td>Su Shin</td>
+              <td>Yuen</td>
+              <td>55555</td>
+            </tr>
+            <tr>
+              <td>Su Shin</td>
+              <td>Yuen</td>
+              <td>55555</td>
+            </tr>
+            <tr>
+              <td>Su Shin</td>
+              <td>Yuen</td>
+              <td>55555</td>
+            </tr>
+            <tr>
+              <td>Su Shin</td>
+              <td>Yuen</td>
+              <td>55555</td>
+            </tr>
+            <tr>
+              <td>Su Shin</td>
+              <td>Yuen</td>
+              <td>55555</td>
+            </tr>
+            <tr>
+              <td>Su Shin</td>
+              <td>Yuen</td>
+              <td>55555</td>
+            </tr>
+            <tr>
+              <td>Su Shin</td>
+              <td>Yuen</td>
+              <td>55555</td>
+            </tr>
+            <tr>
+              <td>Su Shin</td>
+              <td>Yuen</td>
+              <td>55555</td>
+            </tr>
+            <tr>
+              <td>Su Shin</td>
+              <td>Yuen</td>
+              <td>55555</td>
+            </tr>
+            <tr>
+              <td>Su Shin</td>
+              <td>Yuen</td>
+              <td>55555</td>
+            </tr>
+            <tr>
+              <td>Su Shin</td>
+              <td>Yuen</td>
+              <td>55555</td>
+            </tr>
+            <tr>
+              <td>Su Shin</td>
+              <td>Yuen</td>
+              <td>55555</td>
+            </tr>
+            <tr>
+              <td>Su Shin</td>
+              <td>Yuen</td>
+              <td>55555</td>
+            </tr>
+            <tr>
+              <td>Su Shin</td>
+              <td>Yuen</td>
+              <td>55555</td>
+            </tr>
+            <tr>
+              <td>Su Shin</td>
+              <td>Yuen</td>
+              <td>55555</td>
+            </tr>
+            <tr>
+              <td>Su Shin</td>
+              <td>Yuen</td>
+              <td>55555</td>
+            </tr>
+            <tr>
+              <td>Bottom</td>
+              <td>Person</td>
+              <td>9999999</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-
     <!-- End of Container -->
 
     <!-- jQuery -->
