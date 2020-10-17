@@ -38,7 +38,7 @@ $(() => {
   });
 
   // back button
-  $("#back-button").click(() => {
+  $(".back-button").click(() => {
     //
     $(".scrollable-content").show();
     $("#employee-card").hide();
@@ -52,7 +52,8 @@ $(() => {
   // Edit button
   $("#edit-button").click(() => {
     $("#save-buttons").css({ display: "flex" });
-    $("#employee-info :disabled").prop("disabled", false);
+    $("#employee-info input").prop("disabled", false);
+    $("#employee-info select").prop("disabled", false);
     $("#back-button").prop("disabled", true);
     $("#delete-button").prop("disabled", true);
   });
@@ -63,19 +64,32 @@ $(() => {
   });
 
   // Create button
+  $("#create-button").click(() => {
+    //
+  });
 
   // Cancel button
   $(".cancel-button").click(() => {
     //
+    $("#save-buttons").css({ display: "none" });
+    $("#employee-info input").prop("disabled", true);
+    $("#employee-info select").prop("disabled", true);
+    $("#back-button").prop("disabled", false);
+    $("#delete-button").prop("disabled", false);
   });
 
   // Save button
-  $(".save-button").click(() => {
+  $("#save-button").click(() => {
     //
+    $("#save-buttons").css({ display: "none" });
+    $("#employee-info input").prop("disabled", true);
+    $("#employee-info select").prop("disabled", true);
+    $("#back-button").prop("disabled", false);
+    $("#delete-button").prop("disabled", false);
   });
 
   // Confirm delete button
-  $(".confirme-delete").click(() => {
-    //
+  $("#confirm-delete").click(() => {
+    // clear search results, or completely fresh search boxes
   });
 });

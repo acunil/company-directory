@@ -27,7 +27,7 @@
       <div class="container">
         <!-- Buttons along the top -->
         <div id="button-row">
-          <button id="back-button" class="btn btn-primary btn-sm">
+          <button id="back-button" class="btn btn-primary btn-sm back-button">
             Back to results
           </button>
           <div class="btn-group">
@@ -153,7 +153,7 @@
               <div class="col-4"></div>
               <div class="btn-group col-4">
                 <button class="btn btn-secondary cancel-button">Cancel</button>
-                <button id="save" class="btn btn-success">Save</button>
+                <button id="save-button" class="btn btn-success">Save</button>
               </div>
               <div class="col-4"></div>
             </div>
@@ -374,10 +374,10 @@
           <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header">
+              <h4 class="modal-title">Warning!</h4>
               <button type="button" class="close" data-dismiss="modal">
                 &times;
               </button>
-              <h4 class="modal-title">Warning!</h4>
             </div>
             <div class="modal-body">
               <p>
@@ -388,11 +388,41 @@
             <div class="modal-footer">
               <button
                 type="button"
-                class="btn btn-danger"
+                class="btn btn-danger back-button"
                 data-dismiss="modal"
                 id="confirm-delete"
+                data-toggle="modal"
+                data-target="#delete-success-modal"
               >
                 Confirm Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Delete success modal -->
+      <div id="delete-success-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Success</h4>
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Record was deleted.</p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-success back-button"
+                data-dismiss="modal"
+                id="delete-success-button"
+              >
+                OK
               </button>
             </div>
           </div>
