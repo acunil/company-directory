@@ -121,7 +121,15 @@ $(() => {
   // input boxes onchange check boolean for
   $("#employee-info input, #employee-info select").change(() => {
     //
-    let invalid = $("#input:invalid");
+    let invalid = $(":invalid");
     console.log(invalid);
+    if (invalid[0]) {
+      console.warn("Required field not filled");
+      $("#save-button").prop("disabled", true);
+    } else {
+      //
+      console.log("ok");
+      $("#save-button").prop("disabled", false);
+    }
   });
 });
