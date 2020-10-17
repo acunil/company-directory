@@ -135,4 +135,8 @@ select {
   display: none;
   margin-top: 15px;
 }
+
+#employee-card #input:invalid {
+  background-color: red;
+}
 /*# sourceMappingURL=style.css.map */

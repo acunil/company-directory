@@ -55,6 +55,7 @@
                   placeholder=""
                   id="employee-firstname"
                   disabled
+                  required
                 />
               </div>
             </div>
@@ -67,6 +68,7 @@
                   placeholder=""
                   id="employee-lastname"
                   disabled
+                  required
                 />
               </div>
             </div>
@@ -98,11 +100,12 @@
               <div class="label col-3 col-lg-1">Email</div>
               <div class="col-9 col-lg-11">
                 <input
-                  type="text"
+                  type="email"
                   class="form-control"
                   placeholder=""
                   id="employee-email"
                   disabled
+                  required
                 />
               </div>
             </div>
@@ -114,6 +117,7 @@
                   class="form-control"
                   id="employee-department"
                   disabled
+                  required
                 >
                   <option value="null" selected class="placeholder"></option>
                   <option value="sales">Sales</option>
@@ -138,6 +142,7 @@
                   class="form-control"
                   id="employee-location"
                   disabled
+                  required
                 >
                   <option value="null" selected class="placeholder"></option>
                   <option value="london">London</option>
@@ -153,7 +158,9 @@
               <div class="col-4"></div>
               <div class="btn-group col-4">
                 <button class="btn btn-secondary cancel-button">Cancel</button>
-                <button id="save-button" class="btn btn-success">Save</button>
+                <button id="save-button" class="btn btn-primary" disabled>
+                  Save
+                </button>
               </div>
               <div class="col-4"></div>
             </div>
@@ -171,7 +178,7 @@
         </button>
       </div>
       <!-- Main Content -->
-      <!-- Manual Form -->
+      <!-- Search Form -->
       <div id="form">
         <div class="row">
           <div class="label col-3 col-lg-1">Firstname</div>
@@ -418,7 +425,7 @@
             <div class="modal-footer">
               <button
                 type="button"
-                class="btn btn-success back-button"
+                class="btn btn-primary back-button"
                 data-dismiss="modal"
                 id="delete-success-button"
               >

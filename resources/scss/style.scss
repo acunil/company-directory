@@ -134,4 +134,8 @@ select {
     display: none;
     margin-top: 15px;
   }
+
+  #input:invalid {
+    background-color: red;
+  }
 }

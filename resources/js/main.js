@@ -52,10 +52,11 @@ $(() => {
   // Edit button
   $("#edit-button").click(() => {
     $("#save-buttons").css({ display: "flex" });
-    $("#employee-info input").prop("disabled", false);
-    $("#employee-info select").prop("disabled", false);
-    $("#back-button").prop("disabled", true);
-    $("#delete-button").prop("disabled", true);
+    $("#employee-info input:not(#employee-id), #employee-info select").prop(
+      "disabled",
+      false
+    );
+    $("#back-button, #delete-button, #edit-button").prop("disabled", true);
   });
 
   // Delete button
@@ -63,33 +64,64 @@ $(() => {
     //
   });
 
-  // Create button
-  $("#create-button").click(() => {
-    //
-  });
-
   // Cancel button
   $(".cancel-button").click(() => {
     //
     $("#save-buttons").css({ display: "none" });
-    $("#employee-info input").prop("disabled", true);
-    $("#employee-info select").prop("disabled", true);
-    $("#back-button").prop("disabled", false);
-    $("#delete-button").prop("disabled", false);
+    $("#employee-info input, #employee-info select").prop("disabled", true);
+    $("#back-button, #delete-button, #edit-button").prop("disabled", false);
+
+    // if on create new employee screen
+    if ($("#employee-id").val() === "") {
+      //
+      $(".scrollable-content").show();
+      $("#employee-card").hide();
+    }
   });
 
   // Save button
   $("#save-button").click(() => {
-    //
-    $("#save-buttons").css({ display: "none" });
-    $("#employee-info input").prop("disabled", true);
-    $("#employee-info select").prop("disabled", true);
-    $("#back-button").prop("disabled", false);
-    $("#delete-button").prop("disabled", false);
+    // Check necessary info is filled in
+    if (
+      $("#employee-firstname").val() === "" ||
+      $("#employee-lastname") === "" ||
+      $("#employee-email") === "" ||
+      $("#employee-department") === "" ||
+      $("#employee-lastname") === ""
+    )
+      //
+      $("#save-buttons").css({ display: "none" });
+    $("#employee-info input, #employee-info select").prop("disabled", true);
+    $("#back-button, #delete-button, #edit-button").prop("disabled", false);
   });
 
   // Confirm delete button
   $("#confirm-delete").click(() => {
     // clear search results, or completely fresh search boxes
+  });
+
+  // New Employee button
+  $("#new-employee-button").click(() => {
+    //
+    // display card, hide search
+    $(".scrollable-content").hide();
+    $("#employee-card").show();
+
+    $("#save-buttons").css({ display: "flex" });
+    $("#employee-info input:not(#employee-id), #employee-info select")
+      .prop("disabled", false)
+      .val("");
+    $("#employee-id").val("").prop("placeholder", "########");
+    $("#back-button, #delete-button, #edit-button, #save-button").prop(
+      "disabled",
+      true
+    );
+  });
+
+  // input boxes onchange check boolean for
+  $("#employee-info input, #employee-info select").change(() => {
+    //
+    let invalid = $("#input:invalid");
+    console.log(invalid);
   });
 });
