@@ -30,7 +30,7 @@
             Back to results
           </button>
           <div class="btn-group">
-            <button id="edit-button" class="btn btn-warning btn-sm">
+            <button id="edit-button" class="btn btn-success btn-sm">
               Edit
             </button>
             <button id="edit-button" class="btn btn-danger btn-sm">
@@ -39,25 +39,122 @@
           </div>
         </div>
         <div id="emplyee-info">
-          <div class="row">
-            <div class="label col-3 col-lg-1">Firstname</div>
-            <div class="col-9 col-lg-11" id="employee-firstname">Susan</div>
-          </div>
-          <div class="row">
-            <div class="label col-3 col-lg-1">Lastname</div>
-            <div class="col-9 col-lg-11" id="employee-lastname">Everywoman</div>
-          </div>
-          <div class="row">
-            <div class="label col-3 col-lg-1">ID</div>
-            <div class="col-9 col-lg-11" id="employee-id">123546789</div>
-          </div>
-          <div class="row">
-            <div class="label col-3 col-lg-1">D.o.B.</div>
-            <div class="col-9 col-lg-11">12/02/1987</div>
+          <div id="form">
+            <div class="row">
+              <div class="label col-3 col-lg-1">Firstname</div>
+              <div class="col-9 col-lg-11">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder=""
+                  id="employee-firstname"
+                  disabled
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="label col-3 col-lg-1">Lastname</div>
+              <div class="col-9 col-lg-11">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder=""
+                  id="employee-lastname"
+                  disabled
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="label col-3 col-lg-1">ID</div>
+              <div class="col-9 col-lg-11">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder=""
+                  id="employee-id"
+                  disabled
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="label col-3 col-lg-1">Job title</div>
+              <div class="col-9 col-lg-11">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder=""
+                  id="employee-job"
+                  disabled
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="label col-3 col-lg-1">Email</div>
+              <div class="col-9 col-lg-11">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder=""
+                  id="employee-email"
+                  disabled
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="label col-3 col-lg-1">Department</div>
+              <div class="col-9 col-lg-11">
+                <select
+                  type="select"
+                  class="form-control"
+                  id="employee-department"
+                  disabled
+                >
+                  <option value="null" selected class="placeholder"></option>
+                  <option value="sales">Sales</option>
+                  <option value="finance">Marketing</option>
+                  <option value="legal">Legal</option>
+                  <option value="services">Services</option>
+                  <option value="research">Research and Development</option>
+                  <option value="product">Product Management</option>
+                  <option value="training">Training</option>
+                  <option value="support">Support</option>
+                  <option value="engineering">Engineering</option>
+                  <option value="accounting">Accounting</option>
+                  <option value="business">Business Development</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="label col-3 col-lg-1">Location</div>
+              <div class="col-9 col-lg-11">
+                <select
+                  type="select"
+                  class="form-control"
+                  id="employee-location"
+                  disabled
+                >
+                  <option value="null" selected class="placeholder"></option>
+                  <option value="london">London</option>
+                  <option value="ny">New York</option>
+                  <option value="paris">Paris</option>
+                  <option value="munich">Munich</option>
+                  <option value="rome">Rome</option>
+                </select>
+              </div>
+            </div>
+            <div class="row" id="search-button">
+              <div class="col-4"></div>
+              <div class="btn-group col-4" id="save-buttons">
+                <button id="cancel" class="btn btn-secondary">Cancel</button>
+                <button id="save" class="btn btn-success">Save</button>
+              </div>
+              <div class="col-4"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
     <div class="container section">
       <!-- Header -->
       <div id="header" class="row">
@@ -93,11 +190,16 @@
             <select type="select" class="form-control">
               <option value="null" selected class="placeholder"></option>
               <option value="sales">Sales</option>
-              <option value="finance">Finance</option>
-              <option value="it">IT</option>
-              <option value="operations">Operations</option>
-              <option value="management">Management</option>
-              <option value="hr">HR</option>
+              <option value="finance">Marketing</option>
+              <option value="legal">Legal</option>
+              <option value="services">Services</option>
+              <option value="research">Research and Development</option>
+              <option value="product">Product Management</option>
+              <option value="training">Training</option>
+              <option value="support">Support</option>
+              <option value="engineering">Engineering</option>
+              <option value="accounting">Accounting</option>
+              <option value="business">Business Development</option>
             </select>
           </div>
         </div>
@@ -107,10 +209,10 @@
             <select type="select" class="form-control">
               <option value="null" selected class="placeholder"></option>
               <option value="london">London</option>
-              <option value="tokyo">Tokyo</option>
-              <option value="oslo">Oslo</option>
-              <option value="kansas">Kansas</option>
-              <option value="dubai">Dubai</option>
+              <option value="ny">New York</option>
+              <option value="paris">Paris</option>
+              <option value="munich">Munich</option>
+              <option value="rome">Rome</option>
             </select>
           </div>
         </div>

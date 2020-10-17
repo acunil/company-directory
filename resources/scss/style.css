@@ -92,6 +92,7 @@ select {
   background-color: white;
   padding: 10px 0;
   font-size: 1.2rem;
+  /* For IE10 */
 }
 
 #employee-card .label {
@@ -105,5 +106,31 @@ select {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+#employee-card input:disabled,
+#employee-card select:disabled {
+  background-color: white;
+}
+
+#employee-card input:enabled,
+#employee-card select:enabled {
+  background-color: #feffba;
+}
+
+#employee-card select {
+  /* for Firefox */
+  -moz-appearance: none;
+  /* for Chrome */
+  -webkit-appearance: none;
+}
+
+#employee-card select::-ms-expand {
+  display: none;
+}
+
+#employee-card #save-buttons {
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */

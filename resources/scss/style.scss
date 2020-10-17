@@ -100,5 +100,36 @@ select {
   #button-row {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 40px;
+  }
+
+  // Read mode
+  input:disabled,
+  select:disabled {
+    background-color: white;
+  }
+
+  // Edit mode
+  input:enabled,
+  select:enabled {
+    background-color: rgb(254, 255, 186);
+  }
+
+  // Hide dropdown arrows
+  select {
+    /* for Firefox */
+    -moz-appearance: none;
+    /* for Chrome */
+    -webkit-appearance: none;
+  }
+
+  /* For IE10 */
+  select::-ms-expand {
+    display: none;
+  }
+
+  // Hide save buttons
+  #save-buttons {
+    display: none;
   }
 }

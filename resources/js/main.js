@@ -32,9 +32,9 @@ $(() => {
     $("#employee-card").show();
 
     // Populate data into fields
-    $("#employee-firstname").text(firstname);
-    $("#employee-lastname").text(lastname);
-    $("#employee-id").text(id);
+    $("#employee-firstname").val(firstname);
+    $("#employee-lastname").val(lastname);
+    $("#employee-id").val(id);
   });
 
   // back button
