@@ -129,7 +129,9 @@ select {
   }
 
   // Hide save buttons
-  #save-buttons {
+  #save-buttons,
+  #create-buttons {
     display: none;
+    margin-top: 15px;
   }
 }

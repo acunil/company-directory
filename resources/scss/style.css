@@ -130,7 +130,9 @@ select {
   display: none;
 }
 
-#employee-card #save-buttons {
+#employee-card #save-buttons,
+#employee-card #create-buttons {
   display: none;
+  margin-top: 15px;
 }
 /*# sourceMappingURL=style.css.map */

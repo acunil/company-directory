@@ -48,4 +48,34 @@ $(() => {
   $("#search-button").click(() => {
     console.log("Search button clicked");
   });
+
+  // Edit button
+  $("#edit-button").click(() => {
+    $("#save-buttons").css({ display: "flex" });
+    $("#employee-info :disabled").prop("disabled", false);
+    $("#back-button").prop("disabled", true);
+    $("#delete-button").prop("disabled", true);
+  });
+
+  // Delete button
+  $("#delete-button").click(() => {
+    //
+  });
+
+  // Create button
+
+  // Cancel button
+  $(".cancel-button").click(() => {
+    //
+  });
+
+  // Save button
+  $(".save-button").click(() => {
+    //
+  });
+
+  // Confirm delete button
+  $(".confirme-delete").click(() => {
+    //
+  });
 });
