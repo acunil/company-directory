@@ -20,6 +20,9 @@ $(() => {
   });
   $("body").disableSelection();
 
+  // Global temp variable for editing employee info.
+  var Temp = {};
+
   // click a row to view employee card
   $("tr:not(:first)").click(row => {
     let firstname = row.currentTarget.children[0].innerText;
@@ -51,6 +54,9 @@ $(() => {
 
   // Edit button
   $("#edit-button").click(() => {
+    // save temporary snapshot
+    Temp = EmployeeTemp();
+
     $("#save-buttons").css({ display: "flex" });
     $("#employee-info input:not(#employee-id), #employee-info select").prop(
       "disabled",
@@ -76,6 +82,11 @@ $(() => {
       //
       $(".scrollable-content").show();
       $("#employee-card").hide();
+    } else {
+      // loop through temp keys and use jQuery to repopulate form elements with saved values
+      for (let id in Temp) {
+        $(id).val(Temp[id]);
+      }
     }
   });
 
@@ -88,11 +99,22 @@ $(() => {
       $("#employee-email") === "" ||
       $("#employee-department") === "" ||
       $("#employee-lastname") === ""
-    )
-      //
+    ) {
+      console.error("One or more fields are blank!");
+      return;
+    } else {
+      if ($("#employee-id").val() === "") {
+        // run SQL command to create new entry.
+        // then run second command to access generated ID of new employee.
+        // use jquery .val() to change ID shown.
+        $("#employee-id").val("0000001");
+      }
+      // return to view
       $("#save-buttons").css({ display: "none" });
-    $("#employee-info input, #employee-info select").prop("disabled", true);
-    $("#back-button, #delete-button, #edit-button").prop("disabled", false);
+      $("#employee-info input, #employee-info select").prop("disabled", true);
+      $("#back-button, #delete-button, #edit-button").prop("disabled", false);
+    }
+    //
   });
 
   // Confirm delete button
@@ -122,14 +144,24 @@ $(() => {
   $("#employee-info input, #employee-info select").change(() => {
     //
     let invalid = $(":invalid");
-    console.log(invalid);
     if (invalid[0]) {
       console.warn("Required field not filled");
       $("#save-button").prop("disabled", true);
     } else {
       //
-      console.log("ok");
       $("#save-button").prop("disabled", false);
     }
   });
 });
+
+// Function to save snapshot of employee details, pre-editing
+const EmployeeTemp = () => {
+  return {
+    "#employee-firstname": $("#employee-firstname").val(),
+    "#employee-lastname": $("#employee-lastname").val(),
+    "#employee-job": $("#employee-job").val(),
+    "#employee-email": $("#employee-email").val(),
+    "#employee-department": $("#employee-department").val(),
+    "#employee-location": $("#employee-location").val(),
+  };
+};
