@@ -28,6 +28,11 @@ $(() => {
     // Get ALl employees
     $.ajax({
       url: "resources/php/getAll.php",
+      type: "GET",
+      dataType: "json",
+      data: {
+        firstName: $("#input-firstname").val(),
+      },
       success(result) {
         // Array of results
         let results = result.data;
