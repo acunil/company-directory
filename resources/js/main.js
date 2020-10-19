@@ -24,14 +24,36 @@ $(() => {
   var Temp = {};
 
   // search button
-  $("#search-button").click(() => {
-    // Get ALl employees
+  $("#search").click(() => {
+    // Determine if all fields are blank, then do full global search.
+    var searchFieldIds = [
+      "input-firstname",
+      "input-lastname",
+      "input-id",
+      "input-department",
+      "input-location",
+    ];
+
+    var searchFile = "resources/php/getAll.php";
+
+    searchFieldIds.forEach(id => {
+      let notBlank = Boolean($(`#${id}`).val());
+      if (notBlank) {
+        searchFile = "resources/php/getSome.php";
+      }
+    });
+
+    // Get employees
     $.ajax({
-      url: "resources/php/getAll.php",
+      url: searchFile,
       type: "GET",
       dataType: "json",
       data: {
         firstName: $("#input-firstname").val(),
+        lastName: $("#input-lastname").val(),
+        id: $("#input-id").val(),
+        department: $("#input-department").val(),
+        location: $("#input-location").val(),
       },
       success(result) {
         // Array of results
