@@ -23,21 +23,26 @@ $(() => {
   // Global temp variable for editing employee info.
   var Temp = {};
 
-  // click a row to view employee card
-  $("tr:not(:first)").click(row => {
-    let firstname = row.currentTarget.children[0].innerText;
-    let lastname = row.currentTarget.children[1].innerText;
-    let id = row.currentTarget.children[2].innerText;
-    console.log(`Firstname: ${firstname}\nLastname: ${lastname}\nID: ${id}`);
+  // search button
+  $("#search-button").click(() => {
+    // Get ALl employees
+    $.ajax({
+      url: "resources/php/getAll.php",
+      success(result) {
+        // Array of results
+        let results = result.data;
+        console.log(results);
 
-    // display card, hide search
-    $(".scrollable-content").hide();
-    $("#employee-card").show();
-
-    // Populate data into fields
-    $("#employee-firstname").val(firstname);
-    $("#employee-lastname").val(lastname);
-    $("#employee-id").val(id);
+        // populate DOM
+        showSearchResults(results);
+      },
+      error(jqXHR, textStatus, errorThrown) {
+        console.log("There was something wrong with the test request");
+        console.log(jqXHR);
+        console.log(textStatus);
+        console.log(errorThrown);
+      },
+    });
   });
 
   // back button
@@ -45,11 +50,6 @@ $(() => {
     //
     $(".scrollable-content").show();
     $("#employee-card").hide();
-  });
-
-  // search button
-  $("#search-button").click(() => {
-    console.log("Search button clicked");
   });
 
   // Edit button
@@ -165,3 +165,52 @@ const EmployeeTemp = () => {
     "#employee-location": $("#employee-location").val(),
   };
 };
+
+// Function to populate search results in DOM
+const showSearchResults = results => {
+  // clear current search results, if any
+  $("#results-table").html("");
+
+  // Loop through results array
+  results.forEach(employee => {
+    // template HTML
+    let template = $(`<tr class='clickable-row' id=${employee.id}>
+    <td>${employee.firstName}</td>
+    <td>${employee.lastName}</td>
+    <td>${employee.id}</td>
+  </tr>`);
+
+    // add template to table
+    $("#results-table").append(template);
+    $(`#${employee.id}`).data(employee);
+    // $("#results-table tr:last-child").data(employee);
+  });
+
+  // add callback function
+  // click a row to view employee card
+  $(".clickable-row").click(row => {
+    // Get employee object from row using $.data()
+    //
+    //
+    let id = row.currentTarget.id;
+    let employee = $(`#${id}`).data();
+    console.log(employee);
+
+    // assign variables
+
+    // display card, hide search
+    $(".scrollable-content").hide();
+    $("#employee-card").show();
+
+    // // Populate data into fields
+    $("#employee-firstname").val(employee.firstName);
+    $("#employee-lastname").val(employee.lastName);
+    $("#employee-id").val(employee.id);
+    $("#employee-job").val(employee.jobTitle);
+    $("#employee-email").val(employee.email);
+    $("#employee-department").val(employee.department);
+    $("#employee-location").val(employee.location);
+  });
+};
+
+// Function to handle row click, populate Employee Card.
