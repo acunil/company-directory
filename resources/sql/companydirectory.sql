@@ -63,7 +63,7 @@ VALUES (1, 'London'),
 ;
 -- Dumping structure for table companydirectory.personnel
 CREATE TABLE IF NOT EXISTS `personnel` (
-	`id` int(11) DEFAULT NULL,
+	`id` int(11) DEFAULT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	`firstName` varchar(50) DEFAULT NULL,
 	`lastName` varchar(50) DEFAULT NULL,
 	`jobTitle` varchar(50) DEFAULT NULL,

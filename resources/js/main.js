@@ -333,7 +333,9 @@ const updateEmployee = () => {
       departmentID: Number($("#employee-department").prop("selectedIndex")),
     },
     success(result) {
-      console.log(result);
+      console.log(
+        `Update for employee ID ${$("#employee-id").val()} was successful.`
+      );
     },
     error(jqXHR, textStatus, errorThrown) {
       console.log("There was something wrong with the update request");
