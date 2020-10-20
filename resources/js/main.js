@@ -90,6 +90,7 @@ $(() => {
     //
     $(".scrollable-content").show();
     $("#employee-card").hide();
+    $("#search").click();
   });
 
   // Edit button
