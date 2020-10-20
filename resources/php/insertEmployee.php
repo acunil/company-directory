@@ -36,7 +36,7 @@
 
 	// $query = 'INSERT INTO "personnel" ("firstName", "lastName", "jobTitle", "email", "departmentID") VALUES("' . $_REQUEST['firstName'] . '",' . $_REQUEST["lastName"] . ', "' . $_REQUEST['jobTitle'] . '", "' . $_REQUEST['email'] . '", ' . $_REQUEST["departmentID"] . ')';
 
-	$query = 'INSERT INTO personnel ("firstName", "lastName", "jobTitle", "email", "departmentID") VALUES("Test", "Testington", "OG Kush ROller", "test@tester.com", 5)'
+	$query = "INSERT INTO `personnel` (`id`, `firstName`, `lastName`, `jobTitle`, `email`, `departmentID`) VALUES (NULL, \'Omega\', \'Test\', \'Gambling mastermind\', \'omega@asd.asd\', \'1\')";
 
 	$result = $conn->query($query);
 	
