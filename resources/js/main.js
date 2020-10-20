@@ -1,46 +1,50 @@
 // Onload
 $(() => {
   // make text unselectable
-  $.fn.extend({
-    disableSelection: function () {
-      this.each(function () {
-        if (typeof this.onselectstart != "undefined") {
-          this.onselectstart = function () {
-            return false;
-          };
-        } else if (typeof this.style.MozUserSelect != "undefined") {
-          this.style.MozUserSelect = "none";
-        } else {
-          this.onmousedown = function () {
-            return false;
-          };
-        }
-      });
-    },
-  });
-  $("body").disableSelection();
+  {
+    $.fn.extend({
+      disableSelection: function () {
+        this.each(function () {
+          if (typeof this.onselectstart != "undefined") {
+            this.onselectstart = function () {
+              return false;
+            };
+          } else if (typeof this.style.MozUserSelect != "undefined") {
+            this.style.MozUserSelect = "none";
+          } else {
+            this.onmousedown = function () {
+              return false;
+            };
+          }
+        });
+      },
+    });
+    $("body").disableSelection();
+  }
 
   // Global temp variable for editing employee info.
   var Temp = {};
 
   // Add event listeners to all input fields to watch on change, if all fields are empty then hide Clear button
-  var searchFieldIds = [
-    "#input-firstname",
-    "#input-lastname",
-    "#input-id",
-    "#input-department",
-    "#input-location",
-  ];
+  {
+    var searchFieldIds = [
+      "#input-firstname",
+      "#input-lastname",
+      "#input-id",
+      "#input-department",
+      "#input-location",
+    ];
 
-  searchFieldIds.forEach(id => {
-    $(id).change(() => {
-      if (allSearchFieldsBlank()) {
-        $("#clear-search").hide();
-      } else {
-        $("#clear-search").show();
-      }
+    searchFieldIds.forEach(id => {
+      $(id).change(() => {
+        if (allSearchFieldsBlank()) {
+          $("#clear-search").hide();
+        } else {
+          $("#clear-search").show();
+        }
+      });
     });
-  });
+  }
 
   // search button
   $("#search").click(() => {
