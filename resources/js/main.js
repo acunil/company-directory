@@ -98,7 +98,7 @@ $(() => {
     Temp = EmployeeTemp();
 
     $("#save-buttons").css({ display: "flex" });
-    $("#employee-info input:not(#employee-id), #employee-info select").prop(
+    $("#employee-info input:not(#employee-id), #employee-department").prop(
       "disabled",
       false
     );
@@ -144,10 +144,14 @@ $(() => {
       return;
     } else {
       if ($("#employee-id").val() === "") {
+        // Employee does not exist so CREATE
         // run SQL command to create new entry.
         // then run second command to access generated ID of new employee.
         // use jquery .val() to change ID shown.
-        $("#employee-id").val("0000001");
+        createEmployee();
+      } else {
+        // Employee exists so UPDATE
+        updateEmployee();
       }
       // return to view
       $("#save-buttons").css({ display: "none" });
@@ -312,3 +316,68 @@ const allSearchFieldsBlank = () => {
 
   return allBlank;
 };
+
+// Function to handle updating employee info
+const updateEmployee = () => {
+  let departmentID = $("#employee-department").prop("selectedIndex");
+
+  $.ajax({
+    url: "resoureces/php/updateEmployeeByID.php",
+    type: "POST",
+    dataType: "json",
+    data: {
+      firstName: $("#employee-firstname").val(),
+      lastName: $("#employee-lastname").val(),
+      id: $("#employee-id").val(),
+      jobTitle: $("#employee-job").val(),
+      email: $("#employee-email").val(),
+      departmentID: departmentID,
+    },
+    success(result) {
+      // Array of results
+      let results = result.data;
+      console.log(results);
+
+      // populate DOM
+      showSearchResults(results);
+    },
+    error(jqXHR, textStatus, errorThrown) {
+      console.log("There was something wrong with the test request");
+      console.log(jqXHR);
+      console.log(textStatus);
+      console.log(errorThrown);
+    },
+  });
+};
+
+// Function to automate location:department link in dropdown
+$("#employee-department").change(() => {
+  let location = "";
+  //
+  switch ($("#employee-department").val()) {
+    case "Legal":
+    case "Human Resources":
+    case "Services":
+      location = "London";
+      break;
+    case "Sales":
+    case "Marketing":
+      location = "New York";
+      break;
+    case "Research and Development":
+    case "Product Management":
+    case "Business Development":
+      location = "Paris";
+      break;
+    case "Training":
+    case "Support":
+      location = "Munich";
+      break;
+    case "Engineering":
+    case "Accounting":
+      location = "Rome";
+      break;
+  }
+
+  $("#employee-location").val(location);
+});

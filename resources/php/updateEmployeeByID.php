@@ -33,7 +33,8 @@
 
 	// $_REQUEST used for development / debugging. Remember to cange to $_POST for production
 
-	$query = 'SELECT id, name, locationID FROM department WHERE id = ' . $_REQUEST['id'];
+	// Update employee using values passed by data object in request
+	$query = '';
 
 	$result = $conn->query($query);
 	
