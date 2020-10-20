@@ -39,6 +39,10 @@ select {
   margin-top: 5px;
 }
 
+#clear-search {
+  display: none;
+}
+
 #form .row,
 #employee-card .row {
   display: -webkit-box;

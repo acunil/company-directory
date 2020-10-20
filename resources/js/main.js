@@ -23,25 +23,34 @@ $(() => {
   // Global temp variable for editing employee info.
   var Temp = {};
 
-  // search button
-  $("#search").click(() => {
-    // Determine if all fields are blank, then do full global search.
-    var searchFieldIds = [
-      "input-firstname",
-      "input-lastname",
-      "input-id",
-      "input-department",
-      "input-location",
-    ];
+  // Add event listeners to all input fields to watch on change, if all fields are empty then hide Clear button
+  var searchFieldIds = [
+    "#input-firstname",
+    "#input-lastname",
+    "#input-id",
+    "#input-department",
+    "#input-location",
+  ];
 
-    var searchFile = "resources/php/getAll.php";
-
-    searchFieldIds.forEach(id => {
-      let notBlank = Boolean($(`#${id}`).val());
-      if (notBlank) {
-        searchFile = "resources/php/getSome.php";
+  searchFieldIds.forEach(id => {
+    $(id).change(() => {
+      if (allSearchFieldsBlank()) {
+        $("#clear-search").hide();
+      } else {
+        $("#clear-search").show();
       }
     });
+  });
+
+  // search button
+  $("#search").click(() => {
+    // php file path
+    var searchFile = "resources/php/getAll.php";
+
+    // Determine if all fields are not blank, then do full targeted search
+    if (!allSearchFieldsBlank()) {
+      searchFile = "resources/php/getSome.php";
+    }
 
     // Get employees
     $.ajax({
@@ -147,6 +156,23 @@ $(() => {
   // Confirm delete button
   $("#confirm-delete").click(() => {
     // clear search results, or completely fresh search boxes
+    $.ajax({
+      url: "resources/php/deleteEmployeeByID.php",
+      type: "POST",
+      data: {
+        id: $("#employee-id").val(),
+      },
+      success(result) {
+        console.log("Employee successfully deleted");
+        console.log(result);
+      },
+      error(jqXHR, textStatus, errorThrown) {
+        console.log("There was something wrong with the test request");
+        console.log(jqXHR);
+        console.log(textStatus);
+        console.log(errorThrown);
+      },
+    });
   });
 
   // New Employee button
@@ -167,7 +193,10 @@ $(() => {
     );
   });
 
-  // input boxes onchange check boolean for
+  // Clear search button
+  $("#clear-search").click(clearSearchFields);
+
+  // input boxes onchange check if required fields have all been filled
   $("#employee-info input, #employee-info select").change(() => {
     //
     let invalid = $(":invalid");
@@ -214,7 +243,7 @@ const showSearchResults = results => {
   });
 
   // add callback function
-  // click a row to view employee card
+  // Row click
   $(".clickable-row").click(row => {
     // Get employee object from row using $.data()
     //
@@ -240,4 +269,42 @@ const showSearchResults = results => {
   });
 };
 
-// Function to handle row click, populate Employee Card.
+// Function to reset search fields
+const clearSearchFields = () => {
+  var searchFieldIds = [
+    "#input-firstname",
+    "#input-lastname",
+    "#input-id",
+    "#input-department",
+    "#input-location",
+  ];
+
+  searchFieldIds.forEach(id => {
+    $(id).val("");
+  });
+
+  $("#clear-search").hide();
+  $("#search").click();
+};
+
+// Function to determine if all search fields are blank
+const allSearchFieldsBlank = () => {
+  //
+  var searchFieldIds = [
+    "#input-firstname",
+    "#input-lastname",
+    "#input-id",
+    "#input-department",
+    "#input-location",
+  ];
+
+  var allBlank = true;
+
+  searchFieldIds.forEach(id => {
+    if ($(id).val() !== "") {
+      allBlank = false;
+    }
+  });
+
+  return allBlank;
+};

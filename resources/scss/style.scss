@@ -19,7 +19,7 @@ input {
   }
 }
 
-// general element spacing
+// general element spacing / appearance
 
 .label {
   font-size: 0.9em;
@@ -44,6 +44,10 @@ h1 {
 input,
 select {
   margin-top: 5px;
+}
+
+#clear-search {
+  display: none;
 }
 
 // center labels
