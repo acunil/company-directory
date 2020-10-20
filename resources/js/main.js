@@ -319,31 +319,24 @@ const allSearchFieldsBlank = () => {
 
 // Function to handle updating employee info
 const updateEmployee = () => {
-  let departmentID = $("#employee-department").prop("selectedIndex");
-
   $.ajax({
-    url: "resoureces/php/updateEmployeeByID.php",
+    url: "resources/php/updateEmployeeByID.php",
     type: "POST",
     dataType: "json",
     data: {
       firstName: $("#employee-firstname").val(),
       lastName: $("#employee-lastname").val(),
-      id: $("#employee-id").val(),
+      id: Number($("#employee-id").val()),
       jobTitle: $("#employee-job").val(),
       email: $("#employee-email").val(),
-      departmentID: departmentID,
+      departmentID: Number($("#employee-department").prop("selectedIndex")),
     },
     success(result) {
-      // Array of results
-      let results = result.data;
-      console.log(results);
-
-      // populate DOM
-      showSearchResults(results);
+      console.log(result);
     },
     error(jqXHR, textStatus, errorThrown) {
-      console.log("There was something wrong with the test request");
-      console.log(jqXHR);
+      console.log("There was something wrong with the update request");
+      console.log(jqXHR.responseText);
       console.log(textStatus);
       console.log(errorThrown);
     },
