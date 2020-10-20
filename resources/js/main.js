@@ -146,10 +146,8 @@ $(() => {
     } else {
       if ($("#employee-id").val() === "") {
         // Employee does not exist so CREATE
-        // run SQL command to create new entry.
-        // then run second command to access generated ID of new employee.
+        insertEmployee();
         // use jquery .val() to change ID shown.
-        createEmployee();
       } else {
         // Employee exists so UPDATE
         updateEmployee();
@@ -339,6 +337,33 @@ const updateEmployee = () => {
     },
     error(jqXHR, textStatus, errorThrown) {
       console.log("There was something wrong with the update request");
+      console.log(jqXHR.responseText);
+      console.log(textStatus);
+      console.log(errorThrown);
+    },
+  });
+};
+
+// Function to handle inserting new employee
+const insertEmployee = () => {
+  //
+  $.ajax({
+    url: "resources/php/insertEmployee.php",
+    type: "POST",
+    dataType: "json",
+    data: {
+      firstName: $("#employee-firstname").val(),
+      lastName: $("#employee-lastname").val(),
+      jobTitle: $("#employee-job").val(),
+      email: $("#employee-email").val(),
+      departmentID: Number($("#employee-department").prop("selectedIndex")),
+    },
+    success(result) {
+      console.log(`Employee creation was successful.`);
+      console.log(result);
+    },
+    error(jqXHR, textStatus, errorThrown) {
+      console.log("There was something wrong with the insert request");
       console.log(jqXHR.responseText);
       console.log(textStatus);
       console.log(errorThrown);
