@@ -34,9 +34,11 @@
 
 	// $_REQUEST used for development / debugging. Remember to cange to $_POST for production
 
-	// $query = 'INSERT INTO "personnel" ("firstName", "lastName", "jobTitle", "email", "departmentID") VALUES("' . $_REQUEST['firstName'] . '",' . $_REQUEST["lastName"] . ', "' . $_REQUEST['jobTitle'] . '", "' . $_REQUEST['email'] . '", ' . $_REQUEST["departmentID"] . ')';
 
-	$query = "INSERT INTO `personnel` (`firstName`, `lastName`, `jobTitle`, `email`, `departmentID`) VALUES ('Omega', 'Test', 'Gambling mastermind', 'omega@asd.asd', 1)";
+
+	$values = "('" . $_POST['firstName'] . "', '" . $_POST['lastName'] . "', '" . $_POST['jobTitle'] . "', '" . $_POST['email'] . "', " . $_POST['departmentID'] . ")";
+
+	$query = "INSERT INTO `personnel` (`firstName`, `lastName`, `jobTitle`, `email`, `departmentID`) VALUES " . $values;
 
 	$result = $conn->query($query);
 	
@@ -54,6 +56,7 @@
 		exit;
 
 	}
+
 
 	$output['status']['code'] = "200";
 	$output['status']['name'] = "ok";
