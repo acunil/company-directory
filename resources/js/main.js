@@ -361,9 +361,34 @@ const insertEmployee = () => {
     success(result) {
       console.log(`Employee creation was successful.`);
       console.log(result);
+      // run SQL query for max id
+      getMaxId();
     },
     error(jqXHR, textStatus, errorThrown) {
       console.log("There was something wrong with the insert request");
+      console.log(jqXHR.responseText);
+      console.log(textStatus);
+      console.log(errorThrown);
+    },
+  });
+};
+
+// Function to retrieve highest id
+const getMaxId = () => {
+  //
+  $.ajax({
+    url: "resources/php/getMaxId.php",
+    type: "GET",
+    dataType: "json",
+    success(result) {
+      console.log(`Max ID retrieval was successful.`);
+      console.log(result);
+      // populate #employee-id with retrieved id
+      let id = Number(result.data[0].id);
+      $("#employee-id").val(id);
+    },
+    error(jqXHR, textStatus, errorThrown) {
+      console.log("There was something wrong with the max id request");
       console.log(jqXHR.responseText);
       console.log(textStatus);
       console.log(errorThrown);
