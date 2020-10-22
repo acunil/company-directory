@@ -248,6 +248,14 @@ $(() => {
       $("#save-button").prop("disabled", false);
     }
   });
+
+  // Add event listener to search boxes for Enter to search
+  $("#search-modal input").keyup(key => {
+    //
+    if (key.which == 13) {
+      $("#search").click();
+    }
+  });
 });
 
 // Function to save snapshot of employee details, pre-editing
