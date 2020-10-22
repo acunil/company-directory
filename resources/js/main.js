@@ -218,6 +218,19 @@ $(() => {
   // Clear search button
   $("#clear-search").click(clearSearchFields);
 
+  // Delete success button
+  $("#delete-success-button").click(() => {
+    //
+    // Hide modal
+    $("#employee-modal").modal("hide");
+
+    // Clear search fields
+    clearSearchFields();
+
+    // Run search
+    $("#search").click();
+  });
+
   // input boxes onchange check if required fields have all been filled
   $("#employee-info input, #employee-info select").change(() => {
     //
