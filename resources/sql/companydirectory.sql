@@ -14,6 +14,7 @@
 ;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */
 ;
+-- COMMENT FOR LIVE
 -- Dumping database structure for companydirectory
 CREATE DATABASE IF NOT EXISTS `companydirectory`
 /*!40100 DEFAULT CHARACTER SET utf8 */

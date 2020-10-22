@@ -1,1 +1,2 @@
-resources/php/config.php
+resources/php/config_live.php
+resources/php/config_local.php
