@@ -85,6 +85,9 @@ $(() => {
     });
   });
 
+  // Trigger search on page load
+  $("#search").click();
+
   // back button
   $(".back-button").click(() => {
     //
@@ -95,6 +98,9 @@ $(() => {
 
   // Edit button
   $("#edit-button").click(() => {
+    // show footer
+    $("#edit-footer").removeClass("d-none").addClass("d-block");
+
     // save temporary snapshot
     Temp = EmployeeTemp();
 
@@ -113,6 +119,9 @@ $(() => {
 
   // Cancel button
   $(".cancel-button").click(() => {
+    // hide footer
+    $("#edit-footer").removeClass("d-block").addClass("d-none");
+
     //
     $("#save-buttons").css({ display: "none" });
     $("#employee-info input, #employee-info select").prop("disabled", true);
@@ -133,6 +142,9 @@ $(() => {
 
   // Save button
   $("#save-button").click(() => {
+    // hide footer
+    $("#edit-footer").removeClass("d-block").addClass("d-none");
+
     // Check necessary info is filled in
     if (
       $("#employee-firstname").val() === "" ||
@@ -144,18 +156,26 @@ $(() => {
       console.error("One or more fields are blank!");
       return;
     } else {
+      // Save is valid ---
       if ($("#employee-id").val() === "") {
         // Employee does not exist so CREATE
         insertEmployee();
-        // use jquery .val() to change ID shown.
+        // save temporary snapshot
+        Temp = EmployeeTemp();
       } else {
         // Employee exists so UPDATE
         updateEmployee();
+        Temp = EmployeeTemp();
       }
-      // return to view
-      $("#save-buttons").css({ display: "none" });
-      $("#employee-info input, #employee-info select").prop("disabled", true);
+      // Fix header
+      $("#employee-modal .modal-title").html("Employee info");
+
+      // Enable edit/delete
       $("#back-button, #delete-button, #edit-button").prop("disabled", false);
+
+      // Rerun global search
+      clearSearchFields();
+      $("#search").click();
     }
     //
   });
@@ -183,25 +203,38 @@ $(() => {
   });
 
   // New Employee button
-  $("#new-employee-button").click(() => {
-    //
-    // display card, hide search
-    $(".scrollable-content").hide();
-    $("#employee-card").show();
+  $("#create-button").click(() => {
+    // Show modal
+    $("#employee-modal").modal({
+      backdrop: "static",
+      keyboard: true,
+    });
 
-    $("#save-buttons").css({ display: "flex" });
-    $("#employee-info input:not(#employee-id), #employee-info select")
-      .prop("disabled", false)
-      .val("");
-    $("#employee-id").val("").prop("placeholder", "########");
-    $("#back-button, #delete-button, #edit-button, #save-button").prop(
-      "disabled",
-      true
-    );
+    // Trigger edit state
+    $("#edit-button").click();
+
+    // Clear fields
+    clearEmployeeFields();
+
+    // Modify title to reflect create state
+    $("#employee-modal .modal-title").html("Create new employee");
   });
 
   // Clear search button
   $("#clear-search").click(clearSearchFields);
+
+  // Delete success button
+  $("#delete-success-button").click(() => {
+    //
+    // Hide modal
+    $("#employee-modal").modal("hide");
+
+    // Clear search fields
+    clearSearchFields();
+
+    // Run search
+    $("#search").click();
+  });
 
   // input boxes onchange check if required fields have all been filled
   $("#employee-info input, #employee-info select").change(() => {
@@ -213,6 +246,14 @@ $(() => {
     } else {
       //
       $("#save-button").prop("disabled", false);
+    }
+  });
+
+  // Add event listener to search boxes for Enter to search
+  $("#search-modal input").keyup(key => {
+    //
+    if (key.which == 13) {
+      $("#search").click();
     }
   });
 });
@@ -240,7 +281,7 @@ const showSearchResults = results => {
     let template = $(`<tr class='clickable-row' id=${employee.id}>
     <td>${employee.firstName}</td>
     <td>${employee.lastName}</td>
-    <td>${employee.id}</td>
+    <td class="text-center">${employee.id}</td>
   </tr>`);
 
     // add template to table
@@ -262,8 +303,10 @@ const showSearchResults = results => {
     // assign variables
 
     // display card, hide search
-    $(".scrollable-content").hide();
-    $("#employee-card").show();
+    $("#employee-modal").modal({
+      backdrop: "static",
+      keyboard: true,
+    });
 
     // // Populate data into fields
     $("#employee-firstname").val(employee.firstName);
@@ -292,6 +335,23 @@ const clearSearchFields = () => {
 
   $("#clear-search").hide();
   $("#search").click();
+};
+
+// Function to reset employee fields
+const clearEmployeeFields = () => {
+  var searchFieldIds = [
+    "#employee-firstname",
+    "#employee-lastname",
+    "#employee-id",
+    "#employee-department",
+    "#employee-location",
+    "#employee-email",
+    "#employee-jobtitle",
+  ];
+
+  searchFieldIds.forEach(id => {
+    $(id).val("");
+  });
 };
 
 // Function to determine if all search fields are blank
@@ -427,3 +487,28 @@ $("#employee-department").change(() => {
 
   $("#employee-location").val(location);
 });
+
+// Function to handle cancel save
+const handleCancelSave = () => {
+  //
+  $("#edit-footer").removeClass("d-block").addClass("d-none");
+
+  //
+  $("#save-buttons").css({ display: "none" });
+  $("#employee-info input, #employee-info select").prop("disabled", true);
+  $("#back-button, #delete-button, #edit-button").prop("disabled", false);
+
+  // if on create new employee screen
+  if ($("#employee-id").val() === "") {
+    //
+    $(".scrollable-content").show();
+    $("#employee-card").hide();
+  } else {
+    // loop through temp keys and use jQuery to repopulate form elements with saved values
+    try {
+      for (let id in Temp) {
+        $(id).val(Temp[id]);
+      }
+    } catch (e) {}
+  }
+};

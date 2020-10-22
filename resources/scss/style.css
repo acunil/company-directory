@@ -22,16 +22,17 @@ input :hover {
 h1 {
   font-size: 1.5em;
   margin-top: 10px;
+  font-weight: 600;
 }
 
 #search-button {
   margin: 10px 0;
 }
 
-#new-employee-button {
+#header .btn-group {
   margin-top: 10px;
-  margin-bottom: 5px;
   margin-right: 15px;
+  margin-bottom: 5px;
 }
 
 input,
@@ -43,8 +44,12 @@ select {
   display: none;
 }
 
+table {
+  z-index: 1;
+}
+
 #form .row,
-#employee-card .row {
+#search-modal .row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -82,6 +87,11 @@ select {
   min-height: 0;
 }
 
+.scrollable-content ::-webkit-scrollbar {
+  display: none;
+  z-index: -1;
+}
+
 #employee-card {
   position: absolute;
   top: 0;
@@ -91,7 +101,7 @@ select {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  z-index: 1000;
+  z-index: 9000;
   display: none;
   background-color: white;
   padding: 10px 0;
@@ -103,7 +113,7 @@ select {
   font-size: 0.8rem;
 }
 
-#employee-card #button-row {
+#employee-card .flex-button-row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
