@@ -279,7 +279,7 @@ const showSearchResults = results => {
     // display card, hide search
     $("#employee-modal").modal({
       backdrop: "static",
-      keyboard: false,
+      keyboard: true,
     });
 
     // // Populate data into fields

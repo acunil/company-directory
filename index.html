@@ -30,14 +30,7 @@
       <div id="header" class="row">
         <h1 class="col">Company Directory</h1>
         <div class="btn-group">
-          <button
-            id="test"
-            class="btn btn-sm btn-warning"
-            data-toggle="modal"
-            data-target="#employee-modal"
-          >
-            Test
-          </button>
+
           <button
             id="open-search-button"
             class="btn btn-primary btn-sm"
@@ -52,101 +45,116 @@
         </div>
       </div>
       <!-- Main Content -->
-      <!-- Search Modal -->
+
+
+
+      <!-- Search modal-->
       <div id="search-modal" class="modal fade" role="dialog">
-        <div id="form" class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Search for employees</h4>
-            <button type="button" class="close" data-dismiss="modal">
-              &times;
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="row">
-              <div class="label col-3 col-sm-2">Firstname</div>
-              <div class="col-9 col-sm-10">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder=""
-                  id="input-firstname"
-                />
-              </div>
-            </div>
-            <div class="row">
-              <div class="label col-3 col-sm-2">Lastname</div>
-              <div class="col-9 col-sm-10">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder=""
-                  id="input-lastname"
-                />
-              </div>
-            </div>
-            <div class="row">
-              <div class="label col-3 col-sm-2">ID</div>
-              <div class="col-9 col-sm-10">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder=""
-                  id="input-id"
-                />
-              </div>
-            </div>
-            <div class="row">
-              <div class="label col-3 col-sm-2">Department</div>
-              <div class="col-9 col-sm-10">
-                <select
-                  type="select"
-                  class="form-control"
-                  id="input-department"
-                >
-                  <option value="" selected class="placeholder"></option>
-                  <option value="Human Resources">Human Resources</option>
-                  <option value="Sales">Sales</option>
-                  <option value="Marketing">Marketing</option>
-                  <option value="Legal">Legal</option>
-                  <option value="Services">Services</option>
-                  <option value="Research and Development">
-                    Research and Development
-                  </option>
-                  <option value="Product Management">Product Management</option>
-                  <option value="Training">Training</option>
-                  <option value="Support">Support</option>
-                  <option value="Engineering">Engineering</option>
-                  <option value="Accounting">Accounting</option>
-                  <option value="Business Development">
-                    Business Development
-                  </option>
-                </select>
-              </div>
-            </div>
-            <div class="row">
-              <div class="label col-3 col-sm-2">Location</div>
-              <div class="col-9 col-sm-10">
-                <select type="select" class="form-control" id="input-location">
-                  <option value="" selected class="placeholder"></option>
-                  <option value="London">London</option>
-                  <option value="New York">New York</option>
-                  <option value="Paris">Paris</option>
-                  <option value="Munich">Munich</option>
-                  <option value="Rome">Rome</option>
-                </select>
-              </div>
-            </div>
-            <div class="row" id="search-button">
-              <div class="col-4"></div>
-              <button id="search" class="btn btn-primary col-4">Search</button>
-              <div class="col-2"></div>
-              <button id="clear-search" class="btn col-2 btn-secondary btn-sm">
-                X
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header alert-primary">
+              <h4 class="modal-title">Search for employees</h4>
+              <button type="button" class="close" data-dismiss="modal" onclick="handleCancelSave()">
+                &times;
               </button>
+            </div>
+            <div class="modal-body">
+              <div class="container">
+                <div class="row">
+                  <div class="label col-3 col-sm-2">Firstname</div>
+                  <div class="col-9 col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder=""
+                      id="input-firstname"
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="label col-3 col-sm-2">Lastname</div>
+                  <div class="col-9 col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder=""
+                      id="input-lastname"
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="label col-3 col-sm-2">ID</div>
+                  <div class="col-9 col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder=""
+                      id="input-id"
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="label col-3 col-sm-2">Department</div>
+                  <div class="col-9 col-sm-10">
+                    <select
+                      type="select"
+                      class="form-control"
+                      id="input-department"
+                    >
+                      <option value="" selected class="placeholder"></option>
+                      <option value="Human Resources">Human Resources</option>
+                      <option value="Sales">Sales</option>
+                      <option value="Marketing">Marketing</option>
+                      <option value="Legal">Legal</option>
+                      <option value="Services">Services</option>
+                      <option value="Research and Development">
+                        Research and Development
+                      </option>
+                      <option value="Product Management">Product Management</option>
+                      <option value="Training">Training</option>
+                      <option value="Support">Support</option>
+                      <option value="Engineering">Engineering</option>
+                      <option value="Accounting">Accounting</option>
+                      <option value="Business Development">
+                        Business Development
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="label col-3 col-sm-2">Location</div>
+                  <div class="col-9 col-sm-10">
+                    <select type="select" class="form-control" id="input-location">
+                      <option value="" selected class="placeholder"></option>
+                      <option value="London">London</option>
+                      <option value="New York">New York</option>
+                      <option value="Paris">Paris</option>
+                      <option value="Munich">Munich</option>
+                      <option value="Rome">Rome</option>
+                    </select>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            <div class="modal-footer alert-primary">
+              <div class="container">
+                <!-- Button group -->
+                <div class="row" id="search-button">
+                  <div class="col-4"></div>
+                  <button id="search" class="col-4 btn btn-primary" data-dismiss="modal">Search</button>
+                  <div class="col-2"></div>
+                  <button id="clear-search" class="col-2 btn btn-secondary" data-dismiss="modal">
+                    Clear
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </div>      
+
       <!-- Results Table -->
       <div class="scrollable-content">
         <table class="table table-sm table-striped table-hover">
