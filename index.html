@@ -188,9 +188,19 @@
       <!-- Header -->
       <div id="header" class="row">
         <h1 class="col">Company Directory</h1>
-        <button class="btn btn-sm btn-success" id="new-employee-button">
-          New employee
-        </button>
+        <div class="btn-group">
+          <button
+            id="open-search-button"
+            class="btn btn-primary btn-sm"
+            data-toggle="modal"
+            data-target="#search-modal"
+          >
+            Search
+          </button>
+          <button class="btn btn-sm btn-success" id="new-employee-button">
+            Create
+          </button>
+        </div>
       </div>
       <!-- Main Content -->
       <!-- Search Form -->
