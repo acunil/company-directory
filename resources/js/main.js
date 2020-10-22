@@ -85,6 +85,9 @@ $(() => {
     });
   });
 
+  // Trigger search on page load
+  $("#search").click();
+
   // back button
   $(".back-button").click(() => {
     //
