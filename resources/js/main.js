@@ -167,10 +167,15 @@ $(() => {
         updateEmployee();
         Temp = EmployeeTemp();
       }
-      // return to view
-      $("#save-buttons").css({ display: "none" });
-      $("#employee-info input, #employee-info select").prop("disabled", true);
+      // Fix header
+      $("#employee-modal .modal-title").html("Employee info");
+
+      // Enable edit/delete
       $("#back-button, #delete-button, #edit-button").prop("disabled", false);
+
+      // Rerun global search
+      clearSearchFields();
+      $("#search").click();
     }
     //
   });
@@ -198,21 +203,21 @@ $(() => {
   });
 
   // New Employee button
-  $("#new-employee-button").click(() => {
-    //
-    // display card, hide search
-    $(".scrollable-content").hide();
-    $("#employee-card").show();
+  $("#create-button").click(() => {
+    // Show modal
+    $("#employee-modal").modal({
+      backdrop: "static",
+      keyboard: true,
+    });
 
-    $("#save-buttons").css({ display: "flex" });
-    $("#employee-info input:not(#employee-id), #employee-info select")
-      .prop("disabled", false)
-      .val("");
-    $("#employee-id").val("").prop("placeholder", "########");
-    $("#back-button, #delete-button, #edit-button, #save-button").prop(
-      "disabled",
-      true
-    );
+    // Trigger edit state
+    $("#edit-button").click();
+
+    // Clear fields
+    clearEmployeeFields();
+
+    // Modify title to reflect create state
+    $("#employee-modal .modal-title").html("Create new employee");
   });
 
   // Clear search button
@@ -322,6 +327,23 @@ const clearSearchFields = () => {
 
   $("#clear-search").hide();
   $("#search").click();
+};
+
+// Function to reset employee fields
+const clearEmployeeFields = () => {
+  var searchFieldIds = [
+    "#employee-firstname",
+    "#employee-lastname",
+    "#employee-id",
+    "#employee-department",
+    "#employee-location",
+    "#employee-email",
+    "#employee-jobtitle",
+  ];
+
+  searchFieldIds.forEach(id => {
+    $(id).val("");
+  });
 };
 
 // Function to determine if all search fields are blank
