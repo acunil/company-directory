@@ -98,6 +98,9 @@ $(() => {
 
   // Edit button
   $("#edit-button").click(() => {
+    // show footer
+    $("#edit-footer").removeClass("d-none").addClass("d-block");
+
     // save temporary snapshot
     Temp = EmployeeTemp();
 
@@ -116,6 +119,9 @@ $(() => {
 
   // Cancel button
   $(".cancel-button").click(() => {
+    // hide footer
+    $("#edit-footer").removeClass("d-block").addClass("d-none");
+
     //
     $("#save-buttons").css({ display: "none" });
     $("#employee-info input, #employee-info select").prop("disabled", true);
@@ -136,6 +142,9 @@ $(() => {
 
   // Save button
   $("#save-button").click(() => {
+    // hide footer
+    $("#edit-footer").removeClass("d-block").addClass("d-none");
+
     // Check necessary info is filled in
     if (
       $("#employee-firstname").val() === "" ||
@@ -147,13 +156,16 @@ $(() => {
       console.error("One or more fields are blank!");
       return;
     } else {
+      // Save is valid ---
       if ($("#employee-id").val() === "") {
         // Employee does not exist so CREATE
         insertEmployee();
-        // use jquery .val() to change ID shown.
+        // save temporary snapshot
+        Temp = EmployeeTemp();
       } else {
         // Employee exists so UPDATE
         updateEmployee();
+        Temp = EmployeeTemp();
       }
       // return to view
       $("#save-buttons").css({ display: "none" });

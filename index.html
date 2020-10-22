@@ -177,13 +177,8 @@
             <div class="modal-body">
               <div class="container">
                 <!-- Buttons along the top -->
-                <div id="button-row" class="d-flex justify-content-between mb-2">
-                  <button
-                    id="back-button"
-                    class="btn btn-primary btn-sm back-button"
-                  >
-                    Back to results
-                  </button>
+                <div id="button-row" class="d-flex justify-content-between flex-row-reverse mb-2">
+
                   <div class="btn-group">
                     <button id="edit-button" class="btn btn-success btn-sm">
                       Edit
@@ -330,7 +325,7 @@
                 </div>
               </div>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer d-none" id="edit-footer">
               <div class="container">
                 <!-- Button group -->
                 <div  id="save-buttons" class="d-flex justify-content-around">
@@ -350,10 +345,10 @@
 
       <!-- Delete warning modal -->
       <div id="delete-modal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-sm">
           <!-- Modal content-->
           <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header alert-danger">
               <h4 class="modal-title">Warning!</h4>
               <button type="button" class="close" data-dismiss="modal">
                 &times;
@@ -365,16 +360,16 @@
                 This action is permanent.
               </p>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer ">
               <button
                 type="button"
-                class="btn btn-danger back-button"
+                class="btn btn-warning back-button"
                 data-dismiss="modal"
                 id="confirm-delete"
                 data-toggle="modal"
                 data-target="#delete-success-modal"
               >
-                Confirm Delete
+                Yes, delete record
               </button>
             </div>
           </div>
@@ -383,7 +378,7 @@
 
       <!-- Delete success modal -->
       <div id="delete-success-modal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-sm">
           <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header">
