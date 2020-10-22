@@ -23,108 +23,87 @@
   </head>
   <body>
     <!-- Employee card -->
-    <div id="employee-card">
-      <div class="container">
-        <!-- Buttons along the top -->
-        <div id="button-row">
-          <button id="back-button" class="btn btn-primary btn-sm back-button">
-            Back to results
+    <div id="employee-card"></div>
+
+    <div class="container section">
+      <!-- Header -->
+      <div id="header" class="row">
+        <h1 class="col">Company Directory</h1>
+        <div class="btn-group">
+          <button
+            id="test"
+            class="btn btn-sm btn-warning"
+            data-toggle="modal"
+            data-target="#employee-modal"
+          >
+            Test
           </button>
-          <div class="btn-group">
-            <button id="edit-button" class="btn btn-success btn-sm">
-              Edit
-            </button>
-            <button
-              id="delete-button"
-              class="btn btn-danger btn-sm"
-              data-toggle="modal"
-              data-target="#delete-modal"
-            >
-              Delete
+          <button
+            id="open-search-button"
+            class="btn btn-primary btn-sm"
+            data-toggle="modal"
+            data-target="#search-modal"
+          >
+            Search
+          </button>
+          <button class="btn btn-sm btn-success" id="new-employee-button">
+            Create
+          </button>
+        </div>
+      </div>
+      <!-- Main Content -->
+      <!-- Search Modal -->
+      <div id="search-modal" class="modal fade" role="dialog">
+        <div id="form" class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Search for employees</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
             </button>
           </div>
-        </div>
-        <div id="employee-info">
-          <div id="form">
+          <div class="modal-body">
             <div class="row">
-              <div class="label col-3 col-lg-1">Firstname</div>
-              <div class="col-9 col-lg-11">
+              <div class="label col-3 col-sm-2">Firstname</div>
+              <div class="col-9 col-sm-10">
                 <input
                   type="text"
                   class="form-control"
                   placeholder=""
-                  id="employee-firstname"
-                  disabled
-                  required
+                  id="input-firstname"
                 />
               </div>
             </div>
             <div class="row">
-              <div class="label col-3 col-lg-1">Lastname</div>
-              <div class="col-9 col-lg-11">
+              <div class="label col-3 col-sm-2">Lastname</div>
+              <div class="col-9 col-sm-10">
                 <input
                   type="text"
                   class="form-control"
                   placeholder=""
-                  id="employee-lastname"
-                  disabled
-                  required
+                  id="input-lastname"
                 />
               </div>
             </div>
             <div class="row">
-              <div class="label col-3 col-lg-1">ID</div>
-              <div class="col-9 col-lg-11">
+              <div class="label col-3 col-sm-2">ID</div>
+              <div class="col-9 col-sm-10">
                 <input
                   type="text"
                   class="form-control"
                   placeholder=""
-                  id="employee-id"
-                  disabled
+                  id="input-id"
                 />
               </div>
             </div>
             <div class="row">
-              <div class="label col-3 col-lg-1">Job title</div>
-              <div class="col-9 col-lg-11">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder=""
-                  id="employee-job"
-                  disabled
-                />
-              </div>
-            </div>
-            <div class="row">
-              <div class="label col-3 col-lg-1">Email</div>
-              <div class="col-9 col-lg-11">
-                <input
-                  type="email"
-                  class="form-control"
-                  placeholder=""
-                  id="employee-email"
-                  disabled
-                  required
-                />
-              </div>
-            </div>
-            <div class="row">
-              <div class="label col-3 col-lg-1">Department</div>
-              <div class="col-9 col-lg-11">
+              <div class="label col-3 col-sm-2">Department</div>
+              <div class="col-9 col-sm-10">
                 <select
                   type="select"
                   class="form-control"
-                  id="employee-department"
-                  disabled
-                  required
+                  id="input-department"
                 >
-                  <option
-                    value="null"
-                    selected
-                    class="placeholder"
-                    disabled
-                  ></option>
+                  <option value="" selected class="placeholder"></option>
                   <option value="Human Resources">Human Resources</option>
                   <option value="Sales">Sales</option>
                   <option value="Marketing">Marketing</option>
@@ -145,21 +124,10 @@
               </div>
             </div>
             <div class="row">
-              <div class="label col-3 col-lg-1">Location</div>
-              <div class="col-9 col-lg-11">
-                <select
-                  type="select"
-                  class="form-control"
-                  id="employee-location"
-                  disabled
-                  required
-                >
-                  <option
-                    value="null"
-                    selected
-                    class="placeholder"
-                    disabled
-                  ></option>
+              <div class="label col-3 col-sm-2">Location</div>
+              <div class="col-9 col-sm-10">
+                <select type="select" class="form-control" id="input-location">
+                  <option value="" selected class="placeholder"></option>
                   <option value="London">London</option>
                   <option value="New York">New York</option>
                   <option value="Paris">Paris</option>
@@ -168,118 +136,15 @@
                 </select>
               </div>
             </div>
-            <!-- Button group -->
-            <div class="row" id="save-buttons">
+            <div class="row" id="search-button">
               <div class="col-4"></div>
-              <div class="btn-group col-4">
-                <button class="btn btn-secondary cancel-button">Cancel</button>
-                <button id="save-button" class="btn btn-primary" disabled>
-                  Save
-                </button>
-              </div>
-              <div class="col-4"></div>
+              <button id="search" class="btn btn-primary col-4">Search</button>
+              <div class="col-2"></div>
+              <button id="clear-search" class="btn col-2 btn-secondary btn-sm">
+                X
+              </button>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container section">
-      <!-- Header -->
-      <div id="header" class="row">
-        <h1 class="col">Company Directory</h1>
-        <div class="btn-group">
-          <button
-            id="open-search-button"
-            class="btn btn-primary btn-sm"
-            data-toggle="modal"
-            data-target="#search-modal"
-          >
-            Search
-          </button>
-          <button class="btn btn-sm btn-success" id="new-employee-button">
-            Create
-          </button>
-        </div>
-      </div>
-      <!-- Main Content -->
-      <!-- Search Form -->
-      <div id="form">
-        <div class="row">
-          <div class="label col-3 col-lg-1">Firstname</div>
-          <div class="col-9 col-lg-11">
-            <input
-              type="text"
-              class="form-control"
-              placeholder=""
-              id="input-firstname"
-            />
-          </div>
-        </div>
-        <div class="row">
-          <div class="label col-3 col-lg-1">Lastname</div>
-          <div class="col-9 col-lg-11">
-            <input
-              type="text"
-              class="form-control"
-              placeholder=""
-              id="input-lastname"
-            />
-          </div>
-        </div>
-        <div class="row">
-          <div class="label col-3 col-lg-1">ID</div>
-          <div class="col-9 col-lg-11">
-            <input
-              type="text"
-              class="form-control"
-              placeholder=""
-              id="input-id"
-            />
-          </div>
-        </div>
-        <div class="row">
-          <div class="label col-3 col-lg-1">Department</div>
-          <div class="col-9 col-lg-11">
-            <select type="select" class="form-control" id="input-department">
-              <option value="" selected class="placeholder"></option>
-              <option value="Human Resources">Human Resources</option>
-              <option value="Sales">Sales</option>
-              <option value="Marketing">Marketing</option>
-              <option value="Legal">Legal</option>
-              <option value="Services">Services</option>
-              <option value="Research and Development">
-                Research and Development
-              </option>
-              <option value="Product Management">Product Management</option>
-              <option value="Training">Training</option>
-              <option value="Support">Support</option>
-              <option value="Engineering">Engineering</option>
-              <option value="Accounting">Accounting</option>
-              <option value="Business Development">Business Development</option>
-            </select>
-          </div>
-        </div>
-        <div class="row">
-          <div class="label col-3 col-lg-1">Location</div>
-          <div class="col-9 col-lg-11">
-            <select type="select" class="form-control" id="input-location">
-              <option value="" selected class="placeholder"></option>
-              <option value="London">London</option>
-              <option value="New York">New York</option>
-              <option value="Paris">Paris</option>
-              <option value="Munich">Munich</option>
-              <option value="Rome">Rome</option>
-            </select>
-          </div>
-        </div>
-        <div class="row" id="search-button">
-          <div class="col-4"></div>
-          <button id="search" class="btn btn-primary col-4">Search</button>
-          <div class="col-2"></div>
-          <button id="clear-search" class="btn col-2 btn-secondary btn-sm">
-            X
-          </button>
         </div>
       </div>
       <!-- Results Table -->
@@ -297,6 +162,195 @@
           </tbody>
         </table>
       </div>
+
+      <!-- Employee modal -->
+      <div id="employee-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Employee Info</h4>
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="container">
+                <!-- Buttons along the top -->
+                <div id="button-row">
+                  <button
+                    id="back-button"
+                    class="btn btn-primary btn-sm back-button"
+                  >
+                    Back to results
+                  </button>
+                  <div class="btn-group">
+                    <button id="edit-button" class="btn btn-success btn-sm">
+                      Edit
+                    </button>
+                    <button
+                      id="delete-button"
+                      class="btn btn-danger btn-sm"
+                      data-toggle="modal"
+                      data-target="#delete-modal"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+                <div id="employee-info">
+                  <div id="form">
+                    <div class="row">
+                      <div class="label col-3 col-sm-2">Firstname</div>
+                      <div class="col-9 col-sm-10">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder=""
+                          id="employee-firstname"
+                          disabled
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="label col-3 col-sm-2">Lastname</div>
+                      <div class="col-9 col-sm-10">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder=""
+                          id="employee-lastname"
+                          disabled
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="label col-3 col-sm-2">ID</div>
+                      <div class="col-9 col-sm-10">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder=""
+                          id="employee-id"
+                          disabled
+                        />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="label col-3 col-sm-2">Job title</div>
+                      <div class="col-9 col-sm-10">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder=""
+                          id="employee-job"
+                          disabled
+                        />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="label col-3 col-sm-2">Email</div>
+                      <div class="col-9 col-sm-10">
+                        <input
+                          type="email"
+                          class="form-control"
+                          placeholder=""
+                          id="employee-email"
+                          disabled
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="label col-3 col-sm-2">Department</div>
+                      <div class="col-9 col-sm-10">
+                        <select
+                          type="select"
+                          class="form-control"
+                          id="employee-department"
+                          disabled
+                          required
+                        >
+                          <option
+                            value="null"
+                            selected
+                            class="placeholder"
+                            disabled
+                          ></option>
+                          <option value="Human Resources">
+                            Human Resources
+                          </option>
+                          <option value="Sales">Sales</option>
+                          <option value="Marketing">Marketing</option>
+                          <option value="Legal">Legal</option>
+                          <option value="Services">Services</option>
+                          <option value="Research and Development">
+                            Research and Development
+                          </option>
+                          <option value="Product Management">
+                            Product Management
+                          </option>
+                          <option value="Training">Training</option>
+                          <option value="Support">Support</option>
+                          <option value="Engineering">Engineering</option>
+                          <option value="Accounting">Accounting</option>
+                          <option value="Business Development">
+                            Business Development
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="label col-3 col-sm-2">Location</div>
+                      <div class="col-9 col-sm-10">
+                        <select
+                          type="select"
+                          class="form-control"
+                          id="employee-location"
+                          disabled
+                          required
+                        >
+                          <option
+                            value="null"
+                            selected
+                            class="placeholder"
+                            disabled
+                          ></option>
+                          <option value="London">London</option>
+                          <option value="New York">New York</option>
+                          <option value="Paris">Paris</option>
+                          <option value="Munich">Munich</option>
+                          <option value="Rome">Rome</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div class="container">
+                <!-- Button group -->
+                <div class="row" id="save-buttons">
+                  <div class="col-4"></div>
+                  <div class="btn-group col-4">
+                    <button class="btn btn-secondary cancel-button">
+                      Cancel
+                    </button>
+                    <button id="save-button" class="btn btn-primary" disabled>
+                      Save
+                    </button>
+                  </div>
+                  <div class="col-4"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Delete warning modal -->
       <div id="delete-modal" class="modal fade" role="dialog">
         <div class="modal-dialog">
