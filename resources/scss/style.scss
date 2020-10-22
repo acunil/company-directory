@@ -51,6 +51,10 @@ select {
   display: none;
 }
 
+table {
+  z-index: 1;
+}
+
 // center labels
 #form .row,
 #employee-card .row {
@@ -80,6 +84,11 @@ select {
 
   overflow: auto;
 
+  ::-webkit-scrollbar {
+    display: none;
+    z-index: -1;
+  }
+
   /* for Firefox */
   min-height: 0;
 }
@@ -92,7 +101,7 @@ select {
   left: 0;
   right: 0;
   flex-grow: 1;
-  z-index: 1400;
+  z-index: 9000;
   display: none;
   background-color: white;
   padding: 10px 0;

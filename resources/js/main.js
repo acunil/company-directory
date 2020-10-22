@@ -281,7 +281,7 @@ const showSearchResults = results => {
     let template = $(`<tr class='clickable-row' id=${employee.id}>
     <td>${employee.firstName}</td>
     <td>${employee.lastName}</td>
-    <td>${employee.id}</td>
+    <td class="text-center">${employee.id}</td>
   </tr>`);
 
     // add template to table
