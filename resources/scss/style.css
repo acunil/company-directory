@@ -104,7 +104,7 @@ select {
   font-size: 0.8rem;
 }
 
-#employee-card #button-row {
+#employee-card .flex-button-row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
