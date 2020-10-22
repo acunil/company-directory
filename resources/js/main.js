@@ -277,7 +277,10 @@ const showSearchResults = results => {
     // assign variables
 
     // display card, hide search
-    $("#employee-modal").modal();
+    $("#employee-modal").modal({
+      backdrop: "static",
+      keyboard: false,
+    });
 
     // // Populate data into fields
     $("#employee-firstname").val(employee.firstName);
@@ -441,3 +444,28 @@ $("#employee-department").change(() => {
 
   $("#employee-location").val(location);
 });
+
+// Function to handle cancel save
+const handleCancelSave = () => {
+  //
+  $("#edit-footer").removeClass("d-block").addClass("d-none");
+
+  //
+  $("#save-buttons").css({ display: "none" });
+  $("#employee-info input, #employee-info select").prop("disabled", true);
+  $("#back-button, #delete-button, #edit-button").prop("disabled", false);
+
+  // if on create new employee screen
+  if ($("#employee-id").val() === "") {
+    //
+    $(".scrollable-content").show();
+    $("#employee-card").hide();
+  } else {
+    // loop through temp keys and use jQuery to repopulate form elements with saved values
+    try {
+      for (let id in Temp) {
+        $(id).val(Temp[id]);
+      }
+    } catch (e) {}
+  }
+};
