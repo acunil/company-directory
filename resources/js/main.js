@@ -265,8 +265,7 @@ const showSearchResults = results => {
     // assign variables
 
     // display card, hide search
-    $(".scrollable-content").hide();
-    $("#employee-card").show();
+    $("#employee-modal").modal();
 
     // // Populate data into fields
     $("#employee-firstname").val(employee.firstName);
