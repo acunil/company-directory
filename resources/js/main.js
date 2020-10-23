@@ -173,6 +173,10 @@ $(() => {
       // Enable edit/delete
       $("#back-button, #delete-button, #edit-button").prop("disabled", false);
 
+      // Disable employee fields
+      $("#employee-info input, #employee-info select").prop("disabled", true);
+      $("#back-button, #delete-button, #edit-button").prop("disabled", false);
+
       // Rerun global search
       clearSearchFields();
       $("#search").click();
@@ -281,7 +285,7 @@ const showSearchResults = results => {
     let template = $(`<tr class='clickable-row' id=${employee.id}>
     <td class="col-2 text-center">${employee.id}</td>
     <td class="col-5 text-center">${employee.firstName}</td>
-    <td class="col-5 text-center">${employee.lastName}</td>
+    <td class="col-5">${employee.lastName}</td>
   </tr>`);
 
     // add template to table
