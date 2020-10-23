@@ -279,9 +279,9 @@ const showSearchResults = results => {
   results.forEach(employee => {
     // template HTML
     let template = $(`<tr class='clickable-row' id=${employee.id}>
-    <td>${employee.firstName}</td>
-    <td>${employee.lastName}</td>
-    <td class="text-center">${employee.id}</td>
+    <td class="col-2 text-center">${employee.id}</td>
+    <td class="col-5 text-center">${employee.firstName}</td>
+    <td class="col-5 text-center">${employee.lastName}</td>
   </tr>`);
 
     // add template to table

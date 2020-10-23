@@ -16,6 +16,12 @@
       crossorigin="anonymous"
     />
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Commissioner font -->
+    <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap" rel="stylesheet"> 
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./resources/scss/style.css" />
 
@@ -28,7 +34,8 @@
     <div class="container section">
       <!-- Header -->
       <div id="header" class="row">
-        <h1 class="col">Company Directory</h1>
+        
+        <h1 class="col"><i class="fa fa-address-card" ></i> &nbsp;Company Directory</h1>
         <div class="btn-group">
 
           <button
@@ -53,7 +60,7 @@
         <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">
-            <div class="modal-header alert-primary">
+            <div class="modal-header banner-primary">
               <h4 class="modal-title">Search for employees</h4>
               <button type="button" class="close" data-dismiss="modal" onclick="handleCancelSave()">
                 &times;
@@ -62,7 +69,7 @@
             <div class="modal-body">
               <div class="container">
                 <div class="row">
-                  <div class="label col-3 col-sm-2">Firstname</div>
+                  <div class="label col-3 col-sm-2">First Name</div>
                   <div class="col-9 col-sm-10">
                     <input
                       type="text"
@@ -73,7 +80,7 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="label col-3 col-sm-2">Lastname</div>
+                  <div class="label col-3 col-sm-2">Last Name</div>
                   <div class="col-9 col-sm-10">
                     <input
                       type="text"
@@ -138,7 +145,7 @@
                 
               </div>
             </div>
-            <div class="modal-footer alert-primary">
+            <div class="modal-footer banner-primary">
               <div class="container">
                 <!-- Button group -->
                 <div class="row" id="search-button">
@@ -146,7 +153,7 @@
                   <button id="search" class="col-4 btn btn-primary" data-dismiss="modal">Search</button>
                   <div class="col-2"></div>
                   <button id="clear-search" class="col-2 btn btn-secondary" data-dismiss="modal">
-                    X
+                    &times;
                   </button>
                 </div>
               </div>
@@ -156,15 +163,17 @@
       </div>      
 
       <!-- Results Table -->
-      <table class="table table-sm table-striped table-hover">
+      
+      <table class="table table-sm table-striped table-hover" id="table-head">
         <thead class="thead-dark">
           <tr>
-            <th scope="col">Firstname</th>
-            <th scope="col" >Lastname</th>
-            <th scope="col" class="text-center">ID</th>
+            <th scope="col" class="col-2 text-center">ID</th>
+            <th scope="col" class="col-5 text-center">First Name</th>
+            <th scope="col" class="col-5 text-center">Last Name</th>
           </tr>
         </thead>
       </table>
+    
       <div class="scrollable-content">
         <table class="table table-sm table-striped table-hover">
 
@@ -179,7 +188,7 @@
         <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">
-            <div class="modal-header alert-primary">
+            <div class="modal-header banner-primary">
               <h4 class="modal-title">Employee Info</h4>
               <button type="button" class="close" data-dismiss="modal" onclick="handleCancelSave()">
                 &times;
@@ -207,7 +216,7 @@
                 <div id="employee-info">
                   <div id="form">
                     <div class="row d-flex align-items-center">
-                      <div class="label col-3 col-sm-2">Firstname</div>
+                      <div class="label col-3 col-sm-2">First Name</div>
                       <div class="col-9 col-sm-10">
                         <input
                           type="text"
@@ -220,7 +229,7 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="label col-3 col-sm-2">Lastname</div>
+                      <div class="label col-3 col-sm-2">Last Name</div>
                       <div class="col-9 col-sm-10">
                         <input
                           type="text"
@@ -336,7 +345,7 @@
                 </div>
               </div>
             </div>
-            <div class="modal-footer d-none" id="edit-footer">
+            <div class="modal-footer d-none banner-primary" id="edit-footer">
               <div class="container">
                 <!-- Button group -->
                 <div  id="save-buttons" class="d-flex justify-content-around">

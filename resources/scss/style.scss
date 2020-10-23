@@ -1,8 +1,31 @@
+$grey: #4c4c4c;
+$tan: #dec4a1;
+$blue: #5c9ead;
+$red: #da2c38;
+$green: #1e3231;
+
+$background: $green;
+$text: black;
+$heading: white;
+
+// colours
+
+.close {
+  color: white;
+}
+
+.banner-primary {
+  background-color: $green;
+  color: white;
+}
+
 body {
   font-size: 12px;
+  font-family: "Commissioner", sans-serif;
   :hover {
     cursor: default;
   }
+  background-color: $background;
 }
 
 // set cursors
@@ -11,6 +34,7 @@ tbody {
   :hover {
     cursor: pointer;
   }
+  background-color: #e0e0e0;
 }
 
 input {
@@ -24,12 +48,14 @@ input {
 .label {
   font-size: 0.9em;
   text-align: right;
+  color: $text;
 }
 
 h1 {
   font-size: 1.5em;
   margin-top: 10px;
   font-weight: 600;
+  color: $heading;
 }
 
 #search-button {
@@ -53,6 +79,10 @@ select {
 
 table {
   z-index: 1;
+}
+
+#table-head {
+  margin-bottom: -15px;
 }
 
 // center labels
@@ -83,6 +113,7 @@ table {
   flex-grow: 1;
 
   overflow: auto;
+  padding-top: 15px;
 
   ::-webkit-scrollbar {
     display: none;
