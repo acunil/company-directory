@@ -164,24 +164,19 @@
 
       <!-- Results Table -->
       
-      <table class="table table-sm table-striped table-hover" id="table-head">
+      <table class="table table-sm table-striped" id="table-head">
         <thead class="thead-dark">
           <tr>
-            <th scope="col" class="col-2 text-center">ID</th>
-            <th scope="col" class="col-5 text-center">First Name</th>
-            <th scope="col" class="col-5 text-center">Last Name</th>
+            <th scope="col" >ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
           </tr>
         </thead>
+        <tbody id="results-table">
+          <!-- RESULTS WILL BE INSERTED HERE -->
+        </tbody>
       </table>
-    
-      <div class="scrollable-content">
-        <table class="table table-sm table-striped table-hover">
 
-          <tbody id="results-table">
-            <!-- RESULTS WILL BE INSERTED HERE -->
-          </tbody>
-        </table>
-      </div>
 
       <!-- Employee modal -->
       <div id="employee-modal" class="modal fade" role="dialog">
