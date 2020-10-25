@@ -16,10 +16,10 @@
 ;
 -- COMMENT FOR LIVE
 -- Dumping database structure for companydirectory
-CREATE DATABASE IF NOT EXISTS `companydirectory`
+CREATE DATABASE IF NOT EXISTS `dbs924323`
 /*!40100 DEFAULT CHARACTER SET utf8 */
 ;
-USE `companydirectory`;
+USE `dbs924323`;
 -- Dumping structure for table companydirectory.department
 CREATE TABLE IF NOT EXISTS `department` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
