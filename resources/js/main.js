@@ -118,27 +118,7 @@ $(() => {
   });
 
   // Cancel button
-  $(".cancel-button").click(() => {
-    // hide footer
-    $("#edit-footer").removeClass("d-block").addClass("d-none");
-
-    //
-    $("#save-buttons").css({ display: "none" });
-    $("#employee-info input, #employee-info select").prop("disabled", true);
-    $("#back-button, #delete-button, #edit-button").prop("disabled", false);
-
-    // if on create new employee screen
-    if ($("#employee-id").val() === "") {
-      //
-      $(".scrollable-content").show();
-      $("#employee-card").hide();
-    } else {
-      // loop through temp keys and use jQuery to repopulate form elements with saved values
-      for (let id in Temp) {
-        $(id).val(Temp[id]);
-      }
-    }
-  });
+  $(".cancel-button").click(handleCancelSave);
 
   // Save button
   $("#save-button").click(() => {
@@ -494,19 +474,16 @@ $("#employee-department").change(() => {
 
 // Function to handle cancel save
 const handleCancelSave = () => {
-  //
+  // hide modal footer
   $("#edit-footer").removeClass("d-block").addClass("d-none");
 
-  //
-  $("#save-buttons").css({ display: "none" });
   $("#employee-info input, #employee-info select").prop("disabled", true);
   $("#back-button, #delete-button, #edit-button").prop("disabled", false);
 
   // if on create new employee screen
   if ($("#employee-id").val() === "") {
     //
-    $(".scrollable-content").show();
-    $("#employee-card").hide();
+    $("#employee-modal").modal("hide");
   } else {
     // loop through temp keys and use jQuery to repopulate form elements with saved values
     try {
