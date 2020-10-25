@@ -23,7 +23,7 @@ $(() => {
   }
 
   // Global temp variable for editing employee info.
-  var Temp = {};
+  window.Temp = {};
 
   // Add event listeners to all input fields to watch on change, if all fields are empty then hide Clear button
   {
@@ -119,7 +119,6 @@ $(() => {
 
   // Cancel button
   $(".cancel-button").click(handleCancelSave);
-
   // Save button
   $("#save-button").click(() => {
     // hide footer
