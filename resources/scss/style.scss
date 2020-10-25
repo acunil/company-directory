@@ -99,10 +99,11 @@ table {
   align-items: center;
 }
 
-// Table
+// Table scroll and header
 th {
   position: sticky;
-  top: 50px;
+  top: 40px;
+  height: 40px;
 }
 
 table {
