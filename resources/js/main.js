@@ -118,27 +118,7 @@ $(() => {
   });
 
   // Cancel button
-  $(".cancel-button").click(() => {
-    // hide footer
-    $("#edit-footer").removeClass("d-block").addClass("d-none");
-
-    //
-    $("#save-buttons").css({ display: "none" });
-    $("#employee-info input, #employee-info select").prop("disabled", true);
-    $("#back-button, #delete-button, #edit-button").prop("disabled", false);
-
-    // if on create new employee screen
-    if ($("#employee-id").val() === "") {
-      //
-      $(".scrollable-content").show();
-      $("#employee-card").hide();
-    } else {
-      // loop through temp keys and use jQuery to repopulate form elements with saved values
-      for (let id in Temp) {
-        $(id).val(Temp[id]);
-      }
-    }
-  });
+  $(".cancel-button").click(handleCancelSave);
 
   // Save button
   $("#save-button").click(() => {
@@ -283,9 +263,9 @@ const showSearchResults = results => {
   results.forEach(employee => {
     // template HTML
     let template = $(`<tr class='clickable-row' id=${employee.id}>
-    <td class="col-2 text-center">${employee.id}</td>
-    <td class="col-5 text-center">${employee.firstName}</td>
-    <td class="col-5 text-center">${employee.lastName}</td>
+    <td >${employee.id}</td>
+    <td >${employee.firstName}</td>
+    <td >${employee.lastName}</td>
   </tr>`);
 
     // add template to table
@@ -494,19 +474,16 @@ $("#employee-department").change(() => {
 
 // Function to handle cancel save
 const handleCancelSave = () => {
-  //
+  // hide modal footer
   $("#edit-footer").removeClass("d-block").addClass("d-none");
 
-  //
-  $("#save-buttons").css({ display: "none" });
   $("#employee-info input, #employee-info select").prop("disabled", true);
   $("#back-button, #delete-button, #edit-button").prop("disabled", false);
 
   // if on create new employee screen
   if ($("#employee-id").val() === "") {
     //
-    $(".scrollable-content").show();
-    $("#employee-card").hide();
+    $("#employee-modal").modal("hide");
   } else {
     // loop through temp keys and use jQuery to repopulate form elements with saved values
     try {

@@ -5,6 +5,6 @@
 	$cd_socket = "";
 	$cd_user = "root"; // user name
 	$cd_password = ""; // password
-	$cd_dbname = "companydirectory"; // database name
+	$cd_dbname = "dbs924323"; // database name
 
 ?>
