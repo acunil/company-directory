@@ -116,63 +116,6 @@ const allSearchFieldsBlank = () => {
   return allBlank;
 };
 
-// Function to handle updating employee info
-const updateEmployee = () => {
-  $.ajax({
-    url: "resources/php/updateEmployeeByID.php",
-    type: "POST",
-    dataType: "json",
-    data: {
-      firstName: $("#employee-firstname").val(),
-      lastName: $("#employee-lastname").val(),
-      id: Number($("#employee-id").val()),
-      jobTitle: $("#employee-job").val(),
-      email: $("#employee-email").val(),
-      departmentID: Number($("#employee-department").prop("selectedIndex")),
-    },
-    success(result) {
-      console.log(
-        `Update for employee ID ${$("#employee-id").val()} was successful.`
-      );
-    },
-    error(jqXHR, textStatus, errorThrown) {
-      console.log("There was something wrong with the update request");
-      console.log(jqXHR.responseText);
-      console.log(textStatus);
-      console.log(errorThrown);
-    },
-  });
-};
-
-// Function to handle inserting new employee
-const insertEmployee = () => {
-  //
-  $.ajax({
-    url: "resources/php/insertEmployee.php",
-    type: "POST",
-    dataType: "json",
-    data: {
-      firstName: $("#employee-firstname").val(),
-      lastName: $("#employee-lastname").val(),
-      jobTitle: $("#employee-job").val(),
-      email: $("#employee-email").val(),
-      departmentID: Number($("#employee-department").prop("selectedIndex")),
-    },
-    success(result) {
-      console.log(`Employee creation was successful.`);
-      console.log(result);
-      // run SQL query for max id
-      getMaxId();
-    },
-    error(jqXHR, textStatus, errorThrown) {
-      console.log("There was something wrong with the insert request");
-      console.log(jqXHR.responseText);
-      console.log(textStatus);
-      console.log(errorThrown);
-    },
-  });
-};
-
 // Function to retrieve highest id
 const getMaxId = () => {
   //
@@ -220,6 +163,107 @@ const handleCancelSave = () => {
   } catch (e) {
     //
   }
+};
+
+/**
+ *
+ *
+ *
+ *
+ *
+ *
+ * EMPLOYEE
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
+const getEmployees = url => {
+  // Get employees
+  $.ajax({
+    url: url,
+    type: "GET",
+    dataType: "json",
+    data: {
+      firstName: $("#input-firstname").val(),
+      lastName: $("#input-lastname").val(),
+      id: $("#input-id").val(),
+      department: $("#input-department").val(),
+      location: $("#input-location").val(),
+    },
+    success(result) {
+      // Array of results
+      let results = result.data;
+      console.log(results);
+
+      // populate DOM
+      showSearchResults(results);
+    },
+    error(jqXHR, textStatus, errorThrown) {
+      console.log("There was something wrong with the test request");
+      console.log(jqXHR);
+      console.log(textStatus);
+      console.log(errorThrown);
+    },
+  });
+};
+
+const insertEmployee = () => {
+  //
+  $.ajax({
+    url: "resources/php/insertEmployee.php",
+    type: "POST",
+    dataType: "json",
+    data: {
+      firstName: $("#employee-firstname").val(),
+      lastName: $("#employee-lastname").val(),
+      jobTitle: $("#employee-job").val(),
+      email: $("#employee-email").val(),
+      departmentID: Number($("#employee-department").prop("selectedIndex")),
+    },
+    success(result) {
+      console.log(`Employee creation was successful.`);
+      console.log(result);
+      // run SQL query for max id
+      getMaxId();
+    },
+    error(jqXHR, textStatus, errorThrown) {
+      console.log("There was something wrong with the insert request");
+      console.log(jqXHR.responseText);
+      console.log(textStatus);
+      console.log(errorThrown);
+    },
+  });
+};
+
+const updateEmployee = () => {
+  $.ajax({
+    url: "resources/php/updateEmployeeByID.php",
+    type: "POST",
+    dataType: "json",
+    data: {
+      firstName: $("#employee-firstname").val(),
+      lastName: $("#employee-lastname").val(),
+      id: Number($("#employee-id").val()),
+      jobTitle: $("#employee-job").val(),
+      email: $("#employee-email").val(),
+      departmentID: Number($("#employee-department").prop("selectedIndex")),
+    },
+    success(result) {
+      console.log(
+        `Update for employee ID ${$("#employee-id").val()} was successful.`
+      );
+    },
+    error(jqXHR, textStatus, errorThrown) {
+      console.log("There was something wrong with the update request");
+      console.log(jqXHR.responseText);
+      console.log(textStatus);
+      console.log(errorThrown);
+    },
+  });
 };
 
 /**
@@ -453,4 +497,5 @@ export {
   deleteLocationByID,
   insertLocation,
   updateLocationByID,
+  getEmployees,
 };

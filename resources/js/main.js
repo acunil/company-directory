@@ -15,6 +15,7 @@ import {
   deleteLocationByID,
   insertLocation,
   updateLocationByID,
+  getEmployees,
 } from "./functions.js";
 
 // Onload
@@ -76,32 +77,7 @@ $(() => {
     }
 
     // Get employees
-    $.ajax({
-      url: searchFile,
-      type: "GET",
-      dataType: "json",
-      data: {
-        firstName: $("#input-firstname").val(),
-        lastName: $("#input-lastname").val(),
-        id: $("#input-id").val(),
-        department: $("#input-department").val(),
-        location: $("#input-location").val(),
-      },
-      success(result) {
-        // Array of results
-        let results = result.data;
-        console.log(results);
-
-        // populate DOM
-        showSearchResults(results);
-      },
-      error(jqXHR, textStatus, errorThrown) {
-        console.log("There was something wrong with the test request");
-        console.log(jqXHR);
-        console.log(textStatus);
-        console.log(errorThrown);
-      },
-    });
+    getEmployees(searchFile);
   });
 
   // Trigger search on page load
