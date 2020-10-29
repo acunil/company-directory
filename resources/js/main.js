@@ -8,6 +8,8 @@ import {
   insertEmployee,
   handleCancelSave,
   getDepartments,
+  insertDepartment,
+  deleteDepartmentByID,
   getLocations,
   deleteLocationByID,
   insertLocation,
@@ -288,6 +290,6 @@ $(() => {
     $("#employee-location").val(location);
   });
 
-  updateLocationByID("7", "Dankfurt");
-  getLocations();
+  // Testing
+  getDepartments();
 });

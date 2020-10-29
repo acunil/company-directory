@@ -244,7 +244,6 @@ const handleCancelSave = () => {
  *
  */
 
-// Function to GET all departments
 const getDepartments = () => {
   $.ajax({
     url: "resources/php/getDepartments.php",
@@ -256,6 +255,53 @@ const getDepartments = () => {
     },
     error(jqXHR, textStatus, errorThrown) {
       console.log("There was something wrong with the get departments request");
+      console.log(jqXHR);
+      console.log(textStatus);
+      console.log(errorThrown);
+    },
+  });
+};
+
+const insertDepartment = (name, locationID) => {
+  //
+  $.ajax({
+    url: "resources/php/insertDepartment.php",
+    type: "POST",
+    dataType: "json",
+    data: {
+      name: name,
+      locationID: Number(locationID),
+    },
+    success(result) {
+      console.log(`department creation was successful.`);
+      console.log(result);
+    },
+    error(jqXHR, textStatus, errorThrown) {
+      console.log(
+        "There was something wrong with the insert department request"
+      );
+      console.log(jqXHR.responseText);
+      console.log(textStatus);
+      console.log(errorThrown);
+    },
+  });
+};
+
+const deleteDepartmentByID = id => {
+  $.ajax({
+    url: "resources/php/deleteDepartmentByID.php",
+    type: "POST",
+    data: {
+      id: Number(id),
+    },
+    success(result) {
+      console.log("Department successfully deleted");
+      console.log(result);
+    },
+    error(jqXHR, textStatus, errorThrown) {
+      console.log(
+        "There was something wrong with the delete department request"
+      );
       console.log(jqXHR);
       console.log(textStatus);
       console.log(errorThrown);
@@ -375,6 +421,8 @@ export {
   insertEmployee,
   handleCancelSave,
   getDepartments,
+  insertDepartment,
+  deleteDepartmentByID,
   getLocations,
   deleteLocationByID,
   insertLocation,
