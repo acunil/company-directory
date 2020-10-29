@@ -222,6 +222,82 @@ const handleCancelSave = () => {
   }
 };
 
+/**
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ * DEPARTMENTS
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
+// Function to GET all departments
+const getDepartments = () => {
+  $.ajax({
+    url: "resources/php/getDepartments.php",
+    type: "GET",
+    dataType: "json",
+    success(result) {
+      let departments = result.data;
+      console.log(departments);
+    },
+    error(jqXHR, textStatus, errorThrown) {
+      console.log("There was something wrong with the get departments request");
+      console.log(jqXHR);
+      console.log(textStatus);
+      console.log(errorThrown);
+    },
+  });
+};
+
+/**
+ *
+ *
+ *
+ *
+ *
+ * LOCATIONS
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
+const getLocations = () => {
+  $.ajax({
+    url: "resources/php/getLocations.php",
+    type: "GET",
+    dataType: "json",
+    success(result) {
+      let locations = result.data;
+      console.log(locations);
+    },
+    error(jqXHR, textStatus, errorThrown) {
+      console.log("There was something wrong with the get locations request");
+      console.log(jqXHR);
+      console.log(textStatus);
+      console.log(errorThrown);
+    },
+  });
+};
+
+// Exports
+
 export {
   EmployeeTemp,
   showSearchResults,
@@ -231,4 +307,6 @@ export {
   updateEmployee,
   insertEmployee,
   handleCancelSave,
+  getDepartments,
+  getLocations,
 };

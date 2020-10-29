@@ -7,6 +7,8 @@ import {
   updateEmployee,
   insertEmployee,
   handleCancelSave,
+  getDepartments,
+  getLocations,
 } from "./functions.js";
 
 // Onload
@@ -283,4 +285,7 @@ $(() => {
 
     $("#employee-location").val(location);
   });
+
+  getDepartments();
+  getLocations();
 });
