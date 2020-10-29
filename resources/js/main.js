@@ -217,38 +217,6 @@ $(() => {
     }
   });
 
-  // Function to automate location:department link in dropdown
-  $("#employee-department").change(() => {
-    let location = "";
-    //
-    switch ($("#employee-department").val()) {
-      case "Legal":
-      case "Human Resources":
-      case "Services":
-        location = "London";
-        break;
-      case "Sales":
-      case "Marketing":
-        location = "New York";
-        break;
-      case "Research and Development":
-      case "Product Management":
-      case "Business Development":
-        location = "Paris";
-        break;
-      case "Training":
-      case "Support":
-        location = "Munich";
-        break;
-      case "Engineering":
-      case "Accounting":
-        location = "Rome";
-        break;
-    }
-
-    $("#employee-location").val(location);
-  });
-
   // Testing
   // insertDepartment("Horse Riding", 7);
   // updateDepartmentByID(14, "Gambling Awareness", 7);
