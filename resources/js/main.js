@@ -293,6 +293,7 @@ $(() => {
 
   // Testing
   // insertDepartment("Horse Riding", 7);
-  updateDepartmentByID(14, "Gambling Awareness", 7);
+  // updateDepartmentByID(14, "Gambling Awareness", 7);
   getDepartments();
+  getLocations();
 });
