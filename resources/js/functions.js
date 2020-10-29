@@ -198,23 +198,27 @@ const getMaxId = () => {
 
 // Function to handle cancel save
 const handleCancelSave = () => {
-  // hide modal footer
-  $("#edit-footer").removeClass("d-block").addClass("d-none");
+  try {
+    // hide modal footer
+    $("#edit-footer").removeClass("d-block").addClass("d-none");
 
-  $("#employee-info input, #employee-info select").prop("disabled", true);
-  $("#back-button, #delete-button, #edit-button").prop("disabled", false);
+    $("#employee-info input, #employee-info select").prop("disabled", true);
+    $("#back-button, #delete-button, #edit-button").prop("disabled", false);
 
-  // if on create new employee screen
-  if ($("#employee-id").val() === "") {
+    // if on create new employee screen
+    if ($("#employee-id").val() === "") {
+      //
+      $("#employee-modal").modal("hide");
+    } else {
+      // loop through temp keys and use jQuery to repopulate form elements with saved values
+      try {
+        for (let id in Temp) {
+          $(id).val(Temp[id]);
+        }
+      } catch (e) {}
+    }
+  } catch (e) {
     //
-    $("#employee-modal").modal("hide");
-  } else {
-    // loop through temp keys and use jQuery to repopulate form elements with saved values
-    try {
-      for (let id in Temp) {
-        $(id).val(Temp[id]);
-      }
-    } catch (e) {}
   }
 };
 

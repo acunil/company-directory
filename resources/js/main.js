@@ -130,6 +130,7 @@ $(() => {
 
   // Cancel button
   $(".cancel-button").click(handleCancelSave);
+
   // Save button
   $("#save-button").click(() => {
     // hide footer
