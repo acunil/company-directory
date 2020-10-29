@@ -1,23 +1,25 @@
 import {
-  EmployeeTemp,
-  showSearchResults,
-  clearSearchFields,
-  clearEmployeeFields,
-  allSearchFieldsBlank,
-  updateEmployee,
+  getEmployees,
   insertEmployee,
-  handleCancelSave,
+  updateEmployee,
+  deleteEmployee,
   getDepartments,
-  updateDepartmentByID,
   insertDepartment,
+  updateDepartmentByID,
   deleteDepartmentByID,
   getLocations,
-  deleteLocationByID,
   insertLocation,
   updateLocationByID,
-  getEmployees,
-  deleteEmployee,
-} from "./functions.js";
+  deleteLocationByID,
+} from "./crudFunctions.js";
+
+import {
+  EmployeeTemp,
+  clearSearchFields,
+  clearEmployeeFields,
+  handleCancelSave,
+  allSearchFieldsBlank,
+} from "./domFunctions.js";
 
 // Onload
 $(() => {
