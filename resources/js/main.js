@@ -136,8 +136,8 @@ $(() => {
     //
   });
 
-  // Cancel button
-  $(".cancel-button").click(handleCancelSave);
+  // Cancel buttons
+  $(".cancel-button, .close").click(handleCancelSave);
 
   // Save button
   $("#save-button").click(() => {
