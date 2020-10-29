@@ -144,6 +144,33 @@ const allSearchFieldsBlank = () => {
   return allBlank;
 };
 
+// Function to populate dropdown with all locations
+const populateLocationDropdown = (
+  targetSelectElementId,
+  arrayOfLocationObjects
+) => {
+  //
+  arrayOfLocationObjects.forEach(location => {
+    // Reset select HTML
+    $(`#${targetSelectElementId}`).html(`<option
+    value="null"
+    selected
+    class="placeholder"
+    disabled
+  ></option>`);
+
+    // Make option template
+    let option = $(
+      `<option value="${location.name}" id="location${location.id}">${location.name}</option>`
+    );
+
+    $(`#${targetSelectElementId}`).append(option);
+
+    // Attach object with $.data()
+    $(`#location${location.id}`).data(location);
+  });
+};
+
 export {
   EmployeeTemp,
   showSearchResults,
@@ -151,4 +178,5 @@ export {
   clearEmployeeFields,
   handleCancelSave,
   allSearchFieldsBlank,
+  populateLocationDropdown,
 };

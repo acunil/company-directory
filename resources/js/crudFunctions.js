@@ -63,6 +63,10 @@ const insertEmployee = () => {
       lastName: $("#employee-lastname").val(),
       jobTitle: $("#employee-job").val(),
       email: $("#employee-email").val(),
+      // THIS WILL NEED FIXING !!!!
+      //
+      //
+      // Once refactor is complete, selectedIndex probably won't work
       departmentID: Number($("#employee-department").prop("selectedIndex")),
     },
     success(result) {
