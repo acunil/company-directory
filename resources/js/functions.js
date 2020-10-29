@@ -116,29 +116,6 @@ const allSearchFieldsBlank = () => {
   return allBlank;
 };
 
-// Function to retrieve highest id
-const getMaxId = () => {
-  //
-  $.ajax({
-    url: "resources/php/getMaxId.php",
-    type: "GET",
-    dataType: "json",
-    success(result) {
-      console.log(`Max ID retrieval was successful.`);
-      console.log(result);
-      // populate #employee-id with retrieved id
-      let id = Number(result.data[0].id);
-      $("#employee-id").val(id);
-    },
-    error(jqXHR, textStatus, errorThrown) {
-      console.log("There was something wrong with the max id request");
-      console.log(jqXHR.responseText);
-      console.log(textStatus);
-      console.log(errorThrown);
-    },
-  });
-};
-
 // Function to handle cancel save
 const handleCancelSave = () => {
   try {
@@ -259,6 +236,49 @@ const updateEmployee = () => {
     },
     error(jqXHR, textStatus, errorThrown) {
       console.log("There was something wrong with the update request");
+      console.log(jqXHR.responseText);
+      console.log(textStatus);
+      console.log(errorThrown);
+    },
+  });
+};
+
+const deleteEmployee = () => {
+  $.ajax({
+    url: "resources/php/deleteEmployeeByID.php",
+    type: "POST",
+    data: {
+      id: $("#employee-id").val(),
+    },
+    success(result) {
+      console.log("Employee successfully deleted");
+      console.log(result);
+    },
+    error(jqXHR, textStatus, errorThrown) {
+      console.log("There was something wrong with the test request");
+      console.log(jqXHR);
+      console.log(textStatus);
+      console.log(errorThrown);
+    },
+  });
+};
+
+// Function to retrieve highest id
+const getMaxId = () => {
+  //
+  $.ajax({
+    url: "resources/php/getMaxId.php",
+    type: "GET",
+    dataType: "json",
+    success(result) {
+      console.log(`Max ID retrieval was successful.`);
+      console.log(result);
+      // populate #employee-id with retrieved id
+      let id = Number(result.data[0].id);
+      $("#employee-id").val(id);
+    },
+    error(jqXHR, textStatus, errorThrown) {
+      console.log("There was something wrong with the max id request");
       console.log(jqXHR.responseText);
       console.log(textStatus);
       console.log(errorThrown);
@@ -498,4 +518,5 @@ export {
   insertLocation,
   updateLocationByID,
   getEmployees,
+  deleteEmployee,
 };

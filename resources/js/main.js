@@ -16,6 +16,7 @@ import {
   insertLocation,
   updateLocationByID,
   getEmployees,
+  deleteEmployee,
 } from "./functions.js";
 
 // Onload
@@ -66,7 +67,7 @@ $(() => {
     });
   }
 
-  // search button
+  // employee search button
   $("#search").click(() => {
     // php file path
     var searchFile = "resources/php/getAll.php";
@@ -85,9 +86,6 @@ $(() => {
 
   // back button
   $(".back-button").click(() => {
-    //
-    $(".scrollable-content").show();
-    $("#employee-card").hide();
     $("#search").click();
   });
 
@@ -161,23 +159,7 @@ $(() => {
 
   // Confirm delete button
   $("#confirm-delete").click(() => {
-    $.ajax({
-      url: "resources/php/deleteEmployeeByID.php",
-      type: "POST",
-      data: {
-        id: $("#employee-id").val(),
-      },
-      success(result) {
-        console.log("Employee successfully deleted");
-        console.log(result);
-      },
-      error(jqXHR, textStatus, errorThrown) {
-        console.log("There was something wrong with the test request");
-        console.log(jqXHR);
-        console.log(textStatus);
-        console.log(errorThrown);
-      },
-    });
+    deleteEmployee();
   });
 
   // New Employee button
