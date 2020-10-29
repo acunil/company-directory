@@ -8,6 +8,7 @@ import {
   insertEmployee,
   handleCancelSave,
   getDepartments,
+  updateDepartmentByID,
   insertDepartment,
   deleteDepartmentByID,
   getLocations,
@@ -291,5 +292,7 @@ $(() => {
   });
 
   // Testing
+  // insertDepartment("Horse Riding", 7);
+  updateDepartmentByID(14, "Gambling Awareness", 7);
   getDepartments();
 });

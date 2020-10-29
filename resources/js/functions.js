@@ -262,6 +262,31 @@ const getDepartments = () => {
   });
 };
 
+const updateDepartmentByID = (id, newName, newLocationID) => {
+  //
+  $.ajax({
+    url: "resources/php/updateDepartmentByID.php",
+    type: "POST",
+    dataType: "json",
+    data: {
+      name: newName,
+      id: Number(id),
+      locationID: Number(newLocationID),
+    },
+    success(result) {
+      console.log(`Update for Department was successful.`);
+    },
+    error(jqXHR, textStatus, errorThrown) {
+      console.log(
+        "There was something wrong with the update department request"
+      );
+      console.log(jqXHR.responseText);
+      console.log(textStatus);
+      console.log(errorThrown);
+    },
+  });
+};
+
 const insertDepartment = (name, locationID) => {
   //
   $.ajax({
@@ -421,6 +446,7 @@ export {
   insertEmployee,
   handleCancelSave,
   getDepartments,
+  updateDepartmentByID,
   insertDepartment,
   deleteDepartmentByID,
   getLocations,
