@@ -312,7 +312,29 @@ const insertLocation = name => {
       getLocations();
     },
     error(jqXHR, textStatus, errorThrown) {
-      console.log("There was something wrong with the insert request");
+      console.log("There was something wrong with the insert location request");
+      console.log(jqXHR.responseText);
+      console.log(textStatus);
+      console.log(errorThrown);
+    },
+  });
+};
+
+const updateLocationByID = (id, newName) => {
+  //
+  $.ajax({
+    url: "resources/php/updateLocationByID.php",
+    type: "POST",
+    dataType: "json",
+    data: {
+      name: newName,
+      id: Number(id),
+    },
+    success(result) {
+      console.log(`Update for location was successful.`);
+    },
+    error(jqXHR, textStatus, errorThrown) {
+      console.log("There was something wrong with the update location request");
       console.log(jqXHR.responseText);
       console.log(textStatus);
       console.log(errorThrown);
@@ -329,7 +351,7 @@ const deleteLocationByID = id => {
       id: Number(id),
     },
     success(result) {
-      console.log("Employee successfully deleted");
+      console.log("Location successfully deleted");
       console.log(result);
     },
     error(jqXHR, textStatus, errorThrown) {
@@ -356,4 +378,5 @@ export {
   getLocations,
   deleteLocationByID,
   insertLocation,
+  updateLocationByID,
 };

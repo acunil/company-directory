@@ -11,6 +11,7 @@ import {
   getLocations,
   deleteLocationByID,
   insertLocation,
+  updateLocationByID,
 } from "./functions.js";
 
 // Onload
@@ -286,4 +287,7 @@ $(() => {
 
     $("#employee-location").val(location);
   });
+
+  updateLocationByID("7", "Dankfurt");
+  getLocations();
 });
