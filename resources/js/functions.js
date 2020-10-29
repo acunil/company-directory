@@ -296,6 +296,51 @@ const getLocations = () => {
   });
 };
 
+const insertLocation = name => {
+  //
+  $.ajax({
+    url: "resources/php/insertLocation.php",
+    type: "POST",
+    dataType: "json",
+    data: {
+      name: name,
+    },
+    success(result) {
+      console.log(`Location creation was successful.`);
+      console.log(result);
+      // run SQL query for all Locations
+      getLocations();
+    },
+    error(jqXHR, textStatus, errorThrown) {
+      console.log("There was something wrong with the insert request");
+      console.log(jqXHR.responseText);
+      console.log(textStatus);
+      console.log(errorThrown);
+    },
+  });
+};
+
+const deleteLocationByID = id => {
+  //
+  $.ajax({
+    url: "resources/php/deleteLocationByID.php",
+    type: "POST",
+    data: {
+      id: Number(id),
+    },
+    success(result) {
+      console.log("Employee successfully deleted");
+      console.log(result);
+    },
+    error(jqXHR, textStatus, errorThrown) {
+      console.log("There was something wrong with the test request");
+      console.log(jqXHR);
+      console.log(textStatus);
+      console.log(errorThrown);
+    },
+  });
+};
+
 // Exports
 
 export {
@@ -309,4 +354,6 @@ export {
   handleCancelSave,
   getDepartments,
   getLocations,
+  deleteLocationByID,
+  insertLocation,
 };

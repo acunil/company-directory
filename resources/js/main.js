@@ -9,6 +9,8 @@ import {
   handleCancelSave,
   getDepartments,
   getLocations,
+  deleteLocationByID,
+  insertLocation,
 } from "./functions.js";
 
 // Onload
@@ -179,7 +181,6 @@ $(() => {
 
   // Confirm delete button
   $("#confirm-delete").click(() => {
-    // clear search results, or completely fresh search boxes
     $.ajax({
       url: "resources/php/deleteEmployeeByID.php",
       type: "POST",
@@ -285,7 +286,4 @@ $(() => {
 
     $("#employee-location").val(location);
   });
-
-  getDepartments();
-  getLocations();
 });
