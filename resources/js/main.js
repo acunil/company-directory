@@ -115,7 +115,7 @@ $(() => {
     Temp = EmployeeTemp();
 
     $("#save-buttons").css({ display: "flex" });
-    $("#employee-info input:not(#employee-id), #employee-department").prop(
+    $("#employee-info input:not(#employee-id), #select-department").prop(
       "disabled",
       false
     );
@@ -181,6 +181,16 @@ $(() => {
 
   // New Employee button
   $("#create-button").click(() => {
+    // populate location and department dropdowns
+    populateLocationDropdown("select-location", [
+      { name: "Quora", id: "42" },
+      { name: "Gamble", id: "22" },
+    ]);
+    populateDepartmentDropdown("select-department", [
+      { name: "dept1", id: "1" },
+      { name: "dept2", id: "12" },
+    ]);
+
     // Show modal
     $("#employee-modal").modal({
       backdrop: "static",
