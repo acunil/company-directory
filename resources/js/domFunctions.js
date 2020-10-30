@@ -149,16 +149,15 @@ const populateLocationDropdown = (
   targetSelectElementId,
   arrayOfLocationObjects
 ) => {
+  // Reset select HTML
+  $(`#${targetSelectElementId}`).html(`<option
+  value="null"
+  selected
+  class="placeholder"
+  disabled
+></option>`);
   //
   arrayOfLocationObjects.forEach(location => {
-    // Reset select HTML
-    $(`#${targetSelectElementId}`).html(`<option
-    value="null"
-    selected
-    class="placeholder"
-    disabled
-  ></option>`);
-
     // Make option template
     let option = $(
       `<option value="${location.name}" id="location${location.id}">${location.name}</option>`
@@ -171,6 +170,32 @@ const populateLocationDropdown = (
   });
 };
 
+// Function to populate dropdown with all departments
+const populateDepartmentDropdown = (
+  targetSelectElementId,
+  arrayOfDepartmentObjects
+) => {
+  // Reset select HTML
+  $(`#${targetSelectElementId}`).html(`<option
+  value="null"
+  selected
+  class="placeholder"
+  disabled
+></option>`);
+  //
+  arrayOfDepartmentObjects.forEach(department => {
+    // Make option template
+    let option = $(
+      `<option value="${department.name}" id="department${department.id}">${department.name}</option>`
+    );
+
+    $(`#${targetSelectElementId}`).append(option);
+
+    // Attach object with $.data()
+    $(`#department${department.id}`).data(department);
+  });
+};
+
 export {
   EmployeeTemp,
   showSearchResults,
@@ -179,4 +204,5 @@ export {
   handleCancelSave,
   allSearchFieldsBlank,
   populateLocationDropdown,
+  populateDepartmentDropdown,
 };

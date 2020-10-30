@@ -20,6 +20,7 @@ import {
   handleCancelSave,
   allSearchFieldsBlank,
   populateLocationDropdown,
+  populateDepartmentDropdown,
 } from "./domFunctions.js";
 
 // Onload
@@ -90,7 +91,14 @@ $(() => {
   // Open search button
   $("#open-search-button").click(() => {
     //
-    populateLocationDropdown("input-location", [{ name: "Quora", id: "42" }]);
+    populateDepartmentDropdown("input-department", [
+      { name: "dept1", id: "1" },
+      { name: "dept2", id: "12" },
+    ]);
+    populateLocationDropdown("input-location", [
+      { name: "Quora", id: "42" },
+      { name: "Gamble", id: "22" },
+    ]);
   });
 
   // back button
