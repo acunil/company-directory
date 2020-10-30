@@ -154,7 +154,6 @@ const populateLocationDropdown = (
   value="null"
   selected
   class="placeholder"
-  disabled
 ></option>`);
   //
   arrayOfLocationObjects.forEach(location => {
@@ -180,7 +179,6 @@ const populateDepartmentDropdown = (
   value="null"
   selected
   class="placeholder"
-  disabled
 ></option>`);
   //
   arrayOfDepartmentObjects.forEach(department => {
