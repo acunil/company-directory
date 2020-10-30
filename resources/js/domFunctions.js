@@ -88,7 +88,7 @@ const clearEmployeeFields = () => {
     "#select-department",
     "#select-location",
     "#employee-email",
-    "#employee-jobtitle",
+    "#employee-job",
   ];
 
   searchFieldIds.forEach(id => {
