@@ -18,7 +18,7 @@ const showSearchResults = results => {
   // Loop through results array
   results.forEach(employee => {
     // template HTML
-    let template = $(`<tr class='clickable-row' id=${employee.id}>
+    let template = $(`<tr class='clickable-employee-row' id=${employee.id}>
     <td >${employee.id}</td>
     <td >${employee.firstName}</td>
     <td >${employee.lastName}</td>
@@ -34,7 +34,7 @@ const showSearchResults = results => {
 
   // add callback function
   // Row click
-  $(".clickable-row").click(row => {
+  $(".clickable-employee-row").click(row => {
     // Get employee object from row using $.data()
     //
     //
@@ -202,7 +202,7 @@ const showDepartmentResults = results => {
   // Loop through results array
   results.forEach(department => {
     // template HTML
-    let template = $(`<tr class='clickable-row' id=department-result${department.id}>
+    let template = $(`<tr class='clickable-department-row' id=department-result${department.id}>
     <td >${department.name}</td>
   </tr>`);
 
@@ -215,7 +215,7 @@ const showDepartmentResults = results => {
 
   // add callback function
   // Row click
-  $(".clickable-row").click(row => {
+  $(".clickable-department-row").click(row => {
     // Get employee object from row using $.data()
     //
     //
@@ -237,6 +237,48 @@ const showDepartmentResults = results => {
   });
 };
 
+// Function to populate Location results in DOM table
+const showLocationResults = results => {
+  // clear current search results, if any
+  $("#location-results-table").html("");
+
+  // Loop through results array
+  results.forEach(location => {
+    // template HTML
+    let template = $(`<tr class='clickable-location-row' id=location-result${location.id}>
+    <td >${location.name}</td>
+  </tr>`);
+
+    // add template to table
+    $("#location-results-table").append(template);
+
+    // Attach location object to HTML element using $.data() method
+    $(`#location-result${location.id}`).data(location);
+  });
+
+  // add callback function
+  // Row click
+  $(".clickable-location-row").click(row => {
+    // Get employee object from row using $.data()
+    //
+    //
+    let id = row.currentTarget.id;
+    let location = $(`#${id}`).data();
+    console.log(location);
+
+    // assign variables
+
+    // display card, hide search
+    $("#location-modal").modal({
+      backdrop: "static",
+      keyboard: true,
+    });
+
+    // // Populate data into fields
+    $("#location-location").val(location.name);
+  });
+};
+
 export {
   EmployeeTemp,
   showSearchResults,
@@ -247,4 +289,5 @@ export {
   populateLocationDropdown,
   populateDepartmentDropdown,
   showDepartmentResults,
+  showLocationResults,
 };

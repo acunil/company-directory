@@ -7,6 +7,7 @@ import {
   populateDepartmentDropdown,
   populateLocationDropdown,
   showDepartmentResults,
+  showLocationResults,
 } from "./domFunctions.js";
 
 /**
@@ -301,6 +302,7 @@ const getLocations = () => {
 
       populateLocationDropdown("select-location", locations);
       populateLocationDropdown("input-location", locations);
+      showLocationResults(locations);
     },
     error(jqXHR, textStatus, errorThrown) {
       console.log("There was something wrong with the get locations request");
