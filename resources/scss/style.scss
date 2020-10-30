@@ -1,10 +1,20 @@
-$grey: #4c4c4c;
-$tan: #dec4a1;
-$blue: #5c9ead;
-$red: #da2c38;
-$green: #1e3231;
+$black: #222;
+$purple: #4b4e6d;
+$pink: #ea526f;
+$green: #7fb069;
+$yellow: #fff3b0;
 
-$background: $green;
+$dark-purple: #1b1c23;
+$dark-pink: #7b2333;
+$dark-green: #405637;
+$dark-yellow: #b9a21f;
+
+$light-purple: #9497ac;
+$light-pink: #eab5bf;
+$light-green: #c2d3ba;
+$light-yellow: #faf6df;
+
+$background: $dark-purple;
 $text: black;
 $heading: white;
 
@@ -15,7 +25,7 @@ $heading: white;
 }
 
 .banner-primary {
-  background-color: $green;
+  background-color: $dark-pink;
   color: white;
 }
 
@@ -26,6 +36,10 @@ body {
     cursor: default;
   }
   background-color: $background;
+}
+
+#employee-table-head {
+  background-color: $pink;
 }
 
 // set cursors
@@ -88,7 +102,7 @@ table {
   z-index: 1;
 }
 
-#table-head {
+#employee-table {
   margin-bottom: -15px;
 }
 

@@ -3,18 +3,22 @@
 }
 
 .banner-primary {
-  background-color: #1e3231;
+  background-color: #7b2333;
   color: white;
 }
 
 body {
   font-size: 12px;
   font-family: "Commissioner", sans-serif;
-  background-color: #1e3231;
+  background-color: #1b1c23;
 }
 
 body :hover {
   cursor: default;
+}
+
+#employee-table-head {
+  background-color: #ea526f;
 }
 
 tbody {
@@ -52,7 +56,7 @@ h1 {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: #1e3231;
+  background-color: #1b1c23;
 }
 
 #header .btn-group {
@@ -74,7 +78,7 @@ table {
   z-index: 1;
 }
 
-#table-head {
+#employee-table {
   margin-bottom: -15px;
 }
 
