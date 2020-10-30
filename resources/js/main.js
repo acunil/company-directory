@@ -221,10 +221,32 @@ $(() => {
     }
   });
 
+  // Populate departments and locations in dropdowns
+
+  getDepartments();
+  getLocations();
+
   // Testing
   // insertDepartment("Horse Riding", 7);
   // updateDepartmentByID(14, "Gambling Awareness", 7);
 
-  getDepartments();
-  getLocations();
+  // onchange listener for #select-department that auto changes relative location dropdown
+  $("#select-department").change(() => {
+    // Retrieve object using $.data()
+    let dept = $("#select-department option:selected").data();
+
+    // Access #select-location with child class matching dept locationID
+    let locationID = dept.locationID;
+    $(`#select-location .location${locationID}`).attr("selected", "selected");
+  });
+
+  // onchange listener for #input-department that auto changes relative location dropdown
+  $("#input-department").change(() => {
+    // Retrieve object using $.data()
+    let dept = $("#input-department option:selected").data();
+
+    // Access #select-location with child class matching dept locationID
+    let locationID = dept.locationID;
+    $(`#input-location .location${locationID}`).attr("selected", "selected");
+  });
 });

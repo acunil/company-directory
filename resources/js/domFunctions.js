@@ -159,7 +159,7 @@ const populateLocationDropdown = (
   arrayOfLocationObjects.forEach(location => {
     // Make option template
     let option = $(
-      `<option value="${location.name}" id="location${location.id}">${location.name}</option>`
+      `<option value="${location.name}" class="location${location.id}">${location.name}</option>`
     );
 
     $(`#${targetSelectElementId}`).append(option);
@@ -193,6 +193,9 @@ const populateDepartmentDropdown = (
     $(`#department${department.id}`).data(department);
   });
 };
+
+// Function to watch onchange of #select-department and auto change #select-location according to locationID
+const matchLocationToDepartment = 0;
 
 export {
   EmployeeTemp,
