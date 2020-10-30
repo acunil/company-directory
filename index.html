@@ -44,10 +44,10 @@
             data-toggle="modal"
             data-target="#search-modal"
           >
-            Search
+          <i class="fa fa-search"></i>
           </button>
           <button class="btn btn-sm btn-success" id="create-button">
-            Create
+            <i class="fa fa-plus"></i>
           </button>
         </div>
       </div>
@@ -62,7 +62,7 @@
           <div class="modal-content">
             <div class="modal-header banner-primary">
               <h4 class="modal-title">Search for employees</h4>
-              <button type="button" class="close" data-dismiss="modal" onclick="handleCancelSave()">
+              <button type="button" class="close" data-dismiss="modal" >
                 &times;
               </button>
             </div>
@@ -185,7 +185,7 @@
           <div class="modal-content">
             <div class="modal-header banner-primary">
               <h4 class="modal-title">Employee Info</h4>
-              <button type="button" class="close" data-dismiss="modal" onclick="handleCancelSave()">
+              <button type="button" class="close" data-dismiss="modal">
                 &times;
               </button>
             </div>
@@ -318,7 +318,7 @@
                         <select
                           type="select"
                           class="form-control"
-                          id="employee-location"
+                          id="select-location"
                           disabled
                           required
                         >
@@ -441,6 +441,6 @@
     ></script>
 
     <!-- Custom JS -->
-    <script src="./resources/js/main.js"></script>
+    <script type="module"  src="./resources/js/main.js"></script>
   </body>
 </html>
