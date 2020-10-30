@@ -46,16 +46,42 @@ body {
   height: 40px;
   flex: 1;
   bottom: -20px;
+  * {
+    border-radius: 0;
+  }
   #employee-tab {
     background-color: $pink;
+    border-radius: 3px 3px 0 0;
+    :hover {
+      background-color: $light-pink;
+    }
+    :active {
+      background-color: $dark-pink;
+    }
   }
 
   #department-tab {
     background-color: $green;
+    border-radius: 3px 3px 0 0;
+
+    :hover {
+      background-color: $light-green;
+    }
+    :active {
+      background-color: $dark-green;
+    }
   }
 
   #location-tab {
     background-color: $yellow;
+    border-radius: 3px 3px 0 0;
+
+    :hover {
+      background-color: $light-yellow;
+    }
+    :active {
+      background-color: $dark-yellow;
+    }
   }
 }
 

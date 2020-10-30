@@ -29,16 +29,47 @@ body :hover {
   bottom: -20px;
 }
 
+#nav-tabs * {
+  border-radius: 0;
+}
+
 #nav-tabs #employee-tab {
   background-color: #ea526f;
+  border-radius: 3px 3px 0 0;
+}
+
+#nav-tabs #employee-tab :hover {
+  background-color: #eab5bf;
+}
+
+#nav-tabs #employee-tab :active {
+  background-color: #7b2333;
 }
 
 #nav-tabs #department-tab {
   background-color: #7fb069;
+  border-radius: 3px 3px 0 0;
+}
+
+#nav-tabs #department-tab :hover {
+  background-color: #c2d3ba;
+}
+
+#nav-tabs #department-tab :active {
+  background-color: #405637;
 }
 
 #nav-tabs #location-tab {
   background-color: #fff3b0;
+  border-radius: 3px 3px 0 0;
+}
+
+#nav-tabs #location-tab :hover {
+  background-color: #faf6df;
+}
+
+#nav-tabs #location-tab :active {
+  background-color: #b9a21f;
 }
 
 tbody {
