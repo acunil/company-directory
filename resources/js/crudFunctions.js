@@ -4,6 +4,8 @@ import {
   clearEmployeeFields,
   allSearchFieldsBlank,
   handleCancelSave,
+  populateDepartmentDropdown,
+  populateLocationDropdown,
 } from "./domFunctions.js";
 
 /**
@@ -67,7 +69,7 @@ const insertEmployee = () => {
       //
       //
       // Once refactor is complete, selectedIndex probably won't work
-      departmentID: Number($("#employee-department").prop("selectedIndex")),
+      departmentID: Number($("#select-department").prop("selectedIndex")),
     },
     success(result) {
       console.log(`Employee creation was successful.`);
@@ -95,7 +97,7 @@ const updateEmployee = () => {
       id: Number($("#employee-id").val()),
       jobTitle: $("#employee-job").val(),
       email: $("#employee-email").val(),
-      departmentID: Number($("#employee-department").prop("selectedIndex")),
+      departmentID: Number($("#select-department").prop("selectedIndex")),
     },
     success(result) {
       console.log(
@@ -184,6 +186,10 @@ const getDepartments = () => {
     success(result) {
       let departments = result.data;
       console.log(departments);
+
+      // Populate dropdowns with results
+      populateDepartmentDropdown("select-department", departments);
+      populateDepartmentDropdown("input-department", departments);
     },
     error(jqXHR, textStatus, errorThrown) {
       console.log("There was something wrong with the get departments request");
@@ -289,6 +295,9 @@ const getLocations = () => {
     success(result) {
       let locations = result.data;
       console.log(locations);
+
+      populateLocationDropdown("select-location", locations);
+      populateLocationDropdown("input-location", locations);
     },
     error(jqXHR, textStatus, errorThrown) {
       console.log("There was something wrong with the get locations request");

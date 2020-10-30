@@ -88,19 +88,6 @@ $(() => {
   // Trigger search on page load
   $("#search").click();
 
-  // Open search button
-  $("#open-search-button").click(() => {
-    //
-    populateDepartmentDropdown("input-department", [
-      { name: "dept1", id: "1" },
-      { name: "dept2", id: "12" },
-    ]);
-    populateLocationDropdown("input-location", [
-      { name: "Quora", id: "42" },
-      { name: "Gamble", id: "22" },
-    ]);
-  });
-
   // back button
   $(".back-button").click(() => {
     $("#search").click();
@@ -140,7 +127,7 @@ $(() => {
       $("#employee-firstname").val() === "" ||
       $("#employee-lastname") === "" ||
       $("#employee-email") === "" ||
-      $("#employee-department") === "" ||
+      $("#select-department") === "" ||
       $("#employee-lastname") === ""
     ) {
       console.error("One or more fields are blank!");
@@ -181,16 +168,6 @@ $(() => {
 
   // New Employee button
   $("#create-button").click(() => {
-    // populate location and department dropdowns
-    populateLocationDropdown("select-location", [
-      { name: "Quora", id: "42" },
-      { name: "Gamble", id: "22" },
-    ]);
-    populateDepartmentDropdown("select-department", [
-      { name: "dept1", id: "1" },
-      { name: "dept2", id: "12" },
-    ]);
-
     // Show modal
     $("#employee-modal").modal({
       backdrop: "static",
@@ -244,10 +221,32 @@ $(() => {
     }
   });
 
+  // Populate departments and locations in dropdowns
+
+  getDepartments();
+  getLocations();
+
   // Testing
   // insertDepartment("Horse Riding", 7);
   // updateDepartmentByID(14, "Gambling Awareness", 7);
 
-  getDepartments();
-  getLocations();
+  // onchange listener for #select-department that auto changes relative location dropdown
+  $("#select-department").change(() => {
+    // Retrieve object using $.data()
+    let dept = $("#select-department option:selected").data();
+
+    // Access #select-location with child class matching dept locationID
+    let locationID = dept.locationID;
+    $(`#select-location .location${locationID}`).attr("selected", "selected");
+  });
+
+  // onchange listener for #input-department that auto changes relative location dropdown
+  $("#input-department").change(() => {
+    // Retrieve object using $.data()
+    let dept = $("#input-department option:selected").data();
+
+    // Access #select-location with child class matching dept locationID
+    let locationID = dept.locationID;
+    $(`#input-location .location${locationID}`).attr("selected", "selected");
+  });
 });
