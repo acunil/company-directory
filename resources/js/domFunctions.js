@@ -5,7 +5,7 @@ const EmployeeTemp = () => {
     "#employee-lastname": $("#employee-lastname").val(),
     "#employee-job": $("#employee-job").val(),
     "#employee-email": $("#employee-email").val(),
-    "#employee-department": $("#employee-department").val(),
+    "#select-department": $("#select-department").val(),
     "#select-location": $("#select-location").val(),
   };
 };
@@ -56,7 +56,7 @@ const showSearchResults = results => {
     $("#employee-id").val(employee.id);
     $("#employee-job").val(employee.jobTitle);
     $("#employee-email").val(employee.email);
-    $("#employee-department").val(employee.department);
+    $("#select-department").val(employee.department);
     $("#select-location").val(employee.location);
   });
 };
@@ -85,7 +85,7 @@ const clearEmployeeFields = () => {
     "#employee-firstname",
     "#employee-lastname",
     "#employee-id",
-    "#employee-department",
+    "#select-department",
     "#select-location",
     "#employee-email",
     "#employee-jobtitle",

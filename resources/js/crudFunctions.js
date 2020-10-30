@@ -67,7 +67,7 @@ const insertEmployee = () => {
       //
       //
       // Once refactor is complete, selectedIndex probably won't work
-      departmentID: Number($("#employee-department").prop("selectedIndex")),
+      departmentID: Number($("#select-department").prop("selectedIndex")),
     },
     success(result) {
       console.log(`Employee creation was successful.`);
@@ -95,7 +95,7 @@ const updateEmployee = () => {
       id: Number($("#employee-id").val()),
       jobTitle: $("#employee-job").val(),
       email: $("#employee-email").val(),
-      departmentID: Number($("#employee-department").prop("selectedIndex")),
+      departmentID: Number($("#select-department").prop("selectedIndex")),
     },
     success(result) {
       console.log(

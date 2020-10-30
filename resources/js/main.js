@@ -88,19 +88,6 @@ $(() => {
   // Trigger search on page load
   $("#search").click();
 
-  // Open search button
-  $("#open-search-button").click(() => {
-    //
-    populateDepartmentDropdown("input-department", [
-      { name: "dept1", id: "1" },
-      { name: "dept2", id: "12" },
-    ]);
-    populateLocationDropdown("input-location", [
-      { name: "Quora", id: "42" },
-      { name: "Gamble", id: "22" },
-    ]);
-  });
-
   // back button
   $(".back-button").click(() => {
     $("#search").click();
@@ -140,7 +127,7 @@ $(() => {
       $("#employee-firstname").val() === "" ||
       $("#employee-lastname") === "" ||
       $("#employee-email") === "" ||
-      $("#employee-department") === "" ||
+      $("#select-department") === "" ||
       $("#employee-lastname") === ""
     ) {
       console.error("One or more fields are blank!");
@@ -181,16 +168,6 @@ $(() => {
 
   // New Employee button
   $("#create-button").click(() => {
-    // populate location and department dropdowns
-    populateLocationDropdown("select-location", [
-      { name: "Quora", id: "42" },
-      { name: "Gamble", id: "22" },
-    ]);
-    populateDepartmentDropdown("select-department", [
-      { name: "dept1", id: "1" },
-      { name: "dept2", id: "12" },
-    ]);
-
     // Show modal
     $("#employee-modal").modal({
       backdrop: "static",
