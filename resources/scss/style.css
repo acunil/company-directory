@@ -21,6 +21,26 @@ body :hover {
   background-color: #ea526f;
 }
 
+#nav-tabs {
+  height: 40px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  bottom: -20px;
+}
+
+#nav-tabs #employee-tab {
+  background-color: #ea526f;
+}
+
+#nav-tabs #department-tab {
+  background-color: #7fb069;
+}
+
+#nav-tabs #location-tab {
+  background-color: #fff3b0;
+}
+
 tbody {
   background-color: #e0e0e0;
 }
