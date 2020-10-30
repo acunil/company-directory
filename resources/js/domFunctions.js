@@ -13,7 +13,7 @@ const EmployeeTemp = () => {
 // Function to populate search results in DOM
 const showSearchResults = results => {
   // clear current search results, if any
-  $("#results-table").html("");
+  $("#employee-results-table").html("");
 
   // Loop through results array
   results.forEach(employee => {
@@ -25,11 +25,11 @@ const showSearchResults = results => {
   </tr>`);
 
     // add template to table
-    $("#results-table").append(template);
+    $("#employee-results-table").append(template);
 
     // Attach employee object to HTML element using $.data() method
     $(`#${employee.id}`).data(employee);
-    // $("#results-table tr:last-child").data(employee);
+    // $("#employee-results-table tr:last-child").data(employee);
   });
 
   // add callback function
@@ -194,8 +194,48 @@ const populateDepartmentDropdown = (
   });
 };
 
-// Function to watch onchange of #select-department and auto change #select-location according to locationID
-const matchLocationToDepartment = 0;
+// Function to populate department results in DOM table
+const showDepartmentResults = results => {
+  // clear current search results, if any
+  $("#department-results-table").html("");
+
+  // Loop through results array
+  results.forEach(department => {
+    // template HTML
+    let template = $(`<tr class='clickable-row' id=department-result${department.id}>
+    <td >${department.name}</td>
+  </tr>`);
+
+    // add template to table
+    $("#department-results-table").append(template);
+
+    // Attach department object to HTML element using $.data() method
+    $(`#department-result${department.id}`).data(department);
+  });
+
+  // add callback function
+  // Row click
+  $(".clickable-row").click(row => {
+    // Get employee object from row using $.data()
+    //
+    //
+    let id = row.currentTarget.id;
+    let department = $(`#${id}`).data();
+    console.log(employee);
+
+    // assign variables
+
+    // display card, hide search
+    $("#department-modal").modal({
+      backdrop: "static",
+      keyboard: true,
+    });
+
+    // // Populate data into fields
+    $("#department-department").val(department.name);
+    $("#department-location").val(department.location);
+  });
+};
 
 export {
   EmployeeTemp,
@@ -206,4 +246,5 @@ export {
   allSearchFieldsBlank,
   populateLocationDropdown,
   populateDepartmentDropdown,
+  showDepartmentResults,
 };

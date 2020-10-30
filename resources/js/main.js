@@ -21,6 +21,7 @@ import {
   allSearchFieldsBlank,
   populateLocationDropdown,
   populateDepartmentDropdown,
+  showDepartmentResults,
 } from "./domFunctions.js";
 
 // Onload
