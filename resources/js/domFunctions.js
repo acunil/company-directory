@@ -151,7 +151,7 @@ const populateLocationDropdown = (
 ) => {
   // Reset select HTML
   $(`#${targetSelectElementId}`).html(`<option
-  value="null"
+  value=""
   selected
   class="placeholder"
 ></option>`);
@@ -176,7 +176,7 @@ const populateDepartmentDropdown = (
 ) => {
   // Reset select HTML
   $(`#${targetSelectElementId}`).html(`<option
-  value="null"
+  value=""
   selected
   class="placeholder"
 ></option>`);
