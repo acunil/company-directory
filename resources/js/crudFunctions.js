@@ -4,6 +4,8 @@ import {
   clearEmployeeFields,
   allSearchFieldsBlank,
   handleCancelSave,
+  populateDepartmentDropdown,
+  populateLocationDropdown,
 } from "./domFunctions.js";
 
 /**
@@ -184,6 +186,10 @@ const getDepartments = () => {
     success(result) {
       let departments = result.data;
       console.log(departments);
+
+      // Populate dropdowns with results
+      populateDepartmentDropdown("select-department", departments);
+      populateDepartmentDropdown("input-department", departments);
     },
     error(jqXHR, textStatus, errorThrown) {
       console.log("There was something wrong with the get departments request");
@@ -289,6 +295,9 @@ const getLocations = () => {
     success(result) {
       let locations = result.data;
       console.log(locations);
+
+      populateLocationDropdown("select-location", locations);
+      populateLocationDropdown("input-location", locations);
     },
     error(jqXHR, textStatus, errorThrown) {
       console.log("There was something wrong with the get locations request");
