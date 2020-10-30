@@ -19,6 +19,7 @@ import {
   clearEmployeeFields,
   handleCancelSave,
   allSearchFieldsBlank,
+  populateLocationDropdown,
 } from "./domFunctions.js";
 
 // Onload
@@ -85,6 +86,12 @@ $(() => {
 
   // Trigger search on page load
   $("#search").click();
+
+  // Open search button
+  $("#open-search-button").click(() => {
+    //
+    populateLocationDropdown("input-location", [{ name: "Quora", id: "42" }]);
+  });
 
   // back button
   $(".back-button").click(() => {
@@ -222,6 +229,7 @@ $(() => {
   // Testing
   // insertDepartment("Horse Riding", 7);
   // updateDepartmentByID(14, "Gambling Awareness", 7);
+
   getDepartments();
   getLocations();
 });
