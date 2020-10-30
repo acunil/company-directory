@@ -53,35 +53,37 @@ body {
     background-color: $pink;
     border-radius: 3px 3px 0 0;
     :hover {
-      background-color: $light-pink;
     }
     :active {
-      background-color: $dark-pink;
     }
+  }
+  #employee-tab:hover {
+    background-color: $light-pink;
+  }
+  #employee-tab:active {
+    background-color: $dark-pink;
   }
 
   #department-tab {
     background-color: $green;
     border-radius: 3px 3px 0 0;
-
-    :hover {
-      background-color: $light-green;
-    }
-    :active {
-      background-color: $dark-green;
-    }
+  }
+  #department-tab:hover {
+    background-color: $light-green;
+  }
+  #department-tab:active {
+    background-color: $dark-green;
   }
 
   #location-tab {
     background-color: $yellow;
     border-radius: 3px 3px 0 0;
-
-    :hover {
-      background-color: $light-yellow;
-    }
-    :active {
-      background-color: $dark-yellow;
-    }
+  }
+  #location-tab:hover {
+    background-color: $light-yellow;
+  }
+  #location-tab:active {
+    background-color: $dark-yellow;
   }
 }
 

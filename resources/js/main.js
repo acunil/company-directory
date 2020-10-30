@@ -227,10 +227,6 @@ $(() => {
   getDepartments();
   getLocations();
 
-  // Testing
-  // insertDepartment("Horse Riding", 7);
-  // updateDepartmentByID(14, "Gambling Awareness", 7);
-
   // onchange listener for #select-department that auto changes relative location dropdown
   $("#select-department").change(() => {
     // Retrieve object using $.data()
@@ -249,5 +245,41 @@ $(() => {
     // Access #select-location with child class matching dept locationID
     let locationID = dept.locationID;
     $(`#input-location .location${locationID}`).attr("selected", "selected");
+  });
+
+  //
+  // Testing
+  //
+  $("#department-tab").click(() => {
+    //
+    $("#employee-table, #location-table").hide();
+
+    $("#department-table").show();
+
+    $("#employee-tab, #location-tab").removeClass("font-weight-bold");
+
+    $("#department-tab").addClass("font-weight-bold");
+  });
+
+  $("#employee-tab").click(() => {
+    //
+    $("#department-table, #location-table").hide();
+
+    $("#employee-table").show();
+
+    $("#department-tab, #location-tab").removeClass("font-weight-bold");
+
+    $("#employee-tab").addClass("font-weight-bold");
+  });
+
+  $("#location-tab").click(() => {
+    //
+    $("#department-table, #employee-table").hide();
+
+    $("#location-table").show();
+
+    $("#department-tab, #employee-tab").removeClass("font-weight-bold");
+
+    $("#location-tab").addClass("font-weight-bold");
   });
 });

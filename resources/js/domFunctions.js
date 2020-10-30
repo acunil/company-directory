@@ -221,7 +221,7 @@ const showDepartmentResults = results => {
     //
     let id = row.currentTarget.id;
     let department = $(`#${id}`).data();
-    console.log(employee);
+    console.log(department);
 
     // assign variables
 
