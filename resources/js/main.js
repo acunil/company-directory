@@ -256,10 +256,6 @@ $(() => {
     $(`#input-location .location${locationID}`).attr("selected", "selected");
   });
 
-  //
-  // Testing
-  //
-
   // Tab functionality
 
   $("#department-tab").click(() => {
@@ -315,4 +311,11 @@ $(() => {
     });
     $("#department-tab, #employee-tab").css("border", "none");
   });
+
+  // Trigger employee tab to show
+  $("#employee-tab").click();
+
+  //
+  // Testing
+  //
 });

@@ -100,6 +100,12 @@ input {
 
 // general element spacing / appearance
 
+#department-table,
+#location-table,
+#employee-table {
+  display: none;
+}
+
 .label {
   font-size: 0.9em;
   text-align: right;

@@ -84,6 +84,12 @@ input :hover {
   cursor: auto;
 }
 
+#department-table,
+#location-table,
+#employee-table {
+  display: none;
+}
+
 .label {
   font-size: 0.9em;
   text-align: right;
