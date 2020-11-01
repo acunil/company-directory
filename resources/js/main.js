@@ -209,7 +209,7 @@ $(() => {
     $("#location-edit-footer").removeClass("d-none").addClass("d-block");
 
     // save temporary snapshot eg. "New York"
-    Temp = $("#location-location").val();
+    Temp.name = $("#location-location").val();
 
     $("#location-save-buttons").css({ display: "flex" });
     $("#location-location").prop("disabled", false);
@@ -246,10 +246,8 @@ $(() => {
     $("#department-edit-footer").removeClass("d-none").addClass("d-block");
 
     // save temporary snapshot
-    Temp = {
-      department: $("#department-department").val(),
-      location: $("#department-location").val(),
-    };
+    Temp.department = $("#department-department").val();
+    Temp.locationID = $("#department-location").val();
 
     $("#department-save-buttons").css({ display: "flex" });
     $("#department-department, #department-location").prop("disabled", false);
@@ -257,6 +255,11 @@ $(() => {
       "disabled",
       true
     );
+  });
+
+  // Department - Cancel save button
+  $("#department-cancel-button").click(() => {
+    $("#");
   });
 
   /***

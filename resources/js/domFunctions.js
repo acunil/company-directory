@@ -225,6 +225,7 @@ const showDepartmentResults = results => {
     let id = row.currentTarget.id;
     let department = $(`#${id}`).data();
     console.log(department);
+    Temp = department;
 
     // assign variables
 
@@ -271,6 +272,7 @@ const showLocationResults = results => {
     let id = row.currentTarget.id;
     let location = $(`#${id}`).data();
     console.log(location);
+    Temp = location;
 
     // assign variables
 
