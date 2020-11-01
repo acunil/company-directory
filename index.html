@@ -358,14 +358,109 @@
                 </div>
               </div>
             </div>
-            <div class="modal-footer d-none banner-primary" id="edit-footer">
+            <div class="modal-footer d-none banner-primary" id="employee-edit-footer">
               <div class="container">
                 <!-- Button group -->
-                <div  id="save-buttons" class="d-flex justify-content-around">
+                <div  id="employee-save-buttons" class="d-flex justify-content-around">
                     <button class="btn btn-secondary cancel-button">
                       Cancel
                     </button>
-                    <button id="save-button" class="btn btn-primary" disabled>
+                    <button id="employee-save-button" class="btn btn-primary" disabled>
+                      Save
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Employee modal -->
+      <div id="department-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header banner-primary">
+              <h4 class="modal-title">Department Info</h4>
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="container">
+                <!-- Buttons along the top -->
+                <div id="department-button-row" class="d-flex justify-content-between flex-row-reverse mb-2">
+
+                  <div class="btn-group">
+                    <button id="department-edit-button" class="btn btn-success btn-sm">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                    <button
+                      id="department-delete-button"
+                      class="btn btn-danger btn-sm"
+                      data-toggle="modal"
+                      data-target="#delete-modal"
+                    >
+                    <i class="fa fa-trash"></i>
+                    </button>
+                  </div>
+                </div>
+                <div id="department-info">
+                  <div id="department-form">
+                    
+                    <div class="row">
+                      <div class="label col-3 col-sm-2">Department</div>
+                      <div class="col-9 col-sm-10">
+                        <select
+                          type="select"
+                          class="form-control"
+                          id="department-department"
+                          disabled
+                          required
+                        >
+                          <option
+                            value=""
+                            selected
+                            class="placeholder"
+                            disabled
+                          ></option>
+                          
+                        </select>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="label col-3 col-sm-2">Location</div>
+                      <div class="col-9 col-sm-10">
+                        <select
+                          type="select"
+                          class="form-control"
+                          id="department-location"
+                          disabled
+                          required
+                        >
+                          <option
+                            value=""
+                            selected
+                            class="placeholder"
+                            disabled
+                          ></option>
+        
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer d-none banner-primary" id="department-edit-footer">
+              <div class="container">
+                <!-- Button group -->
+                <div  id="department-save-buttons" class="d-flex justify-content-around">
+                    <button class="btn btn-secondary cancel-button">
+                      Cancel
+                    </button>
+                    <button id="department-save-button" class="btn btn-primary" disabled>
                       Save
                     </button>
                   </div>

@@ -139,8 +139,7 @@ table {
   margin-bottom: -15px;
 }
 
-#employee-form .row,
-#search-modal .row {
+.modal .row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -203,7 +202,7 @@ table {
   display: none;
 }
 
-#employee-card #save-buttons,
+#employee-card #employee-save-buttons,
 #employee-card #create-buttons {
   display: none;
   margin-top: 15px;

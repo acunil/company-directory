@@ -100,7 +100,7 @@ const clearEmployeeFields = () => {
 const handleCancelSave = () => {
   try {
     // hide modal footer
-    $("#edit-footer").removeClass("d-block").addClass("d-none");
+    $("#employee-edit-footer").removeClass("d-block").addClass("d-none");
 
     $("#employee-info input, #employee-info select").prop("disabled", true);
     $("#back-button, #employee-delete-button, #employee-edit-button").prop(

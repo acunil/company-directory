@@ -154,8 +154,7 @@ table {
 }
 
 // center labels
-#employee-form .row,
-#search-modal .row {
+.modal .row {
   display: flex;
   align-items: center;
 }
@@ -216,7 +215,7 @@ table {
   }
 
   // Hide save buttons
-  #save-buttons,
+  #employee-save-buttons,
   #create-buttons {
     display: none;
     margin-top: 15px;

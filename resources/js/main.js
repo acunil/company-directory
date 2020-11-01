@@ -97,12 +97,12 @@ $(() => {
   // Edit button
   $("#employee-edit-button").click(() => {
     // show footer
-    $("#edit-footer").removeClass("d-none").addClass("d-block");
+    $("#employee-edit-footer").removeClass("d-none").addClass("d-block");
 
     // save temporary snapshot
     Temp = EmployeeTemp();
 
-    $("#save-buttons").css({ display: "flex" });
+    $("#employee-save-buttons").css({ display: "flex" });
     $("#employee-info input:not(#employee-id), #employee-department").prop(
       "disabled",
       false
@@ -122,9 +122,9 @@ $(() => {
   $(".cancel-button, .close").click(handleCancelSave);
 
   // Save button
-  $("#save-button").click(() => {
+  $("#employee-save-button").click(() => {
     // hide footer
-    $("#edit-footer").removeClass("d-block").addClass("d-none");
+    $("#employee-edit-footer").removeClass("d-block").addClass("d-none");
 
     // Check necessary info is filled in
     if (
@@ -216,10 +216,10 @@ $(() => {
     let invalid = $(":invalid");
     if (invalid[0]) {
       console.warn("Required field not filled");
-      $("#save-button").prop("disabled", true);
+      $("#employee-save-button").prop("disabled", true);
     } else {
       //
-      $("#save-button").prop("disabled", false);
+      $("#employee-save-button").prop("disabled", false);
     }
   });
 
