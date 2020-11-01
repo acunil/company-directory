@@ -43,6 +43,7 @@ const showSearchResults = results => {
     console.log(employee);
 
     // assign variables
+    Temp = employee;
 
     // display card, hide search
     $("#employee-modal").modal({
@@ -57,7 +58,7 @@ const showSearchResults = results => {
     $("#employee-job").val(employee.jobTitle);
     $("#employee-email").val(employee.email);
     $("#employee-department").val(employee.department);
-    $("#employee-location").val(employee.location);
+    $("#employee-location").val(employee.locationID);
   });
 };
 
