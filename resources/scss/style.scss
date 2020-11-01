@@ -51,35 +51,35 @@ body {
   }
   #employee-tab {
     background-color: $pink;
-    border-radius: 3px 3px 0 0;
+    border-left: 2px solid white;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
   }
   #employee-tab:hover {
-    background-color: $light-pink;
+    background-color: lighten($pink, 5%);
   }
   #employee-tab:active {
-    background-color: $dark-pink;
+    background-color: darken($pink, 15%);
   }
 
   #department-tab {
     background-color: $green;
-    border-radius: 3px 3px 0 0;
   }
   #department-tab:hover {
-    background-color: $light-green;
+    background-color: lighten($green, 5%);
   }
   #department-tab:active {
-    background-color: $dark-green;
+    background-color: darken($green, 15%);
   }
 
   #location-tab {
     background-color: $yellow;
-    border-radius: 3px 3px 0 0;
   }
   #location-tab:hover {
-    background-color: $light-yellow;
+    background-color: lighten($yellow, 5%);
   }
   #location-tab:active {
-    background-color: $dark-yellow;
+    background-color: darken($yellow, 15%);
   }
 }
 

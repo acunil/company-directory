@@ -35,41 +35,41 @@ body :hover {
 
 #nav-tabs #employee-tab {
   background-color: #ea526f;
-  border-radius: 3px 3px 0 0;
+  border-left: 2px solid white;
+  border-top: 2px solid white;
+  border-right: 2px solid white;
 }
 
 #nav-tabs #employee-tab:hover {
-  background-color: #eab5bf;
+  background-color: #ed6982;
 }
 
 #nav-tabs #employee-tab:active {
-  background-color: #7b2333;
+  background-color: #d61a3e;
 }
 
 #nav-tabs #department-tab {
   background-color: #7fb069;
-  border-radius: 3px 3px 0 0;
 }
 
 #nav-tabs #department-tab:hover {
-  background-color: #c2d3ba;
+  background-color: #8db97a;
 }
 
 #nav-tabs #department-tab:active {
-  background-color: #405637;
+  background-color: #5a8647;
 }
 
 #nav-tabs #location-tab {
   background-color: #fff3b0;
-  border-radius: 3px 3px 0 0;
 }
 
 #nav-tabs #location-tab:hover {
-  background-color: #faf6df;
+  background-color: #fff7ca;
 }
 
 #nav-tabs #location-tab:active {
-  background-color: #b9a21f;
+  background-color: #ffe764;
 }
 
 tbody {

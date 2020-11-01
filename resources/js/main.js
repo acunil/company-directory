@@ -250,6 +250,9 @@ $(() => {
   //
   // Testing
   //
+
+  // Tab functionality
+
   $("#department-tab").click(() => {
     //
     $("#employee-table, #location-table").hide();
@@ -259,6 +262,13 @@ $(() => {
     $("#employee-tab, #location-tab").removeClass("font-weight-bold");
 
     $("#department-tab").addClass("font-weight-bold");
+
+    $("#department-tab").css({
+      "border-left": "2px solid white",
+      "border-top": "2px solid white",
+      "border-right": "2px solid white",
+    });
+    $("#employee-tab, #location-tab").css("border", "none");
   });
 
   $("#employee-tab").click(() => {
@@ -270,6 +280,13 @@ $(() => {
     $("#department-tab, #location-tab").removeClass("font-weight-bold");
 
     $("#employee-tab").addClass("font-weight-bold");
+
+    $("#employee-tab").css({
+      "border-left": "2px solid white",
+      "border-top": "2px solid white",
+      "border-right": "2px solid white",
+    });
+    $("#department-tab, #location-tab").css("border", "none");
   });
 
   $("#location-tab").click(() => {
@@ -281,5 +298,12 @@ $(() => {
     $("#department-tab, #employee-tab").removeClass("font-weight-bold");
 
     $("#location-tab").addClass("font-weight-bold");
+
+    $("#location-tab").css({
+      "border-left": "2px solid white",
+      "border-top": "2px solid white",
+      "border-right": "2px solid white",
+    });
+    $("#department-tab, #employee-tab").css("border", "none");
   });
 });
