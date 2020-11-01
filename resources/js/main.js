@@ -259,7 +259,21 @@ $(() => {
 
   // Department - Cancel save button
   $("#department-cancel-button").click(() => {
-    $("#");
+    // hide footer
+    $("#department-edit-footer").removeClass("d-block").addClass("d-none");
+
+    // Enable buttons
+    $("#back-button, #department-delete-button, #department-edit-button").prop(
+      "disabled",
+      false
+    );
+
+    // Disable fields
+    $("#department-department, #department-location").prop("disabled", true);
+
+    // Use Temp to redo fields
+    $("#department-department").val(Temp.department);
+    $("#department-location").val(Temp.locationID);
   });
 
   /***

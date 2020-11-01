@@ -100,13 +100,16 @@ const clearEmployeeFields = () => {
 const handleCancelSave = () => {
   try {
     // hide modal footer
-    $("#employee-edit-footer").removeClass("d-block").addClass("d-none");
+    $("#employee-edit-footer, #department-edit-footer, #location-edit-footer")
+      .removeClass("d-block")
+      .addClass("d-none");
 
-    $("#employee-info input, #employee-info select").prop("disabled", true);
-    $("#back-button, #employee-delete-button, #employee-edit-button").prop(
-      "disabled",
-      false
-    );
+    $(
+      "#employee-info input, #employee-info select, #location-location, #department-department, #department-location"
+    ).prop("disabled", true);
+    $(
+      "#back-button, #employee-delete-button, #employee-edit-button, #department-delete-button, #department-edit-button, #location-delete-button, #location-edit-button"
+    ).prop("disabled", false);
 
     // if on create new employee screen
     if ($("#employee-id").val() === "") {
