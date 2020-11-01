@@ -209,13 +209,10 @@ $(() => {
     $("#location-edit-footer").removeClass("d-none").addClass("d-block");
 
     // save temporary snapshot eg. "New York"
-    Temp = $("#location-location option:selected").text();
+    Temp = $("#location-location").val();
 
     $("#location-save-buttons").css({ display: "flex" });
-    $("#location-location, #location-location option:selected").prop(
-      "disabled",
-      false
-    );
+    $("#location-location").prop("disabled", false);
     $("#back-button, #location-delete-button, #location-edit-button").prop(
       "disabled",
       true
