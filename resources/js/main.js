@@ -94,7 +94,18 @@ $(() => {
     $("#search").click();
   });
 
-  // Edit button
+  /**
+   *
+   *
+   *
+   * Employee Modal
+   *
+   *
+   *
+   *
+   */
+
+  // Employee - Edit button
   $("#employee-edit-button").click(() => {
     // show footer
     $("#employee-edit-footer").removeClass("d-none").addClass("d-block");
@@ -113,7 +124,7 @@ $(() => {
     );
   });
 
-  // Delete button
+  // Employee - Delete button
   $("#employee-delete-button").click(() => {
     //
   });
@@ -121,7 +132,7 @@ $(() => {
   // Cancel buttons
   $(".cancel-button, .close").click(handleCancelSave);
 
-  // Save button
+  // Employee - Save button
   $("#employee-save-button").click(() => {
     // hide footer
     $("#employee-edit-footer").removeClass("d-block").addClass("d-none");
@@ -175,6 +186,63 @@ $(() => {
   $("#confirm-delete").click(() => {
     deleteEmployee();
   });
+
+  /***
+   *
+   *
+   *
+   *
+   *
+   * Location Modal
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   */
+
+  // Location - Edit button
+  $("#location-edit-button").click(() => {
+    // show footer
+    $("#location-edit-footer").removeClass("d-none").addClass("d-block");
+
+    // save temporary snapshot eg. "New York"
+    Temp = $("#location-location option:selected").text();
+
+    $("#location-save-buttons").css({ display: "flex" });
+    $("#location-location, #location-location option:selected").prop(
+      "disabled",
+      false
+    );
+    $("#back-button, #location-delete-button, #location-edit-button").prop(
+      "disabled",
+      true
+    );
+  });
+
+  /***
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   * Department Modal
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   */
 
   // New Employee button
   $("#create-button").click(() => {

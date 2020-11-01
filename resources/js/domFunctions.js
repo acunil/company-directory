@@ -280,8 +280,8 @@ const showLocationResults = results => {
       keyboard: true,
     });
 
-    // // Populate data into fields
-    $("#location-location").val(location.id);
+    // // Populate data into field
+    $("#location-location").val(location.name);
   });
 };
 
