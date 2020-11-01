@@ -236,7 +236,9 @@ const showDepartmentResults = results => {
 
     // // Populate data into fields
     $("#department-department").val(department.name);
-    $("#department-location").val(department.location);
+    $(
+      `#department-location option[class='department${location.departmentID}']`
+    ).attr("selected", "selected");
   });
 };
 

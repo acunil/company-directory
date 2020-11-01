@@ -193,6 +193,8 @@ const getDepartments = () => {
       //
       populateDepartmentDropdown("employee-department", departments);
       populateDepartmentDropdown("input-department", departments);
+      populateDepartmentDropdown("department-department", departments);
+      populateDepartmentDropdown("location-department", departments);
       showDepartmentResults(departments);
     },
     error(jqXHR, textStatus, errorThrown) {
@@ -302,6 +304,8 @@ const getLocations = () => {
 
       populateLocationDropdown("employee-location", locations);
       populateLocationDropdown("input-location", locations);
+      populateLocationDropdown("location-location", locations);
+      populateLocationDropdown("department-location", locations);
       showLocationResults(locations);
     },
     error(jqXHR, textStatus, errorThrown) {
