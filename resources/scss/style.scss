@@ -24,9 +24,22 @@ $heading: white;
   color: white;
 }
 
-.banner-primary {
-  background-color: $dark-pink;
+.banner-employee {
+  background-color: $pink;
   color: white;
+}
+
+.banner-department {
+  background-color: $green;
+  color: white;
+}
+
+.banner-location {
+  background-color: $yellow;
+  color: $black;
+  .close {
+    color: $black;
+  }
 }
 
 body {

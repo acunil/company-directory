@@ -2,9 +2,23 @@
   color: white;
 }
 
-.banner-primary {
-  background-color: #7b2333;
+.banner-employee {
+  background-color: #ea526f;
   color: white;
+}
+
+.banner-department {
+  background-color: #7fb069;
+  color: white;
+}
+
+.banner-location {
+  background-color: #fff3b0;
+  color: #222;
+}
+
+.banner-location .close {
+  color: #222;
 }
 
 body {
