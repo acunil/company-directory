@@ -219,7 +219,7 @@ const showDepartmentResults = results => {
   // add callback function
   // Row click
   $(".clickable-department-row").click(row => {
-    // Get employee object from row using $.data()
+    // Get department object from row using $.data()
     //
     //
     let id = row.currentTarget.id;
