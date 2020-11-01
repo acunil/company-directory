@@ -162,7 +162,7 @@ const populateLocationDropdown = (
   arrayOfLocationObjects.forEach(location => {
     // Make option template
     let option = $(
-      `<option value="${location.name}" class="location${location.id}">${location.name}</option>`
+      `<option value="${location.id}" class="location${location.id}">${location.name}</option>`
     );
 
     $(`#${targetSelectElementId}`).append(option);
@@ -236,9 +236,10 @@ const showDepartmentResults = results => {
 
     // // Populate data into fields
     $("#department-department").val(department.name);
-    $(
-      `#department-location option[class='department${location.departmentID}']`
-    ).attr("selected", "selected");
+    $("#department-location").val(department.locationID);
+    // $(
+    //   `#department-location option[class='department${location.departmentID}']`
+    // ).attr("selected", "selected");
   });
 };
 
