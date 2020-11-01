@@ -42,6 +42,47 @@ body {
   background-color: $pink;
 }
 
+#nav-tabs {
+  height: 40px;
+  flex: 1;
+  bottom: -20px;
+  * {
+    border-radius: 0;
+  }
+  #employee-tab {
+    background-color: $pink;
+    border-left: 2px solid white;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+  }
+  #employee-tab:hover {
+    background-color: lighten($pink, 5%);
+  }
+  #employee-tab:active {
+    background-color: darken($pink, 15%);
+  }
+
+  #department-tab {
+    background-color: $green;
+  }
+  #department-tab:hover {
+    background-color: lighten($green, 5%);
+  }
+  #department-tab:active {
+    background-color: darken($green, 15%);
+  }
+
+  #location-tab {
+    background-color: $yellow;
+  }
+  #location-tab:hover {
+    background-color: lighten($yellow, 5%);
+  }
+  #location-tab:active {
+    background-color: darken($yellow, 15%);
+  }
+}
+
 // set cursors
 
 tbody {

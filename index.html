@@ -163,8 +163,18 @@
       </div>      
 
       <!-- Nav tabs -->
-      <div id="nav-tabs">
-        <div></div>
+      <div id="nav-tabs" class="container ">
+        <div class="row ">
+          <button class=" btn col-4 tab text-center h6 rounded-top font-weight-bold" id="employee-tab">
+            Employee
+          </button>
+          <button class="btn col-4 tab text-center h6 rounded-top" id="department-tab">
+            Department
+          </button>
+          <button class="btn col-4 tab text-center h6 rounded-top" id="location-tab">
+            Location
+          </button>
+        </div>
       </div>
 
 
@@ -178,11 +188,36 @@
             <th scope="col">Last Name</th>
           </tr>
         </thead>
-        <tbody id="results-table">
+        <tbody id="employee-results-table">
           <!-- RESULTS WILL BE INSERTED HERE -->
         </tbody>
       </table>
 
+      <!-- Department Results Table -->
+      <table class="table table-sm table-striped" id="department-table">
+        <thead class="thead-dark" id="department-table-head">
+          <tr>
+            <th scope="col">Department Name</th>
+          </tr>
+        </thead>
+        <tbody id="department-results-table">
+          <!--  -->
+          <!-- RESULTS WILL BE INSERTED HERE -->
+        </tbody>
+      </table>
+
+      <!-- Location Results Table -->
+      <table class="table table-sm table-striped" id="location-table">
+        <thead class="thead-dark" id="location-table-head">
+          <tr>
+            <th scope="col">Location</th>
+          </tr>
+        </thead>
+        <tbody id="location-results-table">
+          <!--  -->
+          <!-- RESULTS WILL BE INSERTED HERE -->
+        </tbody>
+      </table>
 
       <!-- Employee modal -->
       <div id="employee-modal" class="modal fade" role="dialog">

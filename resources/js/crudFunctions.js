@@ -6,6 +6,8 @@ import {
   handleCancelSave,
   populateDepartmentDropdown,
   populateLocationDropdown,
+  showDepartmentResults,
+  showLocationResults,
 } from "./domFunctions.js";
 
 /**
@@ -188,8 +190,10 @@ const getDepartments = () => {
       console.log(departments);
 
       // Populate dropdowns with results
+      //
       populateDepartmentDropdown("select-department", departments);
       populateDepartmentDropdown("input-department", departments);
+      showDepartmentResults(departments);
     },
     error(jqXHR, textStatus, errorThrown) {
       console.log("There was something wrong with the get departments request");
@@ -298,6 +302,7 @@ const getLocations = () => {
 
       populateLocationDropdown("select-location", locations);
       populateLocationDropdown("input-location", locations);
+      showLocationResults(locations);
     },
     error(jqXHR, textStatus, errorThrown) {
       console.log("There was something wrong with the get locations request");

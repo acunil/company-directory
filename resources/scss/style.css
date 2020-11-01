@@ -21,6 +21,57 @@ body :hover {
   background-color: #ea526f;
 }
 
+#nav-tabs {
+  height: 40px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  bottom: -20px;
+}
+
+#nav-tabs * {
+  border-radius: 0;
+}
+
+#nav-tabs #employee-tab {
+  background-color: #ea526f;
+  border-left: 2px solid white;
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+}
+
+#nav-tabs #employee-tab:hover {
+  background-color: #ed6982;
+}
+
+#nav-tabs #employee-tab:active {
+  background-color: #d61a3e;
+}
+
+#nav-tabs #department-tab {
+  background-color: #7fb069;
+}
+
+#nav-tabs #department-tab:hover {
+  background-color: #8db97a;
+}
+
+#nav-tabs #department-tab:active {
+  background-color: #5a8647;
+}
+
+#nav-tabs #location-tab {
+  background-color: #fff3b0;
+}
+
+#nav-tabs #location-tab:hover {
+  background-color: #fff7ca;
+}
+
+#nav-tabs #location-tab:active {
+  background-color: #ffe764;
+}
+
 tbody {
   background-color: #e0e0e0;
 }

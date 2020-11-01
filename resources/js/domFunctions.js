@@ -13,28 +13,28 @@ const EmployeeTemp = () => {
 // Function to populate search results in DOM
 const showSearchResults = results => {
   // clear current search results, if any
-  $("#results-table").html("");
+  $("#employee-results-table").html("");
 
   // Loop through results array
   results.forEach(employee => {
     // template HTML
-    let template = $(`<tr class='clickable-row' id=${employee.id}>
+    let template = $(`<tr class='clickable-employee-row' id=${employee.id}>
     <td >${employee.id}</td>
     <td >${employee.firstName}</td>
     <td >${employee.lastName}</td>
   </tr>`);
 
     // add template to table
-    $("#results-table").append(template);
+    $("#employee-results-table").append(template);
 
     // Attach employee object to HTML element using $.data() method
     $(`#${employee.id}`).data(employee);
-    // $("#results-table tr:last-child").data(employee);
+    // $("#employee-results-table tr:last-child").data(employee);
   });
 
   // add callback function
   // Row click
-  $(".clickable-row").click(row => {
+  $(".clickable-employee-row").click(row => {
     // Get employee object from row using $.data()
     //
     //
@@ -194,8 +194,90 @@ const populateDepartmentDropdown = (
   });
 };
 
-// Function to watch onchange of #select-department and auto change #select-location according to locationID
-const matchLocationToDepartment = 0;
+// Function to populate department results in DOM table
+const showDepartmentResults = results => {
+  // clear current search results, if any
+  $("#department-results-table").html("");
+
+  // Loop through results array
+  results.forEach(department => {
+    // template HTML
+    let template = $(`<tr class='clickable-department-row' id=department-result${department.id}>
+    <td >${department.name}</td>
+  </tr>`);
+
+    // add template to table
+    $("#department-results-table").append(template);
+
+    // Attach department object to HTML element using $.data() method
+    $(`#department-result${department.id}`).data(department);
+  });
+
+  // add callback function
+  // Row click
+  $(".clickable-department-row").click(row => {
+    // Get employee object from row using $.data()
+    //
+    //
+    let id = row.currentTarget.id;
+    let department = $(`#${id}`).data();
+    console.log(department);
+
+    // assign variables
+
+    // display card, hide search
+    $("#department-modal").modal({
+      backdrop: "static",
+      keyboard: true,
+    });
+
+    // // Populate data into fields
+    $("#department-department").val(department.name);
+    $("#department-location").val(department.location);
+  });
+};
+
+// Function to populate Location results in DOM table
+const showLocationResults = results => {
+  // clear current search results, if any
+  $("#location-results-table").html("");
+
+  // Loop through results array
+  results.forEach(location => {
+    // template HTML
+    let template = $(`<tr class='clickable-location-row' id=location-result${location.id}>
+    <td >${location.name}</td>
+  </tr>`);
+
+    // add template to table
+    $("#location-results-table").append(template);
+
+    // Attach location object to HTML element using $.data() method
+    $(`#location-result${location.id}`).data(location);
+  });
+
+  // add callback function
+  // Row click
+  $(".clickable-location-row").click(row => {
+    // Get employee object from row using $.data()
+    //
+    //
+    let id = row.currentTarget.id;
+    let location = $(`#${id}`).data();
+    console.log(location);
+
+    // assign variables
+
+    // display card, hide search
+    $("#location-modal").modal({
+      backdrop: "static",
+      keyboard: true,
+    });
+
+    // // Populate data into fields
+    $("#location-location").val(location.name);
+  });
+};
 
 export {
   EmployeeTemp,
@@ -206,4 +288,6 @@ export {
   allSearchFieldsBlank,
   populateLocationDropdown,
   populateDepartmentDropdown,
+  showDepartmentResults,
+  showLocationResults,
 };
