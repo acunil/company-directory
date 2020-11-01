@@ -5,8 +5,8 @@ const EmployeeTemp = () => {
     "#employee-lastname": $("#employee-lastname").val(),
     "#employee-job": $("#employee-job").val(),
     "#employee-email": $("#employee-email").val(),
-    "#select-department": $("#select-department").val(),
-    "#select-location": $("#select-location").val(),
+    "#employee-department": $("#employee-department").val(),
+    "#employee-location": $("#employee-location").val(),
   };
 };
 
@@ -56,8 +56,8 @@ const showSearchResults = results => {
     $("#employee-id").val(employee.id);
     $("#employee-job").val(employee.jobTitle);
     $("#employee-email").val(employee.email);
-    $("#select-department").val(employee.department);
-    $("#select-location").val(employee.location);
+    $("#employee-department").val(employee.department);
+    $("#employee-location").val(employee.location);
   });
 };
 
@@ -85,8 +85,8 @@ const clearEmployeeFields = () => {
     "#employee-firstname",
     "#employee-lastname",
     "#employee-id",
-    "#select-department",
-    "#select-location",
+    "#employee-department",
+    "#employee-location",
     "#employee-email",
     "#employee-job",
   ];
@@ -103,7 +103,10 @@ const handleCancelSave = () => {
     $("#edit-footer").removeClass("d-block").addClass("d-none");
 
     $("#employee-info input, #employee-info select").prop("disabled", true);
-    $("#back-button, #delete-button, #edit-button").prop("disabled", false);
+    $("#back-button, #employee-delete-button, #employee-edit-button").prop(
+      "disabled",
+      false
+    );
 
     // if on create new employee screen
     if ($("#employee-id").val() === "") {

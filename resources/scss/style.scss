@@ -148,7 +148,7 @@ table {
 }
 
 // center labels
-#form .row,
+#employee-form .row,
 #search-modal .row {
   display: flex;
   align-items: center;
@@ -182,12 +182,6 @@ table {
 
   .label {
     font-size: 0.8rem;
-  }
-
-  .flex-button-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 40px;
   }
 
   // Read mode

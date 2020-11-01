@@ -71,7 +71,7 @@ const insertEmployee = () => {
       //
       //
       // Once refactor is complete, selectedIndex probably won't work
-      departmentID: Number($("#select-department").prop("selectedIndex")),
+      departmentID: Number($("#employee-department").prop("selectedIndex")),
     },
     success(result) {
       console.log(`Employee creation was successful.`);
@@ -99,7 +99,7 @@ const updateEmployee = () => {
       id: Number($("#employee-id").val()),
       jobTitle: $("#employee-job").val(),
       email: $("#employee-email").val(),
-      departmentID: Number($("#select-department").prop("selectedIndex")),
+      departmentID: Number($("#employee-department").prop("selectedIndex")),
     },
     success(result) {
       console.log(
@@ -191,7 +191,7 @@ const getDepartments = () => {
 
       // Populate dropdowns with results
       //
-      populateDepartmentDropdown("select-department", departments);
+      populateDepartmentDropdown("employee-department", departments);
       populateDepartmentDropdown("input-department", departments);
       showDepartmentResults(departments);
     },
@@ -300,7 +300,7 @@ const getLocations = () => {
       let locations = result.data;
       console.log(locations);
 
-      populateLocationDropdown("select-location", locations);
+      populateLocationDropdown("employee-location", locations);
       populateLocationDropdown("input-location", locations);
       showLocationResults(locations);
     },

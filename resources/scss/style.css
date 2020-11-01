@@ -133,7 +133,7 @@ table {
   margin-bottom: -15px;
 }
 
-#form .row,
+#employee-form .row,
 #search-modal .row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -174,16 +174,6 @@ table {
 
 #employee-card .label {
   font-size: 0.8rem;
-}
-
-#employee-card .flex-button-row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin-bottom: 40px;
 }
 
 #employee-card input:disabled,

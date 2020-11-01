@@ -233,14 +233,14 @@
             <div class="modal-body">
               <div class="container">
                 <!-- Buttons along the top -->
-                <div id="button-row" class="d-flex justify-content-between flex-row-reverse mb-2">
+                <div id="employee-button-row" class="d-flex justify-content-between flex-row-reverse mb-2">
 
                   <div class="btn-group">
-                    <button id="edit-button" class="btn btn-success btn-sm">
+                    <button id="employee-edit-button" class="btn btn-success btn-sm">
                       <i class="fa fa-edit"></i>
                     </button>
                     <button
-                      id="delete-button"
+                      id="employee-delete-button"
                       class="btn btn-danger btn-sm"
                       data-toggle="modal"
                       data-target="#delete-modal"
@@ -250,7 +250,7 @@
                   </div>
                 </div>
                 <div id="employee-info">
-                  <div id="form">
+                  <div id="employee-form">
                     <div class="row d-flex align-items-center">
                       <div class="label col-3 col-sm-2">First Name</div>
                       <div class="col-9 col-sm-10">
@@ -320,12 +320,12 @@
                         <select
                           type="select"
                           class="form-control"
-                          id="select-department"
+                          id="employee-department"
                           disabled
                           required
                         >
                           <option
-                            value="null"
+                            value=""
                             selected
                             class="placeholder"
                             disabled
@@ -340,12 +340,12 @@
                         <select
                           type="select"
                           class="form-control"
-                          id="select-location"
+                          id="employee-location"
                           disabled
                           required
                         >
                           <option
-                            value="null"
+                            value=""
                             selected
                             class="placeholder"
                             disabled

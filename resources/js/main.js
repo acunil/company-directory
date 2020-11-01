@@ -95,7 +95,7 @@ $(() => {
   });
 
   // Edit button
-  $("#edit-button").click(() => {
+  $("#employee-edit-button").click(() => {
     // show footer
     $("#edit-footer").removeClass("d-none").addClass("d-block");
 
@@ -103,15 +103,18 @@ $(() => {
     Temp = EmployeeTemp();
 
     $("#save-buttons").css({ display: "flex" });
-    $("#employee-info input:not(#employee-id), #select-department").prop(
+    $("#employee-info input:not(#employee-id), #employee-department").prop(
       "disabled",
       false
     );
-    $("#back-button, #delete-button, #edit-button").prop("disabled", true);
+    $("#back-button, #employee-delete-button, #employee-edit-button").prop(
+      "disabled",
+      true
+    );
   });
 
   // Delete button
-  $("#delete-button").click(() => {
+  $("#employee-delete-button").click(() => {
     //
   });
 
@@ -128,7 +131,7 @@ $(() => {
       $("#employee-firstname").val() === "" ||
       $("#employee-lastname") === "" ||
       $("#employee-email") === "" ||
-      $("#select-department") === "" ||
+      $("#employee-department") === "" ||
       $("#employee-lastname") === ""
     ) {
       console.error("One or more fields are blank!");
@@ -149,11 +152,17 @@ $(() => {
       $("#employee-modal .modal-title").html("Employee info");
 
       // Enable edit/delete
-      $("#back-button, #delete-button, #edit-button").prop("disabled", false);
+      $("#back-button, #employee-delete-button, #employee-edit-button").prop(
+        "disabled",
+        false
+      );
 
       // Disable employee fields
       $("#employee-info input, #employee-info select").prop("disabled", true);
-      $("#back-button, #delete-button, #edit-button").prop("disabled", false);
+      $("#back-button, #employee-delete-button, #employee-edit-button").prop(
+        "disabled",
+        false
+      );
 
       // Rerun global search
       clearSearchFields();
@@ -176,7 +185,7 @@ $(() => {
     });
 
     // Trigger edit state
-    $("#edit-button").click();
+    $("#employee-edit-button").click();
 
     // Clear fields
     clearEmployeeFields();
@@ -227,14 +236,14 @@ $(() => {
   getDepartments();
   getLocations();
 
-  // onchange listener for #select-department that auto changes relative location dropdown
-  $("#select-department").change(() => {
+  // onchange listener for #employee-department that auto changes relative location dropdown
+  $("#employee-department").change(() => {
     // Retrieve object using $.data()
-    let dept = $("#select-department option:selected").data();
+    let dept = $("#employee-department option:selected").data();
 
-    // Access #select-location with child class matching dept locationID
+    // Access #employee-location with child class matching dept locationID
     let locationID = dept.locationID;
-    $(`#select-location .location${locationID}`).attr("selected", "selected");
+    $(`#employee-location .location${locationID}`).attr("selected", "selected");
   });
 
   // onchange listener for #input-department that auto changes relative location dropdown
@@ -242,7 +251,7 @@ $(() => {
     // Retrieve object using $.data()
     let dept = $("#input-department option:selected").data();
 
-    // Access #select-location with child class matching dept locationID
+    // Access #employee-location with child class matching dept locationID
     let locationID = dept.locationID;
     $(`#input-location .location${locationID}`).attr("selected", "selected");
   });
