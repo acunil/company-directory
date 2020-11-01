@@ -471,6 +471,80 @@
         </div>
       </div>
 
+      <!-- Location modal -->
+      <div id="location-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header banner-primary">
+              <h4 class="modal-title">Location Info</h4>
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="container">
+                <!-- Buttons along the top -->
+                <div id="location-button-row" class="d-flex justify-content-between flex-row-reverse mb-2">
+
+                  <div class="btn-group">
+                    <button id="location-edit-button" class="btn btn-success btn-sm">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                    <button
+                      id="location-delete-button"
+                      class="btn btn-danger btn-sm"
+                      data-toggle="modal"
+                      data-target="#delete-modal"
+                    >
+                    <i class="fa fa-trash"></i>
+                    </button>
+                  </div>
+                </div>
+                <div id="location-info">
+                  <div id="location-form">
+                    <div class="row">
+                      <div class="label col-3 col-sm-2">Location</div>
+                      <div class="col-9 col-sm-10">
+                        <select
+                          type="select"
+                          class="form-control"
+                          id="location-location"
+                          disabled
+                          required
+                        >
+                          <option
+                            value=""
+                            selected
+                            class="placeholder"
+                            disabled
+                          ></option>
+        
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer d-none banner-primary" id="location-edit-footer">
+              <div class="container">
+                <!-- Button group -->
+                <div  id="location-save-buttons" class="d-flex justify-content-around">
+                    <button class="btn btn-secondary cancel-button">
+                      Cancel
+                    </button>
+                    <button id="location-save-button" class="btn btn-primary" disabled>
+                      Save
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Delete warning modal -->
       <div id="delete-modal" class="modal fade" role="dialog">
         <div class="modal-dialog modal-sm">

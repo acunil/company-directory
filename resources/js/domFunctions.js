@@ -281,7 +281,7 @@ const showLocationResults = results => {
     });
 
     // // Populate data into fields
-    $("#location-location").val(location.name);
+    $("#location-location").val(location.id);
   });
 };
 
