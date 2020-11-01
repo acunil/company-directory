@@ -243,6 +243,43 @@ $(() => {
    *
    *
    */
+  // Department - Edit button
+  $("#department-edit-button").click(() => {
+    // show footer
+    $("#department-edit-footer").removeClass("d-none").addClass("d-block");
+
+    // save temporary snapshot
+    Temp = {
+      department: $("#department-department").val(),
+      location: $("#department-location").val(),
+    };
+
+    $("#department-save-buttons").css({ display: "flex" });
+    $("#department-department, #department-location").prop("disabled", false);
+    $("#back-button, #department-delete-button, #department-edit-button").prop(
+      "disabled",
+      true
+    );
+  });
+
+  /***
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   * Other
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   */
 
   // New Employee button
   $("#create-button").click(() => {
