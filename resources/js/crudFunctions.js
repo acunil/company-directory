@@ -71,7 +71,7 @@ const insertEmployee = () => {
       //
       //
       // Once refactor is complete, selectedIndex probably won't work
-      departmentID: Number($("#select-department").prop("selectedIndex")),
+      departmentID: Number($("#employee-department").prop("selectedIndex")),
     },
     success(result) {
       console.log(`Employee creation was successful.`);
@@ -99,7 +99,7 @@ const updateEmployee = () => {
       id: Number($("#employee-id").val()),
       jobTitle: $("#employee-job").val(),
       email: $("#employee-email").val(),
-      departmentID: Number($("#select-department").prop("selectedIndex")),
+      departmentID: Number($("#employee-department").prop("selectedIndex")),
     },
     success(result) {
       console.log(
@@ -191,8 +191,10 @@ const getDepartments = () => {
 
       // Populate dropdowns with results
       //
-      populateDepartmentDropdown("select-department", departments);
+      populateDepartmentDropdown("employee-department", departments);
       populateDepartmentDropdown("input-department", departments);
+      populateDepartmentDropdown("department-department", departments);
+      populateDepartmentDropdown("location-department", departments);
       showDepartmentResults(departments);
     },
     error(jqXHR, textStatus, errorThrown) {
@@ -217,6 +219,9 @@ const updateDepartmentByID = (id, newName, newLocationID) => {
     },
     success(result) {
       console.log(`Update for Department was successful.`);
+
+      // Rerun global search
+      $("#department-tab").click();
     },
     error(jqXHR, textStatus, errorThrown) {
       console.log(
@@ -300,8 +305,9 @@ const getLocations = () => {
       let locations = result.data;
       console.log(locations);
 
-      populateLocationDropdown("select-location", locations);
+      populateLocationDropdown("employee-location", locations);
       populateLocationDropdown("input-location", locations);
+      populateLocationDropdown("department-location", locations);
       showLocationResults(locations);
     },
     error(jqXHR, textStatus, errorThrown) {
@@ -349,6 +355,8 @@ const updateLocationByID = (id, newName) => {
     },
     success(result) {
       console.log(`Update for location was successful.`);
+      // Rerun global search
+      $("#location-tab").click();
     },
     error(jqXHR, textStatus, errorThrown) {
       console.log("There was something wrong with the update location request");
@@ -372,7 +380,7 @@ const deleteLocationByID = id => {
       console.log(result);
     },
     error(jqXHR, textStatus, errorThrown) {
-      console.log("There was something wrong with the test request");
+      console.log("There was something wrong with the delete location request");
       console.log(jqXHR);
       console.log(textStatus);
       console.log(errorThrown);

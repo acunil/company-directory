@@ -5,8 +5,8 @@ const EmployeeTemp = () => {
     "#employee-lastname": $("#employee-lastname").val(),
     "#employee-job": $("#employee-job").val(),
     "#employee-email": $("#employee-email").val(),
-    "#select-department": $("#select-department").val(),
-    "#select-location": $("#select-location").val(),
+    "#employee-department": $("#employee-department").val(),
+    "#employee-location": $("#employee-location").val(),
   };
 };
 
@@ -43,6 +43,7 @@ const showSearchResults = results => {
     console.log(employee);
 
     // assign variables
+    Temp = employee;
 
     // display card, hide search
     $("#employee-modal").modal({
@@ -56,8 +57,8 @@ const showSearchResults = results => {
     $("#employee-id").val(employee.id);
     $("#employee-job").val(employee.jobTitle);
     $("#employee-email").val(employee.email);
-    $("#select-department").val(employee.department);
-    $("#select-location").val(employee.location);
+    $("#employee-department").val(employee.department);
+    $("#employee-location").val(employee.locationID);
   });
 };
 
@@ -85,8 +86,8 @@ const clearEmployeeFields = () => {
     "#employee-firstname",
     "#employee-lastname",
     "#employee-id",
-    "#select-department",
-    "#select-location",
+    "#employee-department",
+    "#employee-location",
     "#employee-email",
     "#employee-job",
   ];
@@ -100,10 +101,16 @@ const clearEmployeeFields = () => {
 const handleCancelSave = () => {
   try {
     // hide modal footer
-    $("#edit-footer").removeClass("d-block").addClass("d-none");
+    $("#employee-edit-footer, #department-edit-footer, #location-edit-footer")
+      .removeClass("d-block")
+      .addClass("d-none");
 
-    $("#employee-info input, #employee-info select").prop("disabled", true);
-    $("#back-button, #delete-button, #edit-button").prop("disabled", false);
+    $(
+      "#employee-info input, #employee-info select, #location-location, #department-department, #department-location"
+    ).prop("disabled", true);
+    $(
+      "#back-button, #employee-delete-button, #employee-edit-button, #department-delete-button, #department-edit-button, #location-delete-button, #location-edit-button"
+    ).prop("disabled", false);
 
     // if on create new employee screen
     if ($("#employee-id").val() === "") {
@@ -159,7 +166,7 @@ const populateLocationDropdown = (
   arrayOfLocationObjects.forEach(location => {
     // Make option template
     let option = $(
-      `<option value="${location.name}" class="location${location.id}">${location.name}</option>`
+      `<option value="${location.id}" class="location${location.id}">${location.name}</option>`
     );
 
     $(`#${targetSelectElementId}`).append(option);
@@ -216,12 +223,13 @@ const showDepartmentResults = results => {
   // add callback function
   // Row click
   $(".clickable-department-row").click(row => {
-    // Get employee object from row using $.data()
+    // Get department object from row using $.data()
     //
     //
     let id = row.currentTarget.id;
     let department = $(`#${id}`).data();
     console.log(department);
+    Temp = department;
 
     // assign variables
 
@@ -233,7 +241,10 @@ const showDepartmentResults = results => {
 
     // // Populate data into fields
     $("#department-department").val(department.name);
-    $("#department-location").val(department.location);
+    $("#department-location").val(department.locationID);
+    // $(
+    //   `#department-location option[class='department${location.departmentID}']`
+    // ).attr("selected", "selected");
   });
 };
 
@@ -265,6 +276,7 @@ const showLocationResults = results => {
     let id = row.currentTarget.id;
     let location = $(`#${id}`).data();
     console.log(location);
+    Temp = location;
 
     // assign variables
 
@@ -274,7 +286,7 @@ const showLocationResults = results => {
       keyboard: true,
     });
 
-    // // Populate data into fields
+    // // Populate data into field
     $("#location-location").val(location.name);
   });
 };

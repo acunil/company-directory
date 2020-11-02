@@ -28,8 +28,6 @@
     <title>Company Directory</title>
   </head>
   <body>
-    <!-- Employee card -->
-    <div id="employee-card"></div>
 
     <div class="container section">
       <!-- Header -->
@@ -60,7 +58,7 @@
         <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">
-            <div class="modal-header banner-primary">
+            <div class="modal-header banner-employee">
               <h4 class="modal-title">Search for employees</h4>
               <button type="button" class="close" data-dismiss="modal" >
                 &times;
@@ -145,7 +143,7 @@
                 
               </div>
             </div>
-            <div class="modal-footer banner-primary">
+            <div class="modal-footer banner-employee">
               <div class="container">
                 <!-- Button group -->
                 <div class="row" id="search-button">
@@ -197,7 +195,7 @@
       <table class="table table-sm table-striped" id="department-table">
         <thead class="thead-dark" id="department-table-head">
           <tr>
-            <th scope="col">Department Name</th>
+            <th scope="col">Department</th>
           </tr>
         </thead>
         <tbody id="department-results-table">
@@ -224,7 +222,7 @@
         <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">
-            <div class="modal-header banner-primary">
+            <div class="modal-header banner-employee">
               <h4 class="modal-title">Employee Info</h4>
               <button type="button" class="close" data-dismiss="modal">
                 &times;
@@ -233,14 +231,14 @@
             <div class="modal-body">
               <div class="container">
                 <!-- Buttons along the top -->
-                <div id="button-row" class="d-flex justify-content-between flex-row-reverse mb-2">
+                <div id="employee-button-row" class="d-flex justify-content-between flex-row-reverse mb-2">
 
                   <div class="btn-group">
-                    <button id="edit-button" class="btn btn-success btn-sm">
+                    <button id="employee-edit-button" class="btn btn-success btn-sm">
                       <i class="fa fa-edit"></i>
                     </button>
                     <button
-                      id="delete-button"
+                      id="employee-delete-button"
                       class="btn btn-danger btn-sm"
                       data-toggle="modal"
                       data-target="#delete-modal"
@@ -250,7 +248,7 @@
                   </div>
                 </div>
                 <div id="employee-info">
-                  <div id="form">
+                  <div id="employee-form">
                     <div class="row d-flex align-items-center">
                       <div class="label col-3 col-sm-2">First Name</div>
                       <div class="col-9 col-sm-10">
@@ -320,12 +318,12 @@
                         <select
                           type="select"
                           class="form-control"
-                          id="select-department"
+                          id="employee-department"
                           disabled
                           required
                         >
                           <option
-                            value="null"
+                            value=""
                             selected
                             class="placeholder"
                             disabled
@@ -340,12 +338,12 @@
                         <select
                           type="select"
                           class="form-control"
-                          id="select-location"
+                          id="employee-location"
                           disabled
                           required
                         >
                           <option
-                            value="null"
+                            value=""
                             selected
                             class="placeholder"
                             disabled
@@ -358,19 +356,178 @@
                 </div>
               </div>
             </div>
-            <div class="modal-footer d-none banner-primary" id="edit-footer">
+            <div class="modal-footer d-none banner-employee" id="employee-edit-footer">
               <div class="container">
                 <!-- Button group -->
-                <div  id="save-buttons" class="d-flex justify-content-around">
+                <div  id="employee-save-buttons" class="d-flex justify-content-around">
                     <button class="btn btn-secondary cancel-button">
                       Cancel
                     </button>
-                    <button id="save-button" class="btn btn-primary" disabled>
+                    <button id="employee-save-button" class="btn btn-primary" disabled>
                       Save
                     </button>
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Department modal -->
+      <div id="department-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header banner-department">
+              <h4 class="modal-title">Department Info</h4>
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="container">
+                <!-- Buttons along the top -->
+                <div id="department-button-row" class="d-flex justify-content-between flex-row-reverse mb-2">
+
+                  <div class="btn-group">
+                    <button id="department-edit-button" class="btn btn-success btn-sm">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                    <button
+                      id="department-delete-button"
+                      class="btn btn-danger btn-sm"
+                      data-toggle="modal"
+                      data-target="#delete-modal"
+                    >
+                    <i class="fa fa-trash"></i>
+                    </button>
+                  </div>
+                </div>
+                <div id="department-info">
+                  <div id="department-form">
+                    
+                    <div class="row">
+                      <div class="label col-3 col-sm-2">Department</div>
+                      <div class="col-9 col-sm-10">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder=""
+                          id="department-department"
+                          disabled
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="label col-3 col-sm-2">Location</div>
+                      <div class="col-9 col-sm-10">
+                        <select
+                          type="select"
+                          class="form-control"
+                          id="department-location"
+                          disabled
+                          required
+                        >
+                          <option
+                            value=""
+                            selected
+                            class="placeholder"
+                            disabled
+                          ></option>
+        
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer d-none banner-department" id="department-edit-footer">
+              <div class="container">
+                <!-- Button group -->
+                <div  id="department-save-buttons" class="d-flex justify-content-around">
+                    <button class="btn btn-secondary cancel-button" id="department-cancel-button">
+                      Cancel
+                    </button>
+                    <button id="department-save-button" class="btn btn-primary">
+                      Save
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Location modal -->
+      <div id="location-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header banner-location">
+              <h4 class="modal-title">Location Info</h4>
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="container">
+                <!-- Buttons along the top -->
+                <div id="location-button-row" class="d-flex justify-content-between flex-row-reverse mb-2">
+
+                  <div class="btn-group">
+                    <button id="location-edit-button" class="btn btn-success btn-sm">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                    <button
+                      id="location-delete-button"
+                      class="btn btn-danger btn-sm"
+                      data-toggle="modal"
+                      data-target="#delete-modal"
+                    >
+                    <i class="fa fa-trash"></i>
+                    </button>
+                  </div>
+                </div>
+                <div id="location-info">
+                  <div id="location-form">
+                    <div class="row">
+                      <div class="label col-3 col-sm-2">Location</div>
+                      <div class="col-9 col-sm-10">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder=""
+                          id="location-location"
+                          disabled
+                          required
+                        />
+                      </div>
+                    </div>
+                    
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer d-none banner-location" id="location-edit-footer">
+                
+                <div class="container">
+                  <div  id="location-save-buttons" class="d-flex justify-content-around">
+                      <button class="btn btn-secondary cancel-button" id="location-cancel-button">
+                        Cancel
+                      </button>
+                      <button id="location-save-button" class="btn btn-primary">
+                        Save
+                      </button>
+                    </div>
+                  </div>
+                
+                </div>
+            </div>
             </div>
           </div>
         </div>

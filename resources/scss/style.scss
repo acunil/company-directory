@@ -20,13 +20,25 @@ $heading: white;
 
 // colours
 
-.close {
+.banner-employee {
+  background-color: $pink;
   color: white;
+  .close {
+    color: white;
+  }
 }
 
-.banner-primary {
-  background-color: $dark-pink;
+.banner-department {
+  background-color: $green;
   color: white;
+  .close {
+    color: white;
+  }
+}
+
+.banner-location {
+  background-color: $yellow;
+  color: $black;
 }
 
 body {
@@ -100,6 +112,12 @@ input {
 
 // general element spacing / appearance
 
+#department-table,
+#location-table,
+#employee-table {
+  display: none;
+}
+
 .label {
   font-size: 0.9em;
   text-align: right;
@@ -148,8 +166,7 @@ table {
 }
 
 // center labels
-#form .row,
-#search-modal .row {
+.modal .row {
   display: flex;
   align-items: center;
 }
@@ -164,65 +181,4 @@ th {
 table {
   position: relative;
   top: -1px;
-}
-
-// Employee card
-#employee-card {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  flex-grow: 1;
-  z-index: 10000;
-  display: none;
-  background-color: white;
-  padding: 10px 0;
-  font-size: 1.2rem;
-
-  .label {
-    font-size: 0.8rem;
-  }
-
-  .flex-button-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 40px;
-  }
-
-  // Read mode
-  input:disabled,
-  select:disabled {
-    background-color: white;
-  }
-
-  // Edit mode
-  input:enabled,
-  select:enabled {
-    background-color: rgb(254, 255, 186);
-  }
-
-  // Hide dropdown arrows
-  select {
-    /* for Firefox */
-    -moz-appearance: none;
-    /* for Chrome */
-    -webkit-appearance: none;
-  }
-
-  /* For IE10 */
-  select::-ms-expand {
-    display: none;
-  }
-
-  // Hide save buttons
-  #save-buttons,
-  #create-buttons {
-    display: none;
-    margin-top: 15px;
-  }
-
-  #input:invalid {
-    background-color: red;
-  }
 }

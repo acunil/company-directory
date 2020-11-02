@@ -1,10 +1,24 @@
-.close {
+.banner-employee {
+  background-color: #ea526f;
   color: white;
 }
 
-.banner-primary {
-  background-color: #7b2333;
+.banner-employee .close {
   color: white;
+}
+
+.banner-department {
+  background-color: #7fb069;
+  color: white;
+}
+
+.banner-department .close {
+  color: white;
+}
+
+.banner-location {
+  background-color: #fff3b0;
+  color: #222;
 }
 
 body {
@@ -84,6 +98,12 @@ input :hover {
   cursor: auto;
 }
 
+#department-table,
+#location-table,
+#employee-table {
+  display: none;
+}
+
 .label {
   font-size: 0.9em;
   text-align: right;
@@ -133,8 +153,7 @@ table {
   margin-bottom: -15px;
 }
 
-#form .row,
-#search-modal .row {
+.modal .row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -153,67 +172,5 @@ th {
 table {
   position: relative;
   top: -1px;
-}
-
-#employee-card {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  z-index: 10000;
-  display: none;
-  background-color: white;
-  padding: 10px 0;
-  font-size: 1.2rem;
-  /* For IE10 */
-}
-
-#employee-card .label {
-  font-size: 0.8rem;
-}
-
-#employee-card .flex-button-row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin-bottom: 40px;
-}
-
-#employee-card input:disabled,
-#employee-card select:disabled {
-  background-color: white;
-}
-
-#employee-card input:enabled,
-#employee-card select:enabled {
-  background-color: #feffba;
-}
-
-#employee-card select {
-  /* for Firefox */
-  -moz-appearance: none;
-  /* for Chrome */
-  -webkit-appearance: none;
-}
-
-#employee-card select::-ms-expand {
-  display: none;
-}
-
-#employee-card #save-buttons,
-#employee-card #create-buttons {
-  display: none;
-  margin-top: 15px;
-}
-
-#employee-card #input:invalid {
-  background-color: red;
 }
 /*# sourceMappingURL=style.css.map */

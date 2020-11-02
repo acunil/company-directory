@@ -89,46 +89,58 @@ $(() => {
   // Trigger search on page load
   $("#search").click();
 
-  // back button
-  $(".back-button").click(() => {
-    $("#search").click();
-  });
+  // Go to employee tab
+  $("#employee-tab").click();
 
-  // Edit button
-  $("#edit-button").click(() => {
+  /**
+   *
+   *
+   *
+   * Employee Modal
+   *
+   *
+   *
+   *
+   */
+
+  // Employee - Edit button
+  $("#employee-edit-button").click(() => {
     // show footer
-    $("#edit-footer").removeClass("d-none").addClass("d-block");
+    $("#employee-edit-footer").removeClass("d-none").addClass("d-block");
 
     // save temporary snapshot
     Temp = EmployeeTemp();
 
-    $("#save-buttons").css({ display: "flex" });
-    $("#employee-info input:not(#employee-id), #select-department").prop(
+    $("#employee-save-buttons").css({ display: "flex" });
+    $("#employee-info input:not(#employee-id), #employee-department").prop(
       "disabled",
       false
     );
-    $("#back-button, #delete-button, #edit-button").prop("disabled", true);
+    $("#back-button, #employee-delete-button, #employee-edit-button").prop(
+      "disabled",
+      true
+    );
   });
 
-  // Delete button
-  $("#delete-button").click(() => {
+  // Employee - Delete button
+  $("#employee-delete-button").click(() => {
     //
   });
 
   // Cancel buttons
   $(".cancel-button, .close").click(handleCancelSave);
 
-  // Save button
-  $("#save-button").click(() => {
+  // Employee - Save button
+  $("#employee-save-button").click(() => {
     // hide footer
-    $("#edit-footer").removeClass("d-block").addClass("d-none");
+    $("#employee-edit-footer").removeClass("d-block").addClass("d-none");
 
     // Check necessary info is filled in
     if (
       $("#employee-firstname").val() === "" ||
       $("#employee-lastname") === "" ||
       $("#employee-email") === "" ||
-      $("#select-department") === "" ||
+      $("#employee-department") === "" ||
       $("#employee-lastname") === ""
     ) {
       console.error("One or more fields are blank!");
@@ -149,11 +161,17 @@ $(() => {
       $("#employee-modal .modal-title").html("Employee info");
 
       // Enable edit/delete
-      $("#back-button, #delete-button, #edit-button").prop("disabled", false);
+      $("#back-button, #employee-delete-button, #employee-edit-button").prop(
+        "disabled",
+        false
+      );
 
       // Disable employee fields
       $("#employee-info input, #employee-info select").prop("disabled", true);
-      $("#back-button, #delete-button, #edit-button").prop("disabled", false);
+      $("#back-button, #employee-delete-button, #employee-edit-button").prop(
+        "disabled",
+        false
+      );
 
       // Rerun global search
       clearSearchFields();
@@ -164,8 +182,222 @@ $(() => {
 
   // Confirm delete button
   $("#confirm-delete").click(() => {
-    deleteEmployee();
+    if (Object.keys(Temp).length === 2) {
+      // Location
+      console.log("Deleting location with id " + Temp.id);
+      deleteLocationByID(Temp.id);
+    } else if (Object.keys(Temp).length === 3) {
+      // Department
+      deleteDepartmentByID(Temp.id);
+    } else {
+      // Employee
+      deleteEmployee();
+    }
   });
+
+  /***
+   *
+   *
+   *
+   *
+   *
+   * Location Modal
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   */
+
+  // Location - Edit button
+  $("#location-edit-button").click(() => {
+    // show footer
+    $("#location-edit-footer").removeClass("d-none").addClass("d-block");
+
+    // save temporary snapshot eg. "New York"
+    Temp.name = $("#location-location").val();
+
+    $("#location-save-buttons").css({ display: "flex" });
+    $("#location-location").prop("disabled", false);
+    $("#back-button, #location-delete-button, #location-edit-button").prop(
+      "disabled",
+      true
+    );
+  });
+
+  // Location - Cancel save button
+  $("#location-cancel-button").click(() => {
+    // hide footer
+    $("#location-edit-footer").removeClass("d-block").addClass("d-none");
+
+    // Enable buttons
+    $("#back-button, #location-delete-button, #location-edit-button").prop(
+      "disabled",
+      false
+    );
+
+    // Disable fields
+    $("#location-location").prop("disabled", true);
+
+    // Use Temp to redo fields
+    $("#location-location").val(Temp.name);
+  });
+
+  // Location - Save button
+  $("#location-save-button").click(() => {
+    // hide footer
+    $("#location-edit-footer").removeClass("d-block").addClass("d-none");
+
+    // Check necessary info is filled in
+    if ($("#location-location").val() === "") {
+      console.error("One or more fields are blank!");
+      return;
+    } else {
+      // Save is valid ---
+      if (!Temp.id) {
+        // Location does not exist so CREATE
+      } else {
+        // Location exists so UPDATE
+        updateLocationByID(Temp.id, $("#location-location").val());
+        Temp.name = $("#location-location").val();
+      }
+      // Fix header
+      $("#location-modal .modal-title").html("Location info");
+
+      // Enable edit/delete
+      $("#location-delete-button, #location-edit-button").prop(
+        "disabled",
+        false
+      );
+
+      // Disable location field
+      $("#location-location").prop("disabled", true);
+      $("#location-delete-button, #location-edit-button").prop(
+        "disabled",
+        false
+      );
+    }
+    //
+  });
+  /***
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   * Department Modal
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   */
+  // Department - Edit button
+  $("#department-edit-button").click(() => {
+    // show footer
+    $("#department-edit-footer").removeClass("d-none").addClass("d-block");
+
+    // save temporary snapshot
+    Temp.department = $("#department-department").val();
+    Temp.locationID = $("#department-location").val();
+
+    $("#department-save-buttons").css({ display: "flex" });
+    $("#department-department, #department-location").prop("disabled", false);
+    $("#back-button, #department-delete-button, #department-edit-button").prop(
+      "disabled",
+      true
+    );
+  });
+
+  // Department - Cancel save button
+  $("#department-cancel-button").click(() => {
+    // hide footer
+    $("#department-edit-footer").removeClass("d-block").addClass("d-none");
+
+    // Enable buttons
+    $("#back-button, #department-delete-button, #department-edit-button").prop(
+      "disabled",
+      false
+    );
+
+    // Disable fields
+    $("#department-department, #department-location").prop("disabled", true);
+
+    // Use Temp to redo fields
+    $("#department-department").val(Temp.department);
+    $("#department-location").val(Temp.locationID);
+  });
+
+  // Department - Save button
+  $("#department-save-button").click(() => {
+    // Check necessary info is filled in
+    if ($("#department-location, #department-department").val() === "") {
+      console.error("One or more fields are blank!");
+      return;
+    } else {
+      // Save is valid ---
+      // hide footer
+      $("#department-edit-footer").removeClass("d-block").addClass("d-none");
+
+      if (!Temp.id) {
+        // Department does not exist so CREATE
+      } else {
+        // Department exists so UPDATE
+        updateDepartmentByID(
+          Temp.id,
+          $("#department-department").val(),
+          $("#department-location").val()
+        );
+        Temp.name = $("#department-department").val();
+        Temp.locationID = $("#department-location").val();
+      }
+      // Fix header
+      $("#department-modal .modal-title").html("Department info");
+
+      // Enable edit/delete
+      $("#department-delete-button, #department-edit-button").prop(
+        "disabled",
+        false
+      );
+
+      // Disable fields
+      $("#department-department, #department-location").prop("disabled", true);
+      $("#department-delete-button, #department-edit-button").prop(
+        "disabled",
+        false
+      );
+    }
+    //
+  });
+
+  /***
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   * Other
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   */
 
   // New Employee button
   $("#create-button").click(() => {
@@ -176,7 +408,7 @@ $(() => {
     });
 
     // Trigger edit state
-    $("#edit-button").click();
+    $("#employee-edit-button").click();
 
     // Clear fields
     clearEmployeeFields();
@@ -207,10 +439,10 @@ $(() => {
     let invalid = $(":invalid");
     if (invalid[0]) {
       console.warn("Required field not filled");
-      $("#save-button").prop("disabled", true);
+      $("#employee-save-button").prop("disabled", true);
     } else {
       //
-      $("#save-button").prop("disabled", false);
+      $("#employee-save-button").prop("disabled", false);
     }
   });
 
@@ -227,14 +459,14 @@ $(() => {
   getDepartments();
   getLocations();
 
-  // onchange listener for #select-department that auto changes relative location dropdown
-  $("#select-department").change(() => {
+  // onchange listener for #employee-department that auto changes relative location dropdown
+  $("#employee-department").change(() => {
     // Retrieve object using $.data()
-    let dept = $("#select-department option:selected").data();
+    let dept = $("#employee-department option:selected").data();
 
-    // Access #select-location with child class matching dept locationID
+    // Access #employee-location with child class matching dept locationID
     let locationID = dept.locationID;
-    $(`#select-location .location${locationID}`).attr("selected", "selected");
+    $(`#employee-location .location${locationID}`).attr("selected", "selected");
   });
 
   // onchange listener for #input-department that auto changes relative location dropdown
@@ -242,14 +474,10 @@ $(() => {
     // Retrieve object using $.data()
     let dept = $("#input-department option:selected").data();
 
-    // Access #select-location with child class matching dept locationID
+    // Access #employee-location with child class matching dept locationID
     let locationID = dept.locationID;
     $(`#input-location .location${locationID}`).attr("selected", "selected");
   });
-
-  //
-  // Testing
-  //
 
   // Tab functionality
 
@@ -269,6 +497,8 @@ $(() => {
       "border-right": "2px solid white",
     });
     $("#employee-tab, #location-tab").css("border", "none");
+
+    getDepartments();
   });
 
   $("#employee-tab").click(() => {
@@ -287,6 +517,8 @@ $(() => {
       "border-right": "2px solid white",
     });
     $("#department-tab, #location-tab").css("border", "none");
+
+    getEmployees("resources/php/getAll.php");
   });
 
   $("#location-tab").click(() => {
@@ -305,5 +537,15 @@ $(() => {
       "border-right": "2px solid white",
     });
     $("#department-tab, #employee-tab").css("border", "none");
+
+    // Rerun search
+    getLocations();
   });
+
+  // Trigger loading of first results
+  $("#employee-tab").click();
+
+  //
+  // Testing
+  //
 });
