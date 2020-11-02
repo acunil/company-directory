@@ -1,9 +1,9 @@
-.close {
+.banner-employee {
+  background-color: #ea526f;
   color: white;
 }
 
-.banner-employee {
-  background-color: #ea526f;
+.banner-employee .close {
   color: white;
 }
 
@@ -12,12 +12,12 @@
   color: white;
 }
 
-.banner-location {
-  background-color: #fff3b0;
-  color: #222;
+.banner-department .close {
+  color: white;
 }
 
-.banner-location .close {
+.banner-location {
+  background-color: #fff3b0;
   color: #222;
 }
 

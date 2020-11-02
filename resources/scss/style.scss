@@ -20,26 +20,25 @@ $heading: white;
 
 // colours
 
-.close {
-  color: white;
-}
-
 .banner-employee {
   background-color: $pink;
   color: white;
+  .close {
+    color: white;
+  }
 }
 
 .banner-department {
   background-color: $green;
   color: white;
+  .close {
+    color: white;
+  }
 }
 
 .banner-location {
   background-color: $yellow;
   color: $black;
-  .close {
-    color: $black;
-  }
 }
 
 body {
