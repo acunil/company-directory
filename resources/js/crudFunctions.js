@@ -247,6 +247,8 @@ const insertDepartment = (name, locationID) => {
     success(result) {
       console.log(`department creation was successful.`);
       console.log(result);
+      $("#department-tab").click();
+      $("#department-modal").modal("hide");
     },
     error(jqXHR, textStatus, errorThrown) {
       console.log(
