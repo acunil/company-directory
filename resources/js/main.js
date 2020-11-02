@@ -84,18 +84,13 @@ $(() => {
 
     // Get employees
     getEmployees(searchFile);
-
-    // Navigate to Employee tab
-    $("#employee-tab").click();
   });
 
   // Trigger search on page load
   $("#search").click();
 
-  // back button
-  $(".back-button").click(() => {
-    $("#search").click();
-  });
+  // Go to employee tab
+  $("#employee-tab").click();
 
   /**
    *
