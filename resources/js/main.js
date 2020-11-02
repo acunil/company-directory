@@ -348,6 +348,9 @@ $(() => {
 
   // Department - Cancel save button
   $("#department-cancel-button").click(() => {
+    if (!Temp.id) {
+      $("#department-modal").modal("hide");
+    }
     // hide footer
     $("#department-edit-footer").removeClass("d-block").addClass("d-none");
 
@@ -405,6 +408,22 @@ $(() => {
       );
     }
     //
+  });
+
+  // Department - Create button
+  $("#department-create").click(() => {
+    //
+    $("#department-department, #department-location").val("");
+    $("#department-modal .modal-title").html("Create New Department");
+
+    $("#department-modal").modal({
+      backdrop: "static",
+      keyboard: true,
+    });
+
+    Temp = {};
+
+    $("#department-edit-button").click();
   });
 
   /***
