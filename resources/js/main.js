@@ -48,7 +48,7 @@ $(() => {
     $("body").disableSelection();
   }
 
-  // Global temp variable for editing employee info.
+  // Global temp variable for editing Employee Info.
   window.Temp = {};
 
   // Add event listeners to all input fields to watch on change, if all fields are empty then hide Clear button
@@ -164,7 +164,7 @@ $(() => {
         Temp = EmployeeTemp();
       }
       // Fix header
-      $("#employee-modal .modal-title").html("Employee info");
+      $("#employee-modal .modal-title").html("Employee Info");
 
       // Enable edit/delete
       $("#back-button, #employee-delete-button, #employee-edit-button").prop(
@@ -274,7 +274,7 @@ $(() => {
         Temp.name = $("#location-location").val();
       }
       // Fix header
-      $("#location-modal .modal-title").html("Location info");
+      $("#location-modal .modal-title").html("Location Info");
 
       // Enable edit/delete
       $("#location-delete-button, #location-edit-button").prop(
@@ -348,6 +348,9 @@ $(() => {
 
   // Department - Cancel save button
   $("#department-cancel-button").click(() => {
+    if (!Temp.id) {
+      $("#department-modal").modal("hide");
+    }
     // hide footer
     $("#department-edit-footer").removeClass("d-block").addClass("d-none");
 
@@ -378,6 +381,10 @@ $(() => {
 
       if (!Temp.id) {
         // Department does not exist so CREATE
+        insertDepartment(
+          $("#department-department").val(),
+          $("#department-location").val()
+        );
       } else {
         // Department exists so UPDATE
         updateDepartmentByID(
@@ -389,7 +396,7 @@ $(() => {
         Temp.locationID = $("#department-location").val();
       }
       // Fix header
-      $("#department-modal .modal-title").html("Department info");
+      $("#department-modal .modal-title").html("Department Info");
 
       // Enable edit/delete
       $("#department-delete-button, #department-edit-button").prop(
@@ -405,6 +412,22 @@ $(() => {
       );
     }
     //
+  });
+
+  // Department - Create button
+  $("#department-create").click(() => {
+    //
+    $("#department-department, #department-location").val("");
+    $("#department-modal .modal-title").html("Create New Department");
+
+    $("#department-modal").modal({
+      backdrop: "static",
+      keyboard: true,
+    });
+
+    Temp = {};
+
+    $("#department-edit-button").click();
   });
 
   /***
@@ -501,6 +524,7 @@ $(() => {
 
     // Access #employee-location with child class matching dept locationID
     let locationID = dept.locationID;
+    console.log(locationID);
     $(`#employee-location`).val(locationID);
   });
 
@@ -587,6 +611,11 @@ $(() => {
 
   // Trigger loading of first results
   $("#employee-tab").click();
+
+  // Re-enable location bar in employee search
+  $("#open-search-button").click(() => {
+    $("#search-emp-location").attr("disabled", false);
+  });
 
   //
   // Testing
