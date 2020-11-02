@@ -332,7 +332,8 @@ const insertLocation = name => {
       console.log(`Location creation was successful.`);
       console.log(result);
       // run SQL query for all Locations
-      getLocations();
+      $("#location-tab").click();
+      $("#location-modal").modal("hide");
     },
     error(jqXHR, textStatus, errorThrown) {
       console.log("There was something wrong with the insert location request");
