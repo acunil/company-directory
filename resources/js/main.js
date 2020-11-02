@@ -54,11 +54,11 @@ $(() => {
   // Add event listeners to all input fields to watch on change, if all fields are empty then hide Clear button
   {
     var searchFieldIds = [
-      "#input-firstname",
-      "#input-lastname",
-      "#input-id",
-      "#input-department",
-      "#input-location",
+      "#search-emp-firstname",
+      "#search-emp-lastname",
+      "#search-emp-id",
+      "#search-emp-department",
+      "#search-emp-location",
     ];
 
     searchFieldIds.forEach(id => {
@@ -461,22 +461,38 @@ $(() => {
 
   // onchange listener for #employee-department that auto changes relative location dropdown
   $("#employee-department").change(() => {
+    if ($("#employee-department").val() === "") {
+      // if blank, location is editable
+      $(`#employee-location`).attr("disabled", false);
+    } else {
+      // if value, location is locked
+      $(`#employee-location`).attr("disabled", true);
+    }
+    //
     // Retrieve object using $.data()
     let dept = $("#employee-department option:selected").data();
 
     // Access #employee-location with child class matching dept locationID
     let locationID = dept.locationID;
-    $(`#employee-location .location${locationID}`).attr("selected", "selected");
+    $(`#employee-location`).val(locationID);
   });
 
-  // onchange listener for #input-department that auto changes relative location dropdown
-  $("#input-department").change(() => {
+  // onchange listener for #search-emp-department that auto changes relative location dropdown
+  $("#search-emp-department").change(() => {
+    if ($("#search-emp-department").val() === "") {
+      // if blank, location is editable
+      $(`#search-emp-location`).attr("disabled", false);
+    } else {
+      // if value, location is locked
+      $(`#search-emp-location`).attr("disabled", true);
+    }
+    //
     // Retrieve object using $.data()
-    let dept = $("#input-department option:selected").data();
+    let dept = $("#search-emp-department option:selected").data();
 
-    // Access #employee-location with child class matching dept locationID
+    // Access #search-emp-location with child class matching dept locationID
     let locationID = dept.locationID;
-    $(`#input-location .location${locationID}`).attr("selected", "selected");
+    $(`#search-emp-location`).val(locationID);
   });
 
   // Tab functionality

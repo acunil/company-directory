@@ -65,11 +65,11 @@ const showSearchResults = results => {
 // Function to reset search fields
 const clearSearchFields = () => {
   var searchFieldIds = [
-    "#input-firstname",
-    "#input-lastname",
-    "#input-id",
-    "#input-department",
-    "#input-location",
+    "#search-emp-firstname",
+    "#search-emp-lastname",
+    "#search-emp-id",
+    "#search-emp-department",
+    "#search-emp-location",
   ];
 
   searchFieldIds.forEach(id => {
@@ -133,11 +133,11 @@ const handleCancelSave = () => {
 const allSearchFieldsBlank = () => {
   //
   var searchFieldIds = [
-    "#input-firstname",
-    "#input-lastname",
-    "#input-id",
-    "#input-department",
-    "#input-location",
+    "#search-emp-firstname",
+    "#search-emp-lastname",
+    "#search-emp-id",
+    "#search-emp-department",
+    "#search-emp-location",
   ];
 
   var allBlank = true;

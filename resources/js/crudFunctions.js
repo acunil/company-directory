@@ -33,11 +33,11 @@ const getEmployees = url => {
     type: "GET",
     dataType: "json",
     data: {
-      firstName: $("#input-firstname").val(),
-      lastName: $("#input-lastname").val(),
-      id: $("#input-id").val(),
-      department: $("#input-department").val(),
-      location: $("#input-location").val(),
+      firstName: $("#search-emp-firstname").val(),
+      lastName: $("#search-emp-lastname").val(),
+      id: $("#search-emp-id").val(),
+      department: $("#search-emp-department").val(),
+      location: $("#search-emp-location").val(),
     },
     success(result) {
       // Array of results
@@ -192,7 +192,7 @@ const getDepartments = () => {
       // Populate dropdowns with results
       //
       populateDepartmentDropdown("employee-department", departments);
-      populateDepartmentDropdown("input-department", departments);
+      populateDepartmentDropdown("search-emp-department", departments);
       populateDepartmentDropdown("department-department", departments);
       populateDepartmentDropdown("location-department", departments);
       showDepartmentResults(departments);
@@ -306,7 +306,7 @@ const getLocations = () => {
       console.log(locations);
 
       populateLocationDropdown("employee-location", locations);
-      populateLocationDropdown("input-location", locations);
+      populateLocationDropdown("search-emp-location", locations);
       populateLocationDropdown("department-location", locations);
       showLocationResults(locations);
     },
