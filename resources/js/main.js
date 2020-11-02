@@ -54,11 +54,11 @@ $(() => {
   // Add event listeners to all input fields to watch on change, if all fields are empty then hide Clear button
   {
     var searchFieldIds = [
-      "#input-firstname",
-      "#input-lastname",
-      "#input-id",
-      "#input-department",
-      "#input-location",
+      "#search-emp-firstname",
+      "#search-emp-lastname",
+      "#search-emp-id",
+      "#search-emp-department",
+      "#search-emp-location",
     ];
 
     searchFieldIds.forEach(id => {
@@ -469,14 +469,17 @@ $(() => {
     $(`#employee-location .location${locationID}`).attr("selected", "selected");
   });
 
-  // onchange listener for #input-department that auto changes relative location dropdown
-  $("#input-department").change(() => {
+  // onchange listener for #search-emp-department that auto changes relative location dropdown
+  $("#search-emp-department").change(() => {
     // Retrieve object using $.data()
-    let dept = $("#input-department option:selected").data();
+    let dept = $("#search-emp-department option:selected").data();
 
     // Access #employee-location with child class matching dept locationID
     let locationID = dept.locationID;
-    $(`#input-location .location${locationID}`).attr("selected", "selected");
+    $(`#search-emp-location .location${locationID}`).attr(
+      "selected",
+      "selected"
+    );
   });
 
   // Tab functionality
