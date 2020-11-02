@@ -304,7 +304,6 @@ const getLocations = () => {
 
       populateLocationDropdown("employee-location", locations);
       populateLocationDropdown("input-location", locations);
-      populateLocationDropdown("location-location", locations);
       populateLocationDropdown("department-location", locations);
       showLocationResults(locations);
     },
