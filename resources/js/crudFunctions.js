@@ -57,6 +57,8 @@ const getEmployees = url => {
 };
 
 const insertEmployee = () => {
+  let dept = $("#employee-department option:selected").data();
+  let deptId = Number(dept.id);
   //
   $.ajax({
     url: "resources/php/insertEmployee.php",
@@ -67,11 +69,7 @@ const insertEmployee = () => {
       lastName: $("#employee-lastname").val(),
       jobTitle: $("#employee-job").val(),
       email: $("#employee-email").val(),
-      // THIS WILL NEED FIXING !!!!
-      //
-      //
-      // Once refactor is complete, selectedIndex probably won't work
-      departmentID: Number($("#employee-department").prop("selectedIndex")),
+      departmentID: deptId,
     },
     success(result) {
       console.log(`Employee creation was successful.`);
