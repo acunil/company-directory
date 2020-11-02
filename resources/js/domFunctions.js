@@ -115,7 +115,7 @@ const handleCancelSave = () => {
       "#back-button, #employee-delete-button, #employee-edit-button, #department-delete-button, #department-edit-button, #location-delete-button, #location-edit-button"
     ).prop("disabled", false);
 
-    // if on create new employee screen
+    // if on Create New Employee screen
     if ($("#employee-id").val() === "") {
       //
       $("#employee-modal").modal("hide");
@@ -234,6 +234,9 @@ const showDepartmentResults = results => {
     console.log(department);
     Temp = department;
 
+    // Fix title
+    $("#department-modal .modal-title").html("Department Info");
+
     // assign variables
 
     // display card, hide search
@@ -280,6 +283,9 @@ const showLocationResults = results => {
     let location = $(`#${id}`).data();
     console.log(location);
     Temp = location;
+
+    // Fix title
+    $("#location-modal .modal-title").html("Location Info");
 
     // assign variables
 

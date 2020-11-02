@@ -235,6 +235,9 @@ $(() => {
 
   // Location - Cancel save button
   $("#location-cancel-button").click(() => {
+    if (!Temp.id) {
+      $("#location-modal").modal("hide");
+    }
     // hide footer
     $("#location-edit-footer").removeClass("d-block").addClass("d-none");
 
@@ -253,17 +256,18 @@ $(() => {
 
   // Location - Save button
   $("#location-save-button").click(() => {
-    // hide footer
-    $("#location-edit-footer").removeClass("d-block").addClass("d-none");
-
     // Check necessary info is filled in
     if ($("#location-location").val() === "") {
       console.error("One or more fields are blank!");
       return;
     } else {
       // Save is valid ---
+      // hide footer
+      $("#location-edit-footer").removeClass("d-block").addClass("d-none");
+
       if (!Temp.id) {
         // Location does not exist so CREATE
+        insertLocation($("#location-location").val());
       } else {
         // Location exists so UPDATE
         updateLocationByID(Temp.id, $("#location-location").val());
@@ -287,6 +291,23 @@ $(() => {
     }
     //
   });
+
+  // Location - Create button
+  $("#location-create").click(() => {
+    //
+    $("#location-location").val("");
+    $("#location-modal .modal-title").html("Create New Location");
+
+    $("#location-modal").modal({
+      backdrop: "static",
+      keyboard: true,
+    });
+
+    Temp = {};
+
+    $("#location-edit-button").click();
+  });
+
   /***
    *
    *
@@ -420,7 +441,7 @@ $(() => {
     clearEmployeeFields();
 
     // Modify title to reflect create state
-    $("#employee-modal .modal-title").html("Create new employee");
+    $("#employee-modal .modal-title").html("Create New Employee");
   });
 
   // Clear search button
