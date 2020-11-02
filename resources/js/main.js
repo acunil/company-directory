@@ -479,15 +479,20 @@ $(() => {
 
   // onchange listener for #search-emp-department that auto changes relative location dropdown
   $("#search-emp-department").change(() => {
+    if ($("#search-emp-department").val() === "") {
+      // if blank, location is editable
+      $(`#search-emp-location`).attr("disabled", false);
+    } else {
+      // if value, location is locked
+      $(`#search-emp-location`).attr("disabled", true);
+    }
+    //
     // Retrieve object using $.data()
     let dept = $("#search-emp-department option:selected").data();
 
-    // Access #employee-location with child class matching dept locationID
+    // Access #search-emp-location with child class matching dept locationID
     let locationID = dept.locationID;
-    $(`#search-emp-location .location${locationID}`).attr(
-      "selected",
-      "selected"
-    );
+    $(`#search-emp-location`).val(locationID);
   });
 
   // Tab functionality
