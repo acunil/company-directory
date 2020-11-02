@@ -219,6 +219,24 @@ $(() => {
     );
   });
 
+  // Department - Cancel save button
+  $("#location-cancel-button").click(() => {
+    // hide footer
+    $("#location-edit-footer").removeClass("d-block").addClass("d-none");
+
+    // Enable buttons
+    $("#back-button, #location-delete-button, #location-edit-button").prop(
+      "disabled",
+      false
+    );
+
+    // Disable fields
+    $("#location-location").prop("disabled", true);
+
+    // Use Temp to redo fields
+    $("#location-location").val(Temp.name);
+  });
+
   /***
    *
    *
