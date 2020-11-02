@@ -278,9 +278,6 @@ $(() => {
         "disabled",
         false
       );
-
-      // Rerun global search
-      $("#location-tab").click();
     }
     //
   });
@@ -339,6 +336,48 @@ $(() => {
     // Use Temp to redo fields
     $("#department-department").val(Temp.department);
     $("#department-location").val(Temp.locationID);
+  });
+
+  // Department - Save button
+  $("#department-save-button").click(() => {
+    // Check necessary info is filled in
+    if ($("#department-location, #department-department").val() === "") {
+      console.error("One or more fields are blank!");
+      return;
+    } else {
+      // Save is valid ---
+      // hide footer
+      $("#department-edit-footer").removeClass("d-block").addClass("d-none");
+
+      if (!Temp.id) {
+        // Department does not exist so CREATE
+      } else {
+        // Department exists so UPDATE
+        updateDepartmentByID(
+          Temp.id,
+          $("#department-department").val(),
+          $("#department-location").val()
+        );
+        Temp.name = $("#department-department").val();
+        Temp.locationID = $("#department-location").val();
+      }
+      // Fix header
+      $("#department-modal .modal-title").html("Department info");
+
+      // Enable edit/delete
+      $("#department-delete-button, #department-edit-button").prop(
+        "disabled",
+        false
+      );
+
+      // Disable fields
+      $("#department-department, #department-location").prop("disabled", true);
+      $("#department-delete-button, #department-edit-button").prop(
+        "disabled",
+        false
+      );
+    }
+    //
   });
 
   /***

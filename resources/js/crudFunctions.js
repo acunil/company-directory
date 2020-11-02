@@ -219,6 +219,9 @@ const updateDepartmentByID = (id, newName, newLocationID) => {
     },
     success(result) {
       console.log(`Update for Department was successful.`);
+
+      // Rerun global search
+      $("#department-tab").click();
     },
     error(jqXHR, textStatus, errorThrown) {
       console.log(
@@ -352,6 +355,8 @@ const updateLocationByID = (id, newName) => {
     },
     success(result) {
       console.log(`Update for location was successful.`);
+      // Rerun global search
+      $("#location-tab").click();
     },
     error(jqXHR, textStatus, errorThrown) {
       console.log("There was something wrong with the update location request");
