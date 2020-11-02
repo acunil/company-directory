@@ -524,6 +524,7 @@ $(() => {
 
     // Access #employee-location with child class matching dept locationID
     let locationID = dept.locationID;
+    console.log(locationID);
     $(`#employee-location`).val(locationID);
   });
 
@@ -610,6 +611,11 @@ $(() => {
 
   // Trigger loading of first results
   $("#employee-tab").click();
+
+  // Re-enable location bar in employee search
+  $("#open-search-button").click(() => {
+    $("#search-emp-location").attr("disabled", false);
+  });
 
   //
   // Testing
