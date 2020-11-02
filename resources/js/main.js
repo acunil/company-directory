@@ -72,6 +72,12 @@ $(() => {
     });
   }
 
+  // Check for small screen and change text in tabs
+  if ($(window).width() < 360) {
+    $("#department-tab").text("Dept.");
+    $("#location-tab").text("Loc.");
+  }
+
   // employee search button
   $("#search").click(() => {
     // php file path
@@ -400,7 +406,7 @@ $(() => {
    */
 
   // New Employee button
-  $("#create-button").click(() => {
+  $("#employee-create").click(() => {
     // Show modal
     $("#employee-modal").modal({
       backdrop: "static",

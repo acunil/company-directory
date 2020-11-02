@@ -41,6 +41,7 @@ body :hover {
       -ms-flex: 1;
           flex: 1;
   bottom: -20px;
+  font-size: 1em;
 }
 
 #nav-tabs * {

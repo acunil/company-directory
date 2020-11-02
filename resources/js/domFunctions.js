@@ -45,6 +45,9 @@ const showSearchResults = results => {
     // assign variables
     Temp = employee;
 
+    // Fix Modal header
+    $("#employee-modal .modal-title").html("Employee Info");
+
     // display card, hide search
     $("#employee-modal").modal({
       backdrop: "static",

@@ -44,9 +44,17 @@
           >
           <i class="fa fa-search"></i>
           </button>
-          <button class="btn btn-sm btn-success" id="create-button">
-            <i class="fa fa-plus"></i>
-          </button>
+          <div class="btn-group-sm" role="group" id="create-dropdown">
+            <button id="btnGroupDrop1" type="button" class="btn btn-sm btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-plus"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
+              <p class="dropdown-item disabled" href="#" >Create a new:</p>
+              <a class="dropdown-item" href="#" id="employee-create">Employee</a>
+              <a class="dropdown-item" href="#">Department</a>
+              <a class="dropdown-item" href="#">Location</a>
+            </div>
+          </div>
         </div>
       </div>
       <!-- Main Content -->
@@ -163,13 +171,13 @@
       <!-- Nav tabs -->
       <div id="nav-tabs" class="container ">
         <div class="row ">
-          <button class=" btn col-4 tab text-center h6 rounded-top font-weight-bold" id="employee-tab">
+          <button class=" btn col-4 tab text-center rounded-top font-weight-bold" id="employee-tab">
             Employee
           </button>
-          <button class="btn col-4 tab text-center h6 rounded-top" id="department-tab">
+          <button class="btn col-4 tab text-center rounded-top" id="department-tab">
             Department
           </button>
-          <button class="btn col-4 tab text-center h6 rounded-top" id="location-tab">
+          <button class="btn col-4 tab text-center rounded-top" id="location-tab">
             Location
           </button>
         </div>
