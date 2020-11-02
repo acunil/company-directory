@@ -376,7 +376,7 @@ const deleteLocationByID = id => {
       console.log(result);
     },
     error(jqXHR, textStatus, errorThrown) {
-      console.log("There was something wrong with the test request");
+      console.log("There was something wrong with the delete location request");
       console.log(jqXHR);
       console.log(textStatus);
       console.log(errorThrown);

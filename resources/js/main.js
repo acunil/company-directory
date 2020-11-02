@@ -184,7 +184,17 @@ $(() => {
 
   // Confirm delete button
   $("#confirm-delete").click(() => {
-    deleteEmployee();
+    if (Object.keys(Temp).length === 2) {
+      // Location
+      console.log("Deleting location with id " + Temp.id);
+      deleteLocationByID(Temp.id);
+    } else if (Object.keys(Temp).length === 3) {
+      // Department
+      deleteDepartmentByID(Temp.id);
+    } else {
+      // Employee
+      deleteEmployee();
+    }
   });
 
   /***
@@ -219,7 +229,7 @@ $(() => {
     );
   });
 
-  // Department - Cancel save button
+  // Location - Cancel save button
   $("#location-cancel-button").click(() => {
     // hide footer
     $("#location-edit-footer").removeClass("d-block").addClass("d-none");
@@ -237,6 +247,45 @@ $(() => {
     $("#location-location").val(Temp.name);
   });
 
+  // Location - Save button
+  $("#location-save-button").click(() => {
+    // hide footer
+    $("#location-edit-footer").removeClass("d-block").addClass("d-none");
+
+    // Check necessary info is filled in
+    if ($("#location-location").val() === "") {
+      console.error("One or more fields are blank!");
+      return;
+    } else {
+      // Save is valid ---
+      if (!Temp.id) {
+        // Location does not exist so CREATE
+      } else {
+        // Location exists so UPDATE
+        updateLocationByID(Temp.id, $("#location-location").val());
+        Temp.name = $("#location-location").val();
+      }
+      // Fix header
+      $("#location-modal .modal-title").html("Location info");
+
+      // Enable edit/delete
+      $("#location-delete-button, #location-edit-button").prop(
+        "disabled",
+        false
+      );
+
+      // Disable location field
+      $("#location-location").prop("disabled", true);
+      $("#location-delete-button, #location-edit-button").prop(
+        "disabled",
+        false
+      );
+
+      // Rerun global search
+      $("#location-tab").click();
+    }
+    //
+  });
   /***
    *
    *
@@ -411,6 +460,8 @@ $(() => {
       "border-right": "2px solid white",
     });
     $("#employee-tab, #location-tab").css("border", "none");
+
+    getDepartments();
   });
 
   $("#employee-tab").click(() => {
@@ -429,6 +480,8 @@ $(() => {
       "border-right": "2px solid white",
     });
     $("#department-tab, #location-tab").css("border", "none");
+
+    getEmployees("resources/php/getAll.php");
   });
 
   $("#location-tab").click(() => {
@@ -447,9 +500,12 @@ $(() => {
       "border-right": "2px solid white",
     });
     $("#department-tab, #employee-tab").css("border", "none");
+
+    // Rerun search
+    getLocations();
   });
 
-  // Trigger employee tab to show
+  // Trigger loading of first results
   $("#employee-tab").click();
 
   //
