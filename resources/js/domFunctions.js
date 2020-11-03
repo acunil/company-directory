@@ -209,12 +209,12 @@ const populateDepartmentDropdown = (
     // Make option template
     let option = $(
       `<option value="${department.name}" id="department${department.id}">${department.name}</option>`
-    );
+    ).data(department);
 
     $(`#${targetSelectElementId}`).append(option);
 
     // Attach object with $.data()
-    $(`#department${department.id}`).data(department);
+    // $(`#department${department.id}`).data(department);
   });
 };
 
