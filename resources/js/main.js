@@ -90,6 +90,22 @@ $(() => {
 
     // Get employees
     getEmployees(searchFile);
+
+    // Navigate to results
+    $("#department-table, #location-table").hide();
+
+    $("#employee-table").show();
+
+    $("#department-tab, #location-tab").removeClass("font-weight-bold");
+
+    $("#employee-tab").addClass("font-weight-bold");
+
+    $("#employee-tab").css({
+      "border-left": "2px solid white",
+      "border-top": "2px solid white",
+      "border-right": "2px solid white",
+    });
+    $("#department-tab, #location-tab").css("border", "none");
   });
 
   // Trigger search on page load
@@ -510,43 +526,6 @@ $(() => {
   getDepartments();
   getLocations();
 
-  // onchange listener for #employee-department that auto changes relative location dropdown
-  $("#employee-department").change(() => {
-    if ($("#employee-department").val() === "") {
-      // if blank, location is editable
-      $(`#employee-location`).attr("disabled", false);
-    } else {
-      // if value, location is locked
-      $(`#employee-location`).attr("disabled", true);
-    }
-    //
-    // Retrieve object using $.data()
-    let dept = $("#employee-department option:selected").data();
-
-    // Access #employee-location with child class matching dept locationID
-    let locationID = dept.locationID;
-    console.log(locationID);
-    $(`#employee-location`).val(locationID);
-  });
-
-  // onchange listener for #search-emp-department that auto changes relative location dropdown
-  $("#search-emp-department").change(() => {
-    if ($("#search-emp-department").val() === "") {
-      // if blank, location is editable
-      $(`#search-emp-location`).attr("disabled", false);
-    } else {
-      // if value, location is locked
-      $(`#search-emp-location`).attr("disabled", true);
-    }
-    //
-    // Retrieve object using $.data()
-    let dept = $("#search-emp-department option:selected").data();
-
-    // Access #search-emp-location with child class matching dept locationID
-    let locationID = dept.locationID;
-    $(`#search-emp-location`).val(locationID);
-  });
-
   // Tab functionality
 
   $("#department-tab").click(() => {
@@ -610,12 +589,54 @@ $(() => {
     getLocations();
   });
 
+  // onchange listener for #employee-department that auto changes relative location dropdown
+  $("#employee-department").change(() => {
+    if ($("#employee-department").val() === "") {
+      // if blank, location is editable
+      $(`#employee-location`).attr("disabled", false);
+    } else {
+      // if value, location is locked
+      $(`#employee-location`).attr("disabled", true);
+    }
+    //
+    // Retrieve object using $.data()
+    let dept = $("#employee-department option:selected").data();
+
+    // Access #employee-location with child class matching dept locationID
+    let locationID = dept.locationID;
+    console.warn(`This department data is : `);
+    console.warn(dept);
+    $(`#employee-location`).val(locationID);
+  });
+
+  // onchange listener for #search-emp-department that auto changes relative location dropdown
+  $("#search-emp-department").change(() => {
+    if ($("#search-emp-department").val() === "") {
+      // if blank, location is editable
+      $(`#search-emp-location`).attr("disabled", false);
+    } else {
+      // if value, location is locked
+      $(`#search-emp-location`).attr("disabled", true);
+    }
+    //
+    // Retrieve object using $.data()
+    let dept = $("#search-emp-department option:selected").data();
+
+    // Access #search-emp-location with child class matching dept locationID
+    let locationID = dept.locationID;
+    $(`#search-emp-location`).val(locationID);
+  });
+
   // Trigger loading of first results
   $("#employee-tab").click();
 
   // Re-enable location bar in employee search
   $("#open-search-button").click(() => {
     $("#search-emp-location").attr("disabled", false);
+    $("#search-modal").modal({
+      backdrop: "static",
+      keyboard: true,
+    });
   });
 
   //

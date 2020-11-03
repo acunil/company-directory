@@ -189,11 +189,9 @@ const getDepartments = () => {
 
       // Populate dropdowns with results
       //
+      showDepartmentResults(departments);
       populateDepartmentDropdown("employee-department", departments);
       populateDepartmentDropdown("search-emp-department", departments);
-      populateDepartmentDropdown("department-department", departments);
-      populateDepartmentDropdown("location-department", departments);
-      showDepartmentResults(departments);
     },
     error(jqXHR, textStatus, errorThrown) {
       console.log("There was something wrong with the get departments request");

@@ -1,3 +1,5 @@
+import { getDepartments, getLocations } from "./crudFunctions.js";
+
 // Function to save snapshot of employee details, pre-editing
 const EmployeeTemp = () => {
   return {
