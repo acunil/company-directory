@@ -51,7 +51,7 @@ const showSearchResults = results => {
     // display card, hide search
     $("#employee-modal").modal({
       backdrop: "static",
-      keyboard: true,
+      keyboard: false,
     });
 
     // // Populate data into fields
