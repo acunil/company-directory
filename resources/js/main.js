@@ -388,7 +388,7 @@ $(() => {
   // Department - Save button
   $("#department-save-button").click(() => {
     // Check necessary info is filled in
-    if (!$("#department-location").val() || !$("#department-location").val()) {
+    if (!$("#department-department").val()) {
       console.error("One or more fields are blank!");
       return;
     } else {
