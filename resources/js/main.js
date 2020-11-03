@@ -194,6 +194,7 @@ $(() => {
       deleteLocationByID(Temp.id);
     } else if (Object.keys(Temp).length === 3) {
       // Department
+      console.log("Deleting department with id " + Temp.id);
       deleteDepartmentByID(Temp.id);
     } else {
       // Employee

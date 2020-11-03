@@ -269,6 +269,8 @@ const deleteDepartmentByID = id => {
     success(result) {
       console.log("Department successfully deleted");
       console.log(result);
+      $("#department-tab").click();
+      $("#department-modal").modal("hide");
     },
     error(jqXHR, textStatus, errorThrown) {
       console.log(
@@ -379,6 +381,8 @@ const deleteLocationByID = id => {
     success(result) {
       console.log("Location successfully deleted");
       console.log(result);
+      $("#location-modal").modal("hide");
+      $("#location-tab").click();
     },
     error(jqXHR, textStatus, errorThrown) {
       console.log("There was something wrong with the delete location request");
