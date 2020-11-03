@@ -160,11 +160,17 @@ const populateLocationDropdown = (
   arrayOfLocationObjects
 ) => {
   // Reset select HTML
-  $(`#${targetSelectElementId}`).html(`<option
-  value=""
-  selected
-  class="placeholder"
-></option>`);
+  $(`#${targetSelectElementId}`).html("");
+
+  // Only if target is search box, give blank option
+  if (targetSelectElementId === "search-emp-location") {
+    $(`#${targetSelectElementId}`).append(`<option
+    value=""
+    selected
+    class="placeholder"
+  ></option>`);
+  }
+
   //
   arrayOfLocationObjects.forEach(location => {
     // Make option template
@@ -185,11 +191,17 @@ const populateDepartmentDropdown = (
   arrayOfDepartmentObjects
 ) => {
   // Reset select HTML
-  $(`#${targetSelectElementId}`).html(`<option
-  value=""
-  selected
-  class="placeholder"
-></option>`);
+  $(`#${targetSelectElementId}`).html("");
+
+  // Only if target is search box, give blank option
+  if (targetSelectElementId === "search-emp-department") {
+    $(`#${targetSelectElementId}`).append(`<option
+    value=""
+    selected
+    class="placeholder"
+  ></option>`);
+  }
+
   //
   arrayOfDepartmentObjects.forEach(department => {
     // Make option template
