@@ -97,7 +97,7 @@ const updateEmployee = () => {
       id: Number($("#employee-id").val()),
       jobTitle: $("#employee-job").val(),
       email: $("#employee-email").val(),
-      departmentID: Number($("#employee-department").prop("selectedIndex")),
+      departmentID: Number($("#employee-department option:selected").data().id),
     },
     success(result) {
       console.log(
